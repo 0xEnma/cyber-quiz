@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/BankShield_Frontline_Assessment.html" }
+  ]
+}

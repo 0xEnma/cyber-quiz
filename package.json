@@ -1,0 +1,16 @@
+{
+  "name": "bankshield-employee-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BankShield bank employee security awareness quiz MVP",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.4.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
