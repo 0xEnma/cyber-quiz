@@ -4,14 +4,14 @@ import { clearSubmissions, getSubmissions } from '../_lib/submissions.mjs';
 
 export async function GET(request) {
   try {
-    if (!isAdmin(request)) return unauthorized();
+    if (!(await isAdmin(request))) return unauthorized();
     return json(await getSubmissions());
   } catch (error) { return errorResponse(error); }
 }
 
 export async function DELETE(request) {
   try {
-    if (!isAdmin(request)) return unauthorized();
+    if (!(await isAdmin(request))) return unauthorized();
     await clearSubmissions();
     return json({ ok: true });
   } catch (error) { return errorResponse(error); }

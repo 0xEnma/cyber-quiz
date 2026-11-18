@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(fileURLToPath(new URL('.', import.meta.url)));
 const env = Object.fromEntries((await readFile(resolve(root, '.env.local'), 'utf8').catch(() => '')).split(/\r?\n/).filter(line => /^[A-Z0-9_]+=/.test(line)).map(line => { const i = line.indexOf('='); return [line.slice(0, i), line.slice(i + 1).replace(/^(['"])(.*)\1$/, '$2')]; }));
-const pin = env.ADMIN_PIN || '1234';
+let pin = env.ADMIN_PIN || '1234';
+let pinVersion = 'initial';
 const secret = env.ADMIN_SESSION_SECRET || randomBytes(32).toString('hex');
 
 const defaultQuestions = JSON.parse(await readFile(resolve(root, 'api/_lib/default-pool.json'), 'utf8'));
@@ -38,9 +39,9 @@ function ticketId(value) {
 function isAdmin(req) {
   const value = (req.headers.cookie || '').split(';').map(x => x.trim()).find(x => x.startsWith('bankshield_admin='))?.slice('bankshield_admin='.length);
   if (!value) return false;
-  const [expiresText, signature] = value.split('.'); const expires = Number(expiresText);
-  if (!Number.isSafeInteger(expires) || expires <= Math.floor(Date.now() / 1000) || !signature) return false;
-  const a = Buffer.from(signature), b = Buffer.from(mac('bankshield-admin', expiresText));
+  const [expiresText, version, signature, extra] = value.split('.'); const expires = Number(expiresText);
+  if (!Number.isSafeInteger(expires) || expires <= Math.floor(Date.now() / 1000) || !signature || extra || version !== pinVersion) return false;
+  const a = Buffer.from(signature), b = Buffer.from(mac('bankshield-admin', `${expiresText}:${version}`));
   return a.length === b.length && timingSafeEqual(a, b);
 }
 function testSafe(test) { const { accessCode, ...safe } = test; return { ...safe, accessTicket: ticketFor(test.id) }; }
@@ -54,9 +55,12 @@ const server = createServer(async (req, res) => {
       if (path === '/api/admin/login' && req.method === 'POST') {
         const input = await body(req); if (input.pin !== pin) return send(res, 401, { error: 'Incorrect administrator PIN.' });
         const expires = String(Math.floor(Date.now() / 1000) + 8 * 60 * 60);
-        return send(res, 200, { ok: true }, { 'Set-Cookie': `bankshield_admin=${expires}.${mac('bankshield-admin', expires)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=28800` });
+        const signature = mac('bankshield-admin', `${expires}:${pinVersion}`);
+        return send(res, 200, { ok: true }, { 'Set-Cookie': `bankshield_admin=${expires}.${pinVersion}.${signature}; HttpOnly; SameSite=Strict; Path=/; Max-Age=28800` });
       }
       if (path === '/api/admin/logout' && req.method === 'POST') return send(res, 200, { ok: true }, { 'Set-Cookie': 'bankshield_admin=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0' });
+      if (path === '/api/admin/change-pin' && req.method === 'POST') { if (!isAdmin(req)) return send(res, 401, { error: 'Administrator sign-in required.' }); const input = await body(req); if (input.currentPin !== pin) return send(res, 401, { error: 'Current PIN is incorrect.' }); if (typeof input.newPin !== 'string' || !/^\d{4,12}$/.test(input.newPin)) return send(res, 400, { error: 'New PIN must contain 4 to 12 digits.' }); if (input.newPin === pin) return send(res, 400, { error: 'Choose a PIN different from the current PIN.' }); pin = input.newPin; pinVersion = randomUUID(); return send(res, 200, { ok: true }, { 'Set-Cookie': 'bankshield_admin=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0' }); }
+
       const protectedRoute = path === '/api/tests' || path === '/api/pools' || path.startsWith('/api/admin/');
       if (protectedRoute && !isAdmin(req)) return send(res, 401, { error: 'Administrator sign-in required.' });
       if (path === '/api/admin/settings' && req.method === 'GET') return send(res, 200, { ...settings, maxQuestions: 93 });
@@ -81,4 +85,4 @@ const server = createServer(async (req, res) => {
 });
 
 const port = Number(process.env.PORT || 4173);
-server.listen(port, '127.0.0.1', () => process.stdout.write(`BankShield local preview: http://127.0.0.1:${port}/\nLocal admin PIN: ${pin}\n`));
+server.listen(port, '127.0.0.1', () => process.stdout.write(`BankShield local preview: http://127.0.0.1:${port}/\nInitial local admin PIN: ${env.ADMIN_PIN ? 'configured in .env.local' : pin}\n`));

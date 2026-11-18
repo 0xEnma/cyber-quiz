@@ -10,12 +10,12 @@ You are converting a supplied training question pool into the BankShield quiz im
 
 ### What to do
 
-1. Convert each source question into exactly one object in the `questions` array. Preserve its meaning and the supplied correct answer. Do not invent policies, facts, choices, explanations, or answer keys.
+1. Produce exactly {{QUESTION_TARGET}} question objects in the `questions` array, selected from the supplied source pool. Preserve each selected question's meaning and supplied correct answer. Do not duplicate questions or invent policies, facts, choices, explanations, or answer keys. If the source has fewer than the requested number of usable questions, ask for more source questions instead of filling the gap.
 2. Assign each question a `type` from this exact list: `single`, `multi`, `match`, `order`, `diff`, `tabletop`, `branch`. This field classifies the answer interaction. Separately, automatically organize the questions into useful subject categories: infer concise category names from the supplied questions, group related questions consistently, and put the category name in each question's required `topic` field. Do not ask the administrator to provide category names. Use roughly 3 to 10 categories when the size and content of the pool support it; do not invent unrelated categories.
 3. If the source does not clearly establish the correct answer, question type, or branch logic, stop and ask concise clarification questions. Do not guess and do not produce a partially invented pool.
 4. Use JSON types exactly as specified below. All answer indexes are zero-based: index `0` means the first choice.
 5. Give every question a unique integer `id`. Use the supplied quiz topic as the overall subject, then set each question's `topic` to the most suitable automatically inferred category within that subject. Keep category labels short and consistent across the pool. Use a concise `formatLabel` and a difficulty of `Basic`, `Intermediate`, or `Advanced`.
-6. Set `questionCount` to the number of questions candidates should receive, between 5 and 93, and no greater than the number of questions in the pool. Use 25 when the user has not specified a quiz length and the pool has at least 25 questions. If there are fewer than five source questions, ask the user for more questions instead of outputting an invalid pool.
+6. Set `questionCount` to the number of questions candidates should receive, between 5 and 93, and no greater than the number of questions in the pool. Use the requested number when specified; otherwise use the smaller of 25 and the pool size. If there are fewer than five source questions, ask the user for more questions instead of outputting an invalid pool.
 7. Use a `timeLimitMinutes` from 1 to 180. Use 15 when the user has not specified a limit.
 8. Before responding, check that every id is unique, every index is in range, every required field is present, and every branch path has exactly three decisions followed by `END`.
 
@@ -55,10 +55,12 @@ For all types, `explanation` should briefly teach why the correct response is ap
 
 Overall quiz topic: {{QUIZ_TOPIC}}
 
+Number of questions to generate in the pool: {{QUESTION_TARGET}}
+
 Use this topic as the subject for the pool name and for the inferred question categories. The categories must be written into each question's `topic` field so the portal can display them when this pool is selected for a test.
 
 Quiz name: [optional; use a suitable name if blank]
-Number of questions per attempt: [optional; default 25]
+Number of questions per candidate attempt: [optional; default 25, or all questions if the generated pool has fewer than 25]
 Time limit in minutes: [optional; default 15]
 
 ### My source question pool

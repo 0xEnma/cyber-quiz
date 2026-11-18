@@ -4,14 +4,14 @@ import { MAX_QUESTIONS, readQuizSettings, writeQuizSettings } from '../_lib/quiz
 
 export async function GET(request) {
   try {
-    if (!isAdmin(request)) return unauthorized();
+    if (!(await isAdmin(request))) return unauthorized();
     return json({ ...await readQuizSettings(), maxQuestions: MAX_QUESTIONS });
   } catch (error) { return errorResponse(error); }
 }
 
 export async function PUT(request) {
   try {
-    if (!isAdmin(request)) return unauthorized();
+    if (!(await isAdmin(request))) return unauthorized();
     const body = await readJson(request);
     return json(await writeQuizSettings({
       questionCount: Number(body?.questionCount),

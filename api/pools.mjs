@@ -4,7 +4,7 @@ import { deletePool, listPools, readPool, savePool } from './_lib/pools.mjs';
 
 export async function GET(request) {
   try {
-    if (!isAdmin(request)) return unauthorized();
+    if (!(await isAdmin(request))) return unauthorized();
     const id = new URL(request.url).searchParams.get('id');
     if (id) {
       const pool = await readPool(id);
@@ -16,7 +16,7 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
-    if (!isAdmin(request)) return unauthorized();
+    if (!(await isAdmin(request))) return unauthorized();
     const input = await readJson(request, 4_000_000);
     return json(await savePool(input), 201);
   } catch (error) {
@@ -27,7 +27,7 @@ export async function POST(request) {
 
 export async function DELETE(request) {
   try {
-    if (!isAdmin(request)) return unauthorized();
+    if (!(await isAdmin(request))) return unauthorized();
     const id = new URL(request.url).searchParams.get('id');
     const { testsForPool } = await import('./_lib/tests.mjs');
     if ((await testsForPool(id)).length) return json({ error: 'Revoke the test codes for this pool before removing it.' }, 409);
