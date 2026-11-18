@@ -95,11 +95,11 @@
     placeholders.forEach(([selector,key]) => { const el=document.querySelector(selector); if(el){if(!el.dataset.english)el.dataset.english=el.placeholder;el.placeholder=isHindi?(UI()[key]||el.dataset.english):el.dataset.english;} });
     const foot = document.querySelector('#profile-form .formfoot .micro');
     const settings=window.bankshieldGetQuizSettings?.()||{questionCount:25,timeLimitMinutes:15,maxQuestions:93};
-    if (foot) { const copy=text('setupFootNote', 'The assessment lasts 15 minutes. Once you move to the next question, you cannot return to an earlier one. Your score and correct answers will not be shown when you finish.'); foot.textContent=isHindi?copy.replace(/15/g,String(settings.timeLimitMinutes)):copy.replace('15 minutes',`${settings.timeLimitMinutes} minutes`); }
+    if (foot) foot.textContent = text('setupFootNote', `Open the secure test link provided by your administrator. The assessment lasts ${settings.timeLimitMinutes} minutes. Your score and correct answers will not be shown when you finish.`);
     const start = document.querySelector('#profile-form button[type="submit"]');
     if (start) start.textContent = text('startBtn', 'Start assessment →');
     set('#setup-view aside .sidecard .kicker', 'coverageTitle', 'Assessment coverage');
-    set('#setup-view aside .sidecard h2', 'topicsCount', '10 topics');
+    set('#setup-view aside .sidecard h2', 'topicsCount', window.bankshieldHasTestCode?.()?`${document.querySelectorAll('#topic-list .topicrow').length} topics`:'Test coverage');
     const coverageDesc = document.querySelector('#setup-view aside .sidecard .muted');
     if (coverageDesc) coverageDesc.textContent = text('coverageDesc', 'More questions focus on customer privacy, phishing, incident reporting, compliance, and phone scams—situations staff meet more often.');
     const notice = document.querySelector('#setup-view aside .notice');

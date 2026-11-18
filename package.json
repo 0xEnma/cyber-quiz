@@ -5,7 +5,8 @@
   "type": "module",
   "description": "BankShield bank employee security awareness quiz MVP",
   "scripts": {
-    "dev": "vercel dev"
+    "dev": "vercel dev",
+    "preview": "node local-preview.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.4.0"
