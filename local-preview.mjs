@@ -29,7 +29,7 @@ function send(res, status, value, headers = {}) {
   res.writeHead(status, {
     'Content-Type': typeof value === 'string' ? 'text/plain; charset=utf-8' : 'application/json; charset=utf-8',
     'Cache-Control': 'no-store',
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
     'Referrer-Policy': 'no-referrer',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
@@ -123,7 +123,7 @@ const server = createServer(async (req, res) => {
     res.writeHead(200, {
       'Content-Type': mime[extname(filePath).toLowerCase()] || 'text/plain; charset=utf-8',
       'Cache-Control': 'no-cache',
-      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
       'Referrer-Policy': 'no-referrer',
       'X-Content-Type-Options': 'nosniff',
       'X-Frame-Options': 'DENY',
