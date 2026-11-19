@@ -5,6 +5,14 @@ import { readPool } from './pools.mjs';
 const PREFIX = 'bankshield/tests/';
 const CODE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
+function publicQuestion(question) {
+  const { answer, explanation, keywords, sample, ...visible } = question;
+  if (Array.isArray(visible.nodes)) {
+    visible.nodes = visible.nodes.map(({ answer: nodeAnswer, ...node }) => node);
+  }
+  return visible;
+}
+
 function accessTicket(testId) {
   const secret = process.env.ADMIN_SESSION_SECRET;
   if (!secret) throw new Error('ADMIN_SESSION_SECRET must be configured.');
@@ -63,7 +71,7 @@ export async function createTest(input) {
   }
   const test = { id: randomUUID(), poolId, poolName: pool.name, questionCount, timeLimitMinutes, accessCode, createdAt: new Date().toISOString() };
   await put(pathname, JSON.stringify(test), { access: 'private', contentType: 'application/json; charset=utf-8', addRandomSuffix: false });
-  const { accessCode, ...safe } = test;
+  const { accessCode: _storedAccessCode, ...safe } = test;
   return { ...safe, accessTicket: accessTicket(test.id) };
 }
 
@@ -82,7 +90,36 @@ export async function resolveTicket(ticket) {
   if (!pool) return null;
   return {
     test: { id: test.id, poolId: test.poolId, questionCount: test.questionCount, timeLimitMinutes: test.timeLimitMinutes },
-    pool: { id: pool.id, name: pool.name, questions: pool.questions },
+    pool: { id: pool.id, name: pool.name, questions: pool.questions.map(publicQuestion) },
+  };
+}
+
+export async function resolveTicketSummary(ticket) {
+  const testId = verifyTicket(ticket);
+  if (!testId) return null;
+  const test = await readTestById(testId);
+  if (!test) return null;
+  const pool = await readPool(test.poolId);
+  if (!pool) return null;
+  const topics = [...new Set(pool.questions.map(question => question.topic))];
+  const available = topics.map(topic => pool.questions.filter(question => question.topic === topic).length);
+  const allocated = topics.map(() => 0);
+  const standardTopics = ['Customer identity & privacy', 'Phishing & suspicious emails', 'Incident reporting & evidence care', 'Compliance & customer verification', 'Phone calls & social engineering', 'Customer-reported fraud & alerts', 'Email details & header checks', 'Payment instructions & record keeping', 'Branch & physical security', 'Passwords, devices & safe access'];
+  const weights = [4, 4, 3, 3, 3, 2, 2, 2, 1, 1];
+  for (let i = 0; i < test.questionCount; i++) {
+    let pick = -1, priority = -1;
+    topics.forEach((topic, index) => {
+      const known = standardTopics.indexOf(topic);
+      const weight = known < 0 ? 1 : weights[known];
+      const score = weight / (allocated[index] + 1);
+      if (allocated[index] < available[index] && score > priority) { pick = index; priority = score; }
+    });
+    if (pick < 0) break;
+    allocated[pick]++;
+  }
+  return {
+    test: { id: test.id, poolId: test.poolId, questionCount: test.questionCount, timeLimitMinutes: test.timeLimitMinutes },
+    pool: { id: pool.id, name: pool.name, totalQuestions: pool.questions.length, coverage: topics.map((topic, index) => ({ topic, count: allocated[index] })).filter(item => item.count > 0) },
   };
 }
 

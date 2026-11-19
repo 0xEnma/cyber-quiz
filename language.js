@@ -20,13 +20,13 @@
 
   function localizeQuestion(question) {
     if (language !== 'hi') return question;
+    if (window.bankshieldGetQuizPoolId?.() !== 'default') return question;
     const hi = (window.__HINDI_MAP || {})[question.id];
     if (!hi) return question;
     const q = { ...question };
     if (hi.topic_hi) q.topic = hi.topic_hi;
     if (hi.formatLabel_hi) q.formatLabel = hi.formatLabel_hi;
     if (hi.prompt_hi) q.prompt = hi.prompt_hi;
-    if (hi.explanation_hi) q.explanation = hi.explanation_hi;
     if (Array.isArray(hi.options_hi)) q.options = hi.options_hi;
     if (Array.isArray(hi.left_hi)) q.left = hi.left_hi;
     if (Array.isArray(hi.right_hi)) q.right = hi.right_hi;
@@ -76,13 +76,6 @@
     set('.topnote', 'topbarNote', 'Internal employee assessment · Practice scenario');
     set('.hero h1', 'pageIntroTitle', 'Security awareness for front-line banking staff.');
     set('.hero p', 'pageIntroDesc', 'This assessment focuses on everyday decisions made by clerks and customer-facing branch staff: checking identity, protecting customer information, spotting suspicious messages, following compliance steps, and reporting concerns without disturbing evidence.');
-    set('.hero .eyebrow', 'heroEyebrow', 'Protect customers. Follow the process. Report early.');
-    const pills = document.querySelectorAll('.hero .pill');
-    if (pills.length) {
-      const settings=window.bankshieldGetQuizSettings?.()||{questionCount:25,timeLimitMinutes:15,maxQuestions:93};
-      const values = isHindi ? [`${settings.questionCount} प्रश्न`, `${settings.timeLimitMinutes} मिनट`, 'एक समय में एक प्रश्न', 'वापस नहीं जा सकते', `${settings.maxQuestions} प्रश्नों का पूल`] : [`${settings.questionCount} questions`, `${settings.timeLimitMinutes}-minute limit`, 'One question at a time', 'No going back', `${settings.maxQuestions}-question pool`];
-      pills.forEach((el, i) => { if (values[i]) el.textContent = values[i]; });
-    }
     set('#setup-view .panel .kicker', 'setupKicker', 'Before you begin');
     set('#setup-view .panel h2', 'setupTitle', 'Enter your details');
     const setupDesc = document.querySelector('#setup-view .panel .muted');
@@ -94,14 +87,10 @@
     const placeholders = [['#full-name','phFullName'],['#department','phDept'],['#branch','phBranch'],['#email','phEmail']];
     placeholders.forEach(([selector,key]) => { const el=document.querySelector(selector); if(el){if(!el.dataset.english)el.dataset.english=el.placeholder;el.placeholder=isHindi?(UI()[key]||el.dataset.english):el.dataset.english;} });
     const foot = document.querySelector('#profile-form .formfoot .micro');
-    const settings=window.bankshieldGetQuizSettings?.()||{questionCount:25,timeLimitMinutes:15,maxQuestions:93};
-    if (foot) foot.textContent = text('setupFootNote', `Open the secure test link provided by your administrator. The assessment lasts ${settings.timeLimitMinutes} minutes. Your score and correct answers will not be shown when you finish.`);
+    if (foot) foot.textContent = window.bankshieldHasTestCode?.() ? 'Your score and answers will not be shown when you finish.' : 'Open the secure test link provided by your administrator to load assessment details.';
     const start = document.querySelector('#profile-form button[type="submit"]');
     if (start) start.textContent = text('startBtn', 'Start assessment →');
-    set('#setup-view aside .sidecard .kicker', 'coverageTitle', 'Assessment coverage');
-    set('#setup-view aside .sidecard h2', 'topicsCount', window.bankshieldHasTestCode?.()?`${document.querySelectorAll('#topic-list .topicrow').length} topics`:'Test coverage');
-    const coverageDesc = document.querySelector('#setup-view aside .sidecard .muted');
-    if (coverageDesc) coverageDesc.textContent = text('coverageDesc', 'More questions focus on customer privacy, phishing, incident reporting, compliance, and phone scams—situations staff meet more often.');
+    set('#setup-view aside .sidecard .kicker', 'coverageTitle', 'Question categories');
     const notice = document.querySelector('#setup-view aside .notice');
     if (notice && !notice.dataset.english) notice.dataset.english = notice.innerHTML;
     if (notice) notice.innerHTML = isHindi ? (UI().noticeBox || notice.dataset.english) : notice.dataset.english;
@@ -135,19 +124,7 @@
         message.textContent=timedOut?text('finishMsgTimeout',english):failed?text('finishMsgError',english):text('finishMsgSuccess',english);
       }
     }
-    const impact=document.getElementById('dpdp-impact');
-    if(impact&&!impact.classList.contains('hidden')){
-      const count=Number(impact.dataset.wrongCount)||0;
-      const amount=Number(impact.dataset.exposureCrore)||0;
-      const title=impact.querySelector('#dpdp-impact-title');
-      const value=impact.querySelector('#dpdp-impact-value');
-      const note=impact.querySelector('#dpdp-impact-note');
-      const link=impact.querySelector('a');
-      if(title)title.textContent=text('dpdpImpactTitle','DPDP training');
-      if(value)value.textContent=amount===0?text('dpdpImpactZero','No incorrect selected answers were recorded, so this training illustration is â‚¹0.'):text('dpdpImpactValue','Under this deliberately severe training assumption, the maximum penalty reaches up to â‚¹{amount} crore, calculated based on {count} incorrect answers.').replace('{count}',String(count)).replace('{amount}',amount.toLocaleString(language==='hi'?'hi-IN':'en-IN'));
-      if(note)note.textContent=text('dpdpImpactNote','This is a hypothetical training illustration only. By topic, it uses the Act’s maximum caps: ₹250 crore for security-safeguard failures, ₹200 crore for breach-notice failures, and ₹50 crore for other provisions. It assumes every wrong answer became a separate contravention; a quiz answer itself is not a contravention and no penalty has been imposed. Actual penalties depend on the facts and adjudication. The Act’s main duties and penalty provisions are scheduled to commence on 14 May 2027.');
-      if(link)link.textContent=text('dpdpActLink','Read the DPDP Act');
-    }    if (typeof renderTopics === 'function') renderTopics();
+    if (typeof renderTopics === 'function') renderTopics();
     if (typeof state !== 'undefined' && state.questions.length && !document.getElementById('quiz-view').classList.contains('hidden')) renderQuestion();
   }
 

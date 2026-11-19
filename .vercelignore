@@ -1,3 +1,7 @@
 data/
 BankShield_Results_and_Question_Pool.xlsx
 README.md
+CSC-quiz.md
+local-preview.mjs
+.env*
+tests/

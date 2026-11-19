@@ -1,72 +1,71 @@
-﻿# Reusable AI prompt: convert a question pool for BankShield
+You are an expert designer of security-awareness assessments. Generate a complete BankShield quiz import file from the topic and question count below. Your entire response must be one JSON document (see "Output rules").
 
-In the admin portal, enter the broad quiz topic and copy the prepared prompt. Paste it into an AI chat, then paste or attach your question pool. The AI should return one JSON document that can be saved as a `.json` file and uploaded directly to the portal.
+## Inputs
+Topic: [TOPIC]
+Number of questions in the pool: [NUMBER_OF_QUESTIONS]
+Audience (optional): [leave blank for "bank employees"]
+Quiz name (optional): [leave blank to choose a clear name]
+Questions per candidate attempt (optional): [leave blank for the pool size, capped at 25]
+Time limit in minutes (optional): [leave blank for 1 minute per attempt question, minimum 5]
 
----
+If the topic is empty, or the number of questions is below 5, ask one short question and stop. Otherwise do not ask questions; make sensible assumptions and generate the file.
 
-## Prompt to give an AI
+## Content rules
+1. Write exactly the requested number of NEW questions on the topic. Write them from established good practice. Do not invent laws, statistics, regulator rules or bank-specific policies. Where a correct action depends on internal policy, say "per bank policy" in the question or explanation. Use region-neutral wording unless the topic names a region.
+2. Use only fictional examples (for instance examplebank.com, "Mr Sharma", placeholder phone numbers). Never include real customer, employee, account or confidential data.
+3. Every question must have a defensible, unambiguous correct answer. Distractors must be plausible, not silly. Do not use "all of the above" or "none of the above". Do not make the correct option the longest one. Spread correct answers across different option positions.
+4. Aim for these mixes, rounded sensibly:
+   - Types: single 28%, multi 16%, match 12%, order 12%, diff 12%, tabletop 12%, branch 8%. If the pool has 14 or more questions, include every type at least once. For smaller pools, favour single, multi, match, order and tabletop.
+   - Difficulty: Basic 35%, Intermediate 45%, Advanced 20%.
+   - Mix knowledge, scenario and "what would you do" questions. Mention a real-world context (customer at the counter, a call, an email, a shared device) where it fits the topic.
+5. Automatically infer concise subject categories from the topic (roughly 3 to 10 when the pool size supports it; fewer for very small pools). Use short labels of 1 to 3 words, consistent across the pool. Put the label in each question's `topic` field. Do not invent unrelated categories.
+6. `explanation` must briefly teach why the correct response is right (1 to 2 sentences). Keep the tone professional and blame-free.
 
-You are converting a supplied training question pool into the BankShield quiz import format. Read the entire source pool before converting it.
+## BankShield JSON format
+Return one JSON object with exactly these root properties and no others:
 
-### What to do
-
-1. Produce exactly {{QUESTION_TARGET}} question objects in the `questions` array, selected from the supplied source pool. Preserve each selected question's meaning and supplied correct answer. Do not duplicate questions or invent policies, facts, choices, explanations, or answer keys. If the source has fewer than the requested number of usable questions, ask for more source questions instead of filling the gap.
-2. Assign each question a `type` from this exact list: `single`, `multi`, `match`, `order`, `diff`, `tabletop`, `branch`. This field classifies the answer interaction. Separately, automatically organize the questions into useful subject categories: infer concise category names from the supplied questions, group related questions consistently, and put the category name in each question's required `topic` field. Do not ask the administrator to provide category names. Use roughly 3 to 10 categories when the size and content of the pool support it; do not invent unrelated categories.
-3. If the source does not clearly establish the correct answer, question type, or branch logic, stop and ask concise clarification questions. Do not guess and do not produce a partially invented pool.
-4. Use JSON types exactly as specified below. All answer indexes are zero-based: index `0` means the first choice.
-5. Give every question a unique integer `id`. Use the supplied quiz topic as the overall subject, then set each question's `topic` to the most suitable automatically inferred category within that subject. Keep category labels short and consistent across the pool. Use a concise `formatLabel` and a difficulty of `Basic`, `Intermediate`, or `Advanced`.
-6. Set `questionCount` to the number of questions candidates should receive, between 5 and 93, and no greater than the number of questions in the pool. Use the requested number when specified; otherwise use the smaller of 25 and the pool size. If there are fewer than five source questions, ask the user for more questions instead of outputting an invalid pool.
-7. Use a `timeLimitMinutes` from 1 to 180. Use 15 when the user has not specified a limit.
-8. Before responding, check that every id is unique, every index is in range, every required field is present, and every branch path has exactly three decisions followed by `END`.
-
-### BankShield JSON format
-
-Return one JSON object with this root structure and no additional root properties:
-
-```json
 {
   "name": "A clear name for this quiz",
   "questionCount": 25,
-  "timeLimitMinutes": 15,
+  "timeLimitMinutes": 25,
   "questions": []
 }
-```
 
-Every question must include `id`, `topic`, `type`, `prompt`, `explanation`, `difficulty`, and `formatLabel`.
+- `questionCount`: how many questions each candidate receives. It must be between 5 and 93 and no greater than the number of questions in the pool.
+- `timeLimitMinutes`: an integer from 1 to 180.
 
-Use these type-specific fields:
+Every question must include: `id` (unique integer, 1 to N in order), `topic`, `type`, `prompt`, `explanation`, `difficulty` (exactly "Basic", "Intermediate" or "Advanced") and `formatLabel` (a short label such as "Single choice", "Multiple choice", "Matching", "Ordering", "Compare evidence", "Safe actions", "Branching scenario").
 
-- `single`: `options` is an array of at least two strings; `answer` is the integer index of the one correct option.
-- `multi`: `options` is an array; `answer` is a non-empty array of distinct correct option indexes.
-- `match`: `left` and `right` are arrays of equal length; `answer` has one right-side index for each `left` item, in `left` order.
-- `order`: `options` is an array; `answer` lists every option index exactly once in the correct sequence.
-- `diff`: `evidence` is an object with `a` and `b` objects of labeled evidence values; `options` is an array of findings; `answer` is a non-empty array of correct finding indexes.
-- `tabletop`: `options` is an array of actions; `answer` is a non-empty array of safe/correct action indexes.
-- `branch`: `nodes` is an array of decision nodes. Each node has a unique `id`, a `prompt`, an `options` array, and an integer `answer` index. Each option has `text` and `next`, where `next` is another node id or `END`. Start at node id `s1`; every possible path must contain exactly three decisions and then reach `END`; do not create cycles or missing node references.
+`type` must be one of: single, multi, match, order, diff, tabletop, branch. All answer indexes are zero-based (0 = first item). Use these type-specific fields and no others:
 
-For all types, `explanation` should briefly teach why the correct response is appropriate. Do not include real customer, employee, account, or confidential data. Preserve fictional examples only.
+- single: `options` (array of 4 strings) and `answer` (one integer index).
+- multi: `options` (4 to 6 strings) and `answer` (array of 2 to 4 distinct indexes). End the prompt with "(Select all that apply)".
+- match: `left` and `right` (arrays of 4 to 6 strings, equal length) and `answer` (array with one right-side index for each left item, in left order). Every left item has a different correct right item. The `right` array must NOT be in the same order as the correct pairing.
+- order: `options` (4 to 6 steps) and `answer` (every option index exactly once, in the correct sequence). The `options` must be shuffled, not already in the correct order.
+- diff: `evidence` is an object with `a` and `b`, each an object of 1 to 4 labeled string values (for example {"From": "...", "Subject": "...", "Message": "..."} or {"URL": "..."}); `options` (4 to 6 findings) and `answer` (array of the correct finding indexes; use a single index when the question asks which item is genuine or suspicious). The prompt must say exactly what to find (for example "Select all red flags that appear in Evidence B but not in Evidence A."). The two pieces of evidence must differ in ways a careful employee could spot.
+- tabletop: the prompt describes a scenario and ends with "Select all SAFE actions."; `options` (5 to 6 actions) and `answer` (array of 2 to 4 safe action indexes). Unsafe actions must be realistic temptations.
+- branch: `nodes` array (see below). Do not add `options` or `answer` at the question level. The question-level `prompt` is a short title plus intro (for example "Branching scenario - <title>. Work through three decisions."), and the `explanation` states the key lesson.
 
-### Output rules
+### Branch structure (follow exactly)
+Each node is {"id": "...", "prompt": "...", "options": [{"text": "...", "next": "..."}, ...], "answer": <index of the best option>}. Use exactly these five nodes with this wiring, so that every path has exactly three decisions followed by END:
 
-- If the source is complete and unambiguous, return only the JSON object: no Markdown code fences, no introduction, no notes, and no trailing comments. It must parse with `JSON.parse` and be ready to save as `my-question-pool.json` and upload.
-- If clarification is required, ask only the questions needed to make a correct import file. Do not return JSON until the ambiguities are resolved.
+- s1 (3 options): the best option has next "s2"; every other option has next "s2b".
+- s2 (2 options): the best option has next "s3"; the other has next "s3b".
+- s2b (2 options): both options have next "s3b". Its prompt describes the consequence of the earlier poor choice, and its best option is the sensible recovery action.
+- s3 (2 to 3 options): every option has next "END". This is the final decision on the good path (for example follow-up, documentation or prevention).
+- s3b (2 to 3 options): every option has next "END". This is the final decision on the recovery path (for example honest reporting or lessons learned).
 
-### Quiz topic and preferences
+Node prompts continue one coherent story, set in a realistic workplace moment, and each ends with a question such as "What do you do?". Vary which option index is best across nodes.
 
-Overall quiz topic: {{QUIZ_TOPIC}}
+## Self-check before responding
+Verify silently, fix any problem, then respond:
+- The `questions` array has exactly [NUMBER_OF_QUESTIONS] items; ids are unique integers; questionCount is valid.
+- Every required field is present; no extra fields; no extra root properties.
+- Every index is a valid zero-based index; match arrays are the same length; order answers use every index once.
+- Correct answers are spread across positions and there is no pattern (such as always index 1).
+- Every branch has exactly the five nodes above, valid `next` references, no cycles, and every path is three decisions then END.
+- The JSON is syntactically valid: double quotes, no trailing commas, no comments, no line breaks inside strings.
 
-Number of questions to generate in the pool: {{QUESTION_TARGET}}
-
-Use this topic as the subject for the pool name and for the inferred question categories. The categories must be written into each question's `topic` field so the portal can display them when this pool is selected for a test.
-
-Quiz name: [optional; use a suitable name if blank]
-Number of questions per candidate attempt: [optional; default 25, or all questions if the generated pool has fewer than 25]
-Time limit in minutes: [optional; default 15]
-
-### My source question pool
-
-[Paste the questions here or attach the source file]
-
----
-
-The generated JSON includes answer keys because the current candidate app grades quizzes in the browser. Treat imported files as confidential and only upload pools approved for the assessment.
+## Output rules
+- Return ONLY the JSON object: no Markdown code fences, no introduction, no notes. It must parse with JSON.parse and be ready to save as my-question-pool.json and upload.
+- If you cannot fit all questions into one response, do not output partial JSON. Reply only with one plain sentence stating the largest number of questions you can produce in a single response.
