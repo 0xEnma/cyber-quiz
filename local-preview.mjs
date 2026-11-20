@@ -22,7 +22,7 @@ const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 const LOGIN_LIMIT = 5;
 let settings = { questionCount: 25, timeLimitMinutes: 15 };
 const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml' };
-const publicFiles = new Set(['BankShield_Frontline_Assessment.html', 'admin.html', 'language.js', 'lang_hi.js', 'QUESTION_POOL_AI_PROMPT.md']);
+const publicFiles = new Set(['BankShield_Frontline_Assessment.html', 'admin.html', 'admin-qr.js', 'language.js', 'lang_hi.js', 'QUESTION_POOL_AI_PROMPT.md']);
 
 function send(res, status, value, headers = {}) {
   const body = typeof value === 'string' ? value : JSON.stringify(value);
@@ -99,8 +99,19 @@ const server = createServer(async (req, res) => {
       if (path === '/api/admin/logout' && req.method === 'POST') return send(res, 200, { ok: true }, { 'Set-Cookie': 'bankshield_admin=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0' });
       if (path === '/api/admin/change-pin' && req.method === 'POST') { if (!isAdmin(req)) return send(res, 401, { error: 'Administrator sign-in required.' }); const input = await body(req); if (input.currentPin !== pin) return send(res, 401, { error: 'Current PIN is incorrect.' }); if (typeof input.newPin !== 'string' || !/^\d{4,12}$/.test(input.newPin)) return send(res, 400, { error: 'New PIN must contain 4 to 12 digits.' }); if (input.newPin === pin) return send(res, 400, { error: 'Choose a PIN different from the current PIN.' }); pin = input.newPin; pinVersion = randomUUID(); return send(res, 200, { ok: true }, { 'Set-Cookie': 'bankshield_admin=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0' }); }
 
-      const protectedRoute = path === '/api/tests' || path === '/api/pools' || path.startsWith('/api/admin/');
+      const protectedRoute = path.startsWith('/api/tests') || path === '/api/pools' || path.startsWith('/api/admin/');
       if (protectedRoute && !isAdmin(req)) return send(res, 401, { error: 'Administrator sign-in required.' });
+      if (path === '/api/tests/qr' && req.method === 'POST') {
+        const input = await body(req);
+        if (typeof input.ticket !== 'string' || !/^[A-Za-z0-9_.-]{40,300}$/.test(input.ticket)) return send(res, 400, { error: 'A valid test link is required.' });
+        const origin = req.headers.origin || `http://${req.headers.host || 'localhost'}`;
+        const link = new URL('/', origin);
+        link.searchParams.set('ticket', input.ticket);
+        const QRCode = (await import('qrcode')).default;
+        const png = await QRCode.toBuffer(link.href, { type: 'png', width: 512, margin: 2, errorCorrectionLevel: 'M' });
+        res.writeHead(200, { 'Content-Type': 'image/png', 'Content-Disposition': 'attachment; filename="bankshield-test-qr.png"', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
+        return res.end(png);
+      }
       if (path === '/api/admin/settings' && req.method === 'GET') return send(res, 200, { ...settings, maxQuestions: 93 });
       if (path === '/api/admin/settings' && req.method === 'PUT') { const x = await body(req); if (!Number.isInteger(x.questionCount) || x.questionCount < 5 || x.questionCount > 93 || !Number.isInteger(x.timeLimitMinutes) || x.timeLimitMinutes < 1 || x.timeLimitMinutes > 180) return send(res, 400, { error: 'Invalid quiz settings.' }); settings = { questionCount: x.questionCount, timeLimitMinutes: x.timeLimitMinutes }; return send(res, 200, settings); }
       if (path === '/api/settings' && req.method === 'GET') return send(res, 200, { ...settings, maxQuestions: 93 });

@@ -109,7 +109,8 @@
     const sideTexts = document.querySelectorAll('#quiz-view .sidepad p');
     sideTexts.forEach(el=>{if(!el.dataset.english)el.dataset.english=el.textContent;});
     ['sidePProgress','sidePTimer','sidePPolicy'].forEach((key,i)=>{ if(sideTexts[i])sideTexts[i].textContent=text(key,sideTexts[i].dataset.english||sideTexts[i].textContent); });
-    if(sideTexts[1])sideTexts[1].textContent=isHindi?sideTexts[1].textContent.replace(/15/g,String(settings.timeLimitMinutes)):sideTexts[1].textContent.replace('15 minutes',`${settings.timeLimitMinutes} minutes`);
+    const timeLimitMinutes=window.bankshieldGetQuizSettings?.()?.timeLimitMinutes||15;
+    if(sideTexts[1])sideTexts[1].textContent=isHindi?sideTexts[1].textContent.replace(/15/g,String(timeLimitMinutes)):sideTexts[1].textContent.replace('15 minutes',`${timeLimitMinutes} minutes`);
     const finish = document.querySelector('#finish-view');
     if (finish) {
       const kicker=finish.querySelector('.kicker'), title=finish.querySelector('h1'), panel=finish.querySelector('.endpanel');

@@ -9,7 +9,8 @@
     "preview": "node local-preview.mjs"
   },
   "dependencies": {
-    "@vercel/blob": "^2.4.0"
+    "@vercel/blob": "^2.4.0",
+    "qrcode": "^1.5.4"
   },
   "engines": {
     "node": ">=20"
