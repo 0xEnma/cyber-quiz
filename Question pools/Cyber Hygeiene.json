@@ -1,0 +1,2615 @@
+{
+    "name": "Cyber Hygiene for Customer-Facing Bank Employees",
+    "questionCount": 25,
+    "timeLimitMinutes": 25,
+    "questions": [
+        {
+            "id": 1,
+            "topic": "Workstation Security",
+            "type": "single",
+            "prompt": "A customer at your counter asks for a printed form located at a shared printer across the branch. What should you do before stepping away from your workstation?",
+            "explanation": "Locking your terminal prevents anyone nearby from viewing customer data or making unauthorized entries while you are away.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "Lower the monitor brightness completely so passersby cannot easily read the display",
+                "Minimize the customer profile window so only the desktop background remains visible",
+                "Lock your workstation before stepping away from the counter",
+                "Ask the teller at the neighboring window to glance over at your screen occasionally"
+            ],
+            "answer": 2
+        },
+        {
+            "id": 2,
+            "topic": "Phishing & Email",
+            "type": "single",
+            "prompt": "You receive an email claiming to be from IT Helpdesk at support@examplebank-help.com urging you to verify your teller credentials before your shift ends. What should you do?",
+            "explanation": "Reporting suspicious messages through approved tools without clicking links helps security teams block threats across the bank.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "Report the email via the bank phishing tool without clicking the link",
+                "Reply to ask the sender for their internal employee number and supervisor name",
+                "Open the link inside a private browser window just to check the page layout",
+                "Forward the message to every teller at your branch so they stay alert"
+            ],
+            "answer": 0
+        },
+        {
+            "id": 3,
+            "topic": "Customer Data Privacy",
+            "type": "multi",
+            "prompt": "Which clean-desk practices protect customer data while serving walk-in clients at the counter? (Select all that apply)",
+            "explanation": "Keeping screens angled away, turning paper records face down, and disposing of printouts securely reduce accidental visual and physical exposure.",
+            "difficulty": "Basic",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "Turn printed account statements face down when not actively reviewing them",
+                "Keep yesterday's signed deposit slips in an open counter tray for fast reference",
+                "Angle your monitor away from the customer queue and public waiting area",
+                "Place unwanted customer printouts in a locked shredding bin per bank policy",
+                "Ask customers to state their full card PIN aloud when the lobby seems quiet"
+            ],
+            "answer": [
+                0,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Social Engineering",
+            "type": "match",
+            "prompt": "Match each social engineering tactic a caller or visitor might use with its primary goal.",
+            "explanation": "Recognizing common manipulation tactics helps staff pause and follow standard verification controls rather than rushing.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Matching",
+            "left": [
+                "Creating artificial urgency about a locked account",
+                "Claiming to be a senior executive calling from an airport",
+                "Leaving an unlabeled USB drive in the branch break room",
+                "Complimenting a teller's helpfulness before asking for an exception"
+            ],
+            "right": [
+                "Intimidating staff into bypassing standard verification",
+                "Building rapport to lower skepticism toward a risky request",
+                "Pressuring the employee to act before checking procedures",
+                "Getting an employee to plug an untrusted device into a work PC"
+            ],
+            "answer": [
+                2,
+                0,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Incident Reporting",
+            "type": "order",
+            "prompt": "Place these steps in the correct order when a branch employee accidentally clicks a suspicious link in an email.",
+            "explanation": "Stopping further interaction, isolating the device per bank policy, notifying IT quickly, and documenting details limit potential damage.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Ordering",
+            "options": [
+                "Disconnect the workstation from the network or follow containment steps per bank policy",
+                "Document the sender address, time clicked, and any actions taken",
+                "Stop interacting with the webpage immediately and avoid entering any credentials",
+                "Notify the IT security or service desk promptly through an approved channel"
+            ],
+            "answer": [
+                2,
+                0,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Phishing & Email",
+            "type": "diff",
+            "prompt": "Compare the two internal email notices below. Select all red flags that appear in Evidence B but not in Evidence A.",
+            "explanation": "Lookalike sender domains, urgent deadlines, and links requesting credentials are strong indicators of phishing.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Compare evidence",
+            "evidence": {
+                "a": {
+                    "From": "it-notices@examplebank.com",
+                    "Subject": "Scheduled System Maintenance Tonight",
+                    "Body": "Core teller systems will update from 23:00 to 01:00. No action is required from branch staff. View details on the staff intranet."
+                },
+                "b": {
+                    "From": "it-notices@examplebank-alerts.net",
+                    "Subject": "URGENT: Mandatory Password Sync Required",
+                    "Body": "Your teller access expires in 2 hours. Click http://login-examplebank.net/sync and enter your employee ID and current password."
+                }
+            },
+            "options": [
+                "The notice mentions branch staff and teller systems",
+                "The sender uses a lookalike external domain rather than examplebank.com",
+                "The message references scheduled overnight maintenance hours",
+                "The email applies urgent time pressure and asks for credentials via a link",
+                "The subject line includes the word Maintenance"
+            ],
+            "answer": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Physical Security",
+            "type": "tabletop",
+            "prompt": "A courier in an unbranded jacket arrives at the counter holding a parcel and asks you to buzz him through the staff door so he can drop it off in the back office. Select all SAFE actions.",
+            "explanation": "Keeping restricted doors closed and following official visitor verification and escort procedures protect staff areas from unauthorized entry.",
+            "difficulty": "Basic",
+            "formatLabel": "Safe actions",
+            "options": [
+                "Keep the secure staff door closed and verify the delivery through official channels",
+                "Let him into the staff corridor as long as you watch him walk toward the back",
+                "Hold the door open briefly while he checks his clipboard near the teller drawers",
+                "Follow visitor sign-in and delivery reception procedures per bank policy",
+                "Escalate to a branch supervisor if the courier pressures you for unverified access"
+            ],
+            "answer": [
+                0,
+                3,
+                4
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Social Engineering",
+            "type": "branch",
+            "prompt": "Branching scenario - Urgent Caller Request. Work through three decisions.",
+            "explanation": "Never bypass identity verification under pressure or urgency, and always document and escalate suspicious calls per bank policy.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Branching scenario",
+            "nodes": [
+                {
+                    "id": "s1",
+                    "prompt": "A caller claiming to be Mr Sharma says an ATM abroad retained his card and asks you to read his balance and update his mobile number immediately without verification because his flight boards in 15 minutes. What do you do?",
+                    "options": [
+                        {
+                            "text": "Update the mobile number quickly so he can receive one-time codes before boarding",
+                            "next": "s2b"
+                        },
+                        {
+                            "text": "Explain politely that full identity verification is required per bank policy before discussing or changing account details",
+                            "next": "s2"
+                        },
+                        {
+                            "text": "Read out his current balance as a courtesy while refusing to change the phone number",
+                            "next": "s2b"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s2",
+                    "prompt": "The caller raises his voice and threatens to complain to your branch manager unless you waive the verification check just this once. What do you do?",
+                    "options": [
+                        {
+                            "text": "Maintain verification requirements and offer to transfer him to a supervisor or official verification channel",
+                            "next": "s3"
+                        },
+                        {
+                            "text": "Ask him to state only his home city so you can grant a one-time exception",
+                            "next": "s3b"
+                        }
+                    ],
+                    "answer": 0
+                },
+                {
+                    "id": "s2b",
+                    "prompt": "Mid-call, you realize you already disclosed account information or altered a detail without completing standard verification. What do you do?",
+                    "options": [
+                        {
+                            "text": "Quietly undo the change or ignore it because the caller sounded convincing",
+                            "next": "s3b"
+                        },
+                        {
+                            "text": "Flag the account immediately and report the unverified action to your supervisor and fraud team per bank policy",
+                            "next": "s3b"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s3",
+                    "prompt": "When you offer to connect the caller to a supervisor, he abruptly hangs up. What do you do?",
+                    "options": [
+                        {
+                            "text": "Move directly to the next customer without making notes since nothing was disclosed",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Log the suspicious call attempt on the customer profile and alert your supervisor per bank policy",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Call the number back from your personal mobile phone to check if he still needs assistance",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s3b",
+                    "prompt": "Your supervisor asks how the unauthorized disclosure or change occurred during the call. What do you do?",
+                    "options": [
+                        {
+                            "text": "Explain accurately what happened so the security team can protect the account promptly",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Say the system must have glitched during the conversation",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 0
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Authentication & Passwords",
+            "type": "single",
+            "prompt": "A colleague forgot their smartcard at home and asks to borrow yours for two minutes to process an urgent customer withdrawal. What should you do?",
+            "explanation": "Sharing authentication credentials or tokens undermines individual accountability and creates serious fraud and audit risks.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "Log in with your card and stand right beside them until they finish",
+                "Share your PIN only for this transaction and reset it immediately afterward",
+                "Allow them to use your active session while you assist another customer nearby",
+                "Decline and direct them to request temporary access per bank policy"
+            ],
+            "answer": 3
+        },
+        {
+            "id": 10,
+            "topic": "Device & Media",
+            "type": "single",
+            "prompt": "A walk-in customer hands you a personal USB flash drive containing scanned proof-of-address documents and asks you to print them from your counter PC. How should you respond?",
+            "explanation": "Untrusted external media can introduce malware onto bank networks; approved digital submission channels keep systems protected.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "Insert the drive briefly, copy only the PDF files, and run an antivirus scan later",
+                "Decline to connect the external drive and offer approved submission channels",
+                "Plug the drive into a backup workstation that sits away from the main counter",
+                "Ask the customer to open the drive themselves so you can verify the filenames first"
+            ],
+            "answer": 1
+        },
+        {
+            "id": 11,
+            "topic": "Workstation Security",
+            "type": "multi",
+            "prompt": "You notice a customer trying to peek over the counter partition while you enter an authorization code on a shared branch tablet. Which habits help protect sensitive inputs and displays? (Select all that apply)",
+            "explanation": "Shielding entries, maintaining privacy filters, and signing out after each task minimize shoulder-surfing and session hijacking risks.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "Increase browser zoom substantially so nearby visitors can inspect account labels",
+                "Shield the keypad or screen with your body or hand while entering PINs or codes",
+                "Confirm privacy filters remain fitted properly on customer-facing workstations",
+                "Save branch portal passwords in the tablet browser to speed up busy queues",
+                "Log out of shared branch devices immediately after finishing the task"
+            ],
+            "answer": [
+                1,
+                2,
+                4
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Authentication & Passwords",
+            "type": "order",
+            "prompt": "Order the steps for securely ending your shift on a shared teller workstation.",
+            "explanation": "Closing customer records, signing out completely, securing physical items, and confirming the lock screen protect accounts between shifts.",
+            "difficulty": "Basic",
+            "formatLabel": "Ordering",
+            "options": [
+                "Secure any physical tokens, keys, and paper records per bank policy",
+                "Close open customer profiles and active banking applications",
+                "Verify the screen displays the lock or login prompt before leaving the counter",
+                "Sign out of your user session rather than leaving it minimized"
+            ],
+            "answer": [
+                1,
+                3,
+                0,
+                2
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Customer Data Privacy",
+            "type": "match",
+            "prompt": "Match each customer-facing banking situation with the most appropriate privacy safeguard.",
+            "explanation": "Tailoring safeguards to each physical or digital scenario helps keep customer information confidential across the branch.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Matching",
+            "left": [
+                "Discussing a declined loan application with a customer at an open desk",
+                "Disposing of misprinted account statements containing customer addresses",
+                "Sending a customer's scanned tax form to an internal underwriting team",
+                "Leaving a branch desk for a lunch break while awaiting a customer's return"
+            ],
+            "right": [
+                "Use approved internal encrypted channels rather than personal email",
+                "Store files in a locked drawer and lock the computer screen",
+                "Place documents in a locked cross-cut shred bin per bank policy",
+                "Move the conversation to a private booth or lowered-voice area"
+            ],
+            "answer": [
+                3,
+                2,
+                0,
+                1
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Authentication & Passwords",
+            "type": "diff",
+            "prompt": "Compare the two login prompts shown on a branch browser. Select the ONE statement that explains why Evidence B is suspicious.",
+            "explanation": "Legitimate bank portals require encrypted HTTPS connections and belong strictly to official bank domains.",
+            "difficulty": "Basic",
+            "formatLabel": "Compare evidence",
+            "evidence": {
+                "a": {
+                    "URL": "https://portal.examplebank.com/teller/login",
+                    "Certificate": "Issued to examplebank.com"
+                },
+                "b": {
+                    "URL": "http://portal.examplebank.com.verify-session.org/login",
+                    "Certificate": "Not secured (HTTP)"
+                }
+            },
+            "options": [
+                "Evidence B includes the word login at the end of the web address",
+                "Evidence B loads inside a browser window instead of a desktop shortcut",
+                "Evidence B uses unencrypted HTTP and an external domain",
+                "Evidence B omits the word teller from the visible browser path"
+            ],
+            "answer": [
+                2
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Phishing & Email",
+            "type": "tabletop",
+            "prompt": "You receive an email with an attachment named Updated_Fee_Schedule.xlsm from an external sender claiming to be a regulator, urging you to enable macros to read new rates before opening the branch. Select all SAFE actions.",
+            "explanation": "Macro-enabled attachments from unverified senders are a common malware delivery method; avoid opening them and verify updates internally.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Safe actions",
+            "options": [
+                "Open the spreadsheet and click Enable Content so you are ready for customer questions",
+                "Keep the attachment unopened and avoid enabling macros on the file",
+                "Report the suspicious email to the bank security team per bank policy",
+                "Transfer the file to a personal device to inspect it outside the bank network",
+                "Reply to the sender requesting that they resend the schedule as a plain PDF",
+                "Check official internal notices to confirm whether any fee update was issued"
+            ],
+            "answer": [
+                1,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Social Engineering",
+            "type": "single",
+            "prompt": "Someone calls the branch claiming to be from the bank's IT vendor and asks you to read out the asset tag and IP address of your counter PC to push an urgent patch. What should you do?",
+            "explanation": "Attackers often gather internal system details through pretext calls; vendor requests must go through verified internal IT channels.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Single choice",
+            "options": [
+                "Decline to share system details and direct the caller to the IT service desk",
+                "Share only the asset tag number since it appears on the outer computer casing",
+                "Ask for their company name and provide the details if the name sounds familiar",
+                "Restart the counter PC while on the phone so they can check its online status"
+            ],
+            "answer": 0
+        },
+        {
+            "id": 17,
+            "topic": "Customer Data Privacy",
+            "type": "single",
+            "prompt": "A regular customer at the counter asks you to check whether their adult child's account holds enough funds to cover a check they are about to deposit. What is the right response?",
+            "explanation": "Bank privacy rules prohibit sharing account details or balances with third parties—even family members—without verified authorization.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "Confirm only whether the funds are sufficient without stating the exact dollar balance",
+                "Reveal the child's balance briefly if both customers share the same residential address",
+                "Decline to disclose any information about another person's account without authorization",
+                "Ask the customer to write a signed consent note on the back of the deposit slip"
+            ],
+            "answer": 2
+        },
+        {
+            "id": 18,
+            "topic": "Physical Security",
+            "type": "multi",
+            "prompt": "Which actions help prevent tailgating and unauthorized physical access in a bank branch? (Select all that apply)",
+            "explanation": "Ensuring doors latch, wearing badges appropriately, and challenging unbadged visitors in staff zones maintain strong physical access control.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "Ensure staff-only doors latch completely behind you when entering or exiting",
+                "Wear your employee badge visibly inside staff zones and remove it off premises",
+                "Prop open the rear delivery door briefly while unloading boxes of deposit slips",
+                "Politely challenge unfamiliar visitors without a badge in restricted areas per bank policy",
+                "Hold the staff door open for anyone carrying bank-branded folders out of courtesy"
+            ],
+            "answer": [
+                0,
+                1,
+                3
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Device & Media",
+            "type": "single",
+            "prompt": "You assist a customer with digital banking enrollment on a branch lobby tablet, then step away to greet a new arrival without clearing the browser. What is the primary risk?",
+            "explanation": "Unclosed sessions on shared lobby devices can allow the next user to view or modify the previous customer's private information.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "The tablet battery will deplete rapidly if a browser tab stays active overnight",
+                "The next customer could view or alter the previous customer's personal data",
+                "The branch wireless network speed will drop noticeably for nearby teller terminals",
+                "The tablet may permanently disable all employee login accounts automatically"
+            ],
+            "answer": 1
+        },
+        {
+            "id": 20,
+            "topic": "Social Engineering",
+            "type": "diff",
+            "prompt": "Compare the two customer callback verification records below. Select all red flags in Evidence B that indicate a potential social engineering attempt.",
+            "explanation": "Insisting on an unverified phone number while applying pressure and refusing standard checks are classic callback fraud warning signs.",
+            "difficulty": "Advanced",
+            "formatLabel": "Compare evidence",
+            "evidence": {
+                "a": {
+                    "Caller": "Ms Patel",
+                    "Request": "Wire transfer confirmation",
+                    "Verification": "Verified via registered callback number on file",
+                    "Notes": "Calm, followed standard check"
+                },
+                "b": {
+                    "Caller": "Ms Patel",
+                    "Request": "Urgent wire transfer confirmation",
+                    "Verification": "Caller insisted on using a new temporary number provided during the call",
+                    "Notes": "Threatened complaint if delayed; refused branch visit"
+                }
+            },
+            "options": [
+                "The caller insisted on using an unverified phone number provided during the call",
+                "The request involves confirming a wire transfer for a customer",
+                "The customer's surname is recorded in the verification log",
+                "The caller used urgency and complaint threats to pressure staff to skip standard checks",
+                "The caller refused standard verification alternatives such as an in-branch check"
+            ],
+            "answer": [
+                0,
+                3,
+                4
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Social Engineering",
+            "type": "order",
+            "prompt": "Put the steps in the correct order when handling a phone call from someone claiming to be an internal auditor requesting remote access to your workstation.",
+            "explanation": "Refusing remote access on inbound calls, verifying identity independently via internal directories, and reporting the attempt stop pretext compromises.",
+            "difficulty": "Advanced",
+            "formatLabel": "Ordering",
+            "options": [
+                "Inform the caller you will verify their identity through internal bank channels before taking action",
+                "Report the unverified contact attempt to your manager and IT security per bank policy",
+                "Decline to install remote tools or share screen control on the incoming call",
+                "Contact IT or Audit via an independently looked-up internal directory number to confirm legitimacy"
+            ],
+            "answer": [
+                2,
+                0,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Phishing & Email",
+            "type": "branch",
+            "prompt": "Branching scenario - Vendor Invoice Attachment. Work through three decisions.",
+            "explanation": "Verify unexpected billing notices through approved procurement channels, never open untrusted ZIP attachments, and report incidents immediately.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Branching scenario",
+            "nodes": [
+                {
+                    "id": "s1",
+                    "prompt": "In the branch mailbox, you see an email from OfficePrint Services saying your statement paper order is frozen over an unpaid invoice, with a ZIP attachment and a payment link. What do you do?",
+                    "options": [
+                        {
+                            "text": "Download and extract the ZIP file to compare the branch order number",
+                            "next": "s2b"
+                        },
+                        {
+                            "text": "Click the payment link just to see which vendor portal loads",
+                            "next": "s2b"
+                        },
+                        {
+                            "text": "Leave the attachment and link unopened, and verify the order through the bank's approved procurement channel",
+                            "next": "s2"
+                        }
+                    ],
+                    "answer": 2
+                },
+                {
+                    "id": "s2",
+                    "prompt": "Procurement confirms no order is on hold and notes the sender domain differs slightly from the real vendor. What do you do?",
+                    "options": [
+                        {
+                            "text": "Delete the email quietly so nobody else at the branch opens it",
+                            "next": "s3b"
+                        },
+                        {
+                            "text": "Report the email with the bank's phishing tool and alert nearby colleagues per bank policy",
+                            "next": "s3"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s2b",
+                    "prompt": "After extracting the ZIP file and clicking the file inside, a command window flashes briefly on screen and vanishes. What do you do?",
+                    "options": [
+                        {
+                            "text": "Check your open windows quickly and continue serving the next waiting customer",
+                            "next": "s3b"
+                        },
+                        {
+                            "text": "Stop using the PC, avoid further logins, and alert IT security and your supervisor immediately per bank policy",
+                            "next": "s3b"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s3",
+                    "prompt": "The security team asks whether anyone else at the branch clicked or replied to the email. What do you do?",
+                    "options": [
+                        {
+                            "text": "Check with your branch manager and team and record the report details as requested",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Forward the original attachment to all tellers so they know what to avoid",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 0
+                },
+                {
+                    "id": "s3b",
+                    "prompt": "IT isolates your workstation and asks exactly which file you opened and when. What do you do?",
+                    "options": [
+                        {
+                            "text": "Say the terminal froze on its own so nobody blames you for opening the ZIP file",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Share the exact email details, filename, and timestamp so IT can contain any malware fast",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Restart the workstation twice first to see whether the symptom clears",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 1
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Incident Reporting",
+            "type": "single",
+            "prompt": "Why is prompt reporting of an accidental security or privacy mistake—such as emailing a statement to the wrong customer—vital in banking?",
+            "explanation": "Early reporting allows security and privacy teams to contain exposure, notify affected parties, and reduce potential financial harm.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "It guarantees the employee receives exemption from annual refresher training",
+                "It eliminates the need for IT security teams to review access logs",
+                "It automatically deletes emails already delivered to external providers",
+                "It enables rapid containment to limit customer harm and data exposure"
+            ],
+            "answer": 3
+        },
+        {
+            "id": 24,
+            "topic": "Workstation Security",
+            "type": "match",
+            "prompt": "Match each workstation habit with the specific cyber risk it helps prevent.",
+            "explanation": "Everyday habits like locking screens, using privacy filters, and restricting add-ons address distinct physical and digital threats.",
+            "difficulty": "Basic",
+            "formatLabel": "Matching",
+            "left": [
+                "Locking the screen every time you leave the counter",
+                "Using a privacy filter on a customer-facing monitor",
+                "Installing only IT-approved browser extensions",
+                "Shutting down or signing out fully at end of shift"
+            ],
+            "right": [
+                "Unauthorized data scraping or malicious browser add-ons",
+                "Walk-up tampering or unauthorized transactions on an open session",
+                "Overnight access by cleaning staff or unauthorized visitors",
+                "Shoulder surfing by customers waiting in the queue"
+            ],
+            "answer": [
+                1,
+                3,
+                0,
+                2
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Customer Data Privacy",
+            "type": "tabletop",
+            "prompt": "You accidentally hand a printed account summary belonging to Ms Chen to the next customer in line, Mr Silva, who notices the error at the door and returns the paper. Select all SAFE actions.",
+            "explanation": "Securing returned records, reporting the privacy incident per bank policy, and recording accurate facts ensure proper customer protection.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Safe actions",
+            "options": [
+                "Thank Mr Silva, secure the printout immediately, and verify all pages were returned",
+                "Shred the paper quietly and avoid reporting since the document was returned",
+                "Report the misdirected customer document as a privacy incident per bank policy",
+                "Ask Mr Silva to sign a sticky note promising he did not read any balances",
+                "Document accurate details so compliance can assess if customer notification is required"
+            ],
+            "answer": [
+                0,
+                2,
+                4
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Authentication & Passwords",
+            "type": "single",
+            "prompt": "When setting a new passphrase for a work account where system policy permits, which approach gives the strongest protection?",
+            "explanation": "Long, unique passphrases composed of unrelated words resist guessing and credential-stuffing attacks far better than short variations.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Single choice",
+            "options": [
+                "Appending the current calendar year to the end of your previous password",
+                "Combining your branch code with your birth month and middle initials",
+                "Creating a long unique passphrase from unrelated words used nowhere else",
+                "Reusing your personal online banking password so you remember it easily at work"
+            ],
+            "answer": 2
+        },
+        {
+            "id": 27,
+            "topic": "Device & Media",
+            "type": "multi",
+            "prompt": "A branch uses bank-managed mobile phones and tablets for customer onboarding. Which practices follow good cyber hygiene? (Select all that apply)",
+            "explanation": "Keeping managed devices updated, locking them away overnight, and reporting losses promptly protect customer and corporate data.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "Keep the device operating system and approved apps updated per IT schedules",
+                "Connect the tablet to a nearby cafe public Wi-Fi if the branch connection slows",
+                "Store shared mobile devices in a locked cabinet overnight rather than on the counter",
+                "Report a missing or stolen branch tablet immediately per bank policy",
+                "Install a personal chat app on the tablet to send customers quick reminders"
+            ],
+            "answer": [
+                0,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Customer Data Privacy",
+            "type": "diff",
+            "prompt": "Compare the two email drafts prepared by a relationship officer before clicking Send. Select all data-handling issues present in Evidence B that are avoided in Evidence A.",
+            "explanation": "Standard email is unsafe for sensitive account numbers, credit reports, or ID numbers, and exposing multiple clients in the To field breaches privacy.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Compare evidence",
+            "evidence": {
+                "a": {
+                    "To": "ms.patel@examplemail.com",
+                    "Subject": "Your Mortgage Inquiry",
+                    "Attachment": "Loan_Checklist_Blank.pdf",
+                    "Body": "Dear Ms Patel, please upload your payslips using our secure customer portal."
+                },
+                "b": {
+                    "To": "ms.patel@examplemail.com; mr.sharma@examplemail.com",
+                    "Subject": "Re: Mortgage Details - Acc #449012",
+                    "Attachment": "Patel_CreditReport.pdf",
+                    "Body": "Please review your attached report and reply with your national ID number."
+                }
+            },
+            "options": [
+                "The email includes a polite greeting addressed to a customer",
+                "Two unrelated customers appear together in the visible To address field",
+                "Sensitive account numbers and a credit report are sent over plain unencrypted email",
+                "The subject line refers to mortgage details",
+                "The customer is asked to send a sensitive identity number back via plain email"
+            ],
+            "answer": [
+                1,
+                2,
+                4
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Customer Data Privacy",
+            "type": "order",
+            "prompt": "Place these actions in the correct sequence when you discover you just sent an email with a customer's statement to the wrong external recipient.",
+            "explanation": "Stopping further messages, alerting management and incident teams immediately, sharing exact facts, and following remediation steps minimize exposure.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Ordering",
+            "options": [
+                "Notify your supervisor and the privacy or security incident team immediately per bank policy",
+                "Follow team instructions regarding customer notification and preventive controls",
+                "Provide exact details of the recipient address and attachment without altering logs",
+                "Stop sending further replies on the thread and preserve the sent email for review"
+            ],
+            "answer": [
+                3,
+                0,
+                2,
+                1
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Phishing & Email",
+            "type": "single",
+            "prompt": "You receive a text message on your work phone appearing to come from the bank's HR team about a bonus update, containing a shortened link. Why are shortened URLs especially risky?",
+            "explanation": "URL shorteners mask the real target domain, making it easy for attackers to disguise fraudulent login pages as trusted links.",
+            "difficulty": "Advanced",
+            "formatLabel": "Single choice",
+            "options": [
+                "They automatically bypass the smartphone's biometric or PIN lock screen",
+                "They hide the true destination domain until the link is clicked",
+                "They disable cellular encryption for all outgoing voice calls on the device",
+                "They convert plain text messages into executable programs upon delivery"
+            ],
+            "answer": 1
+        },
+        {
+            "id": 31,
+            "topic": "Phishing & Email",
+            "type": "match",
+            "prompt": "Match each deceptive communication channel with its name and primary attack method.",
+            "explanation": "Understanding phishing, smishing, vishing, and quishing helps customer-facing staff spot social engineering across every channel.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Matching",
+            "left": [
+                "Deceptive email impersonating a trusted sender",
+                "Fraudulent text message containing a malicious link",
+                "Voice call pretending to be IT support or fraud prevention",
+                "Tampered QR code sticker placed over a legitimate branch poster"
+            ],
+            "right": [
+                "Vishing: using vocal urgency or authority to extract secrets",
+                "Quishing: redirecting mobile scanners to a fake login site",
+                "Phishing: spoofing sender addresses or brand templates",
+                "Smishing: exploiting brief mobile alerts with hidden URLs"
+            ],
+            "answer": [
+                2,
+                3,
+                0,
+                1
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Workstation Security",
+            "type": "tabletop",
+            "prompt": "During a busy afternoon rush, a coworker's terminal slows down and they ask you to plug your personal smartphone into the PC's USB port to tether your mobile hotspot. Select all SAFE actions.",
+            "explanation": "Connecting personal phones or untrusted networks bypasses corporate security controls; escalate slow systems to IT and manage queues safely.",
+            "difficulty": "Basic",
+            "formatLabel": "Safe actions",
+            "options": [
+                "Connect your phone to the counter PC via USB tethering to clear the queue faster",
+                "Decline to connect personal phones or external hotspots to bank workstations",
+                "Look up the customer's email address on your personal smartphone instead",
+                "Report the slow workstation performance to IT support per bank policy",
+                "Direct waiting customers to available colleagues or approved alternate stations"
+            ],
+            "answer": [
+                1,
+                3,
+                4
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Physical Security",
+            "type": "single",
+            "prompt": "How should you manage your branch access badge and physical security keys when stepping outside the building for lunch?",
+            "explanation": "Concealing badges outside work and securing keys prevent lost credentials from being copied or used to enter restricted areas.",
+            "difficulty": "Basic",
+            "formatLabel": "Single choice",
+            "options": [
+                "Keep badges out of public view and never leave access items on your desk",
+                "Leave your badge clipped to your coat pocket so nearby businesses recognize you",
+                "Place your security token inside an unlocked desk drawer so it stays safe indoors",
+                "Write the staff-door PIN on the back of your badge in case you forget it"
+            ],
+            "answer": 0
+        },
+        {
+            "id": 34,
+            "topic": "Incident Reporting",
+            "type": "multi",
+            "prompt": "Which situations should a customer-facing bank employee report promptly per bank policy? (Select all that apply)",
+            "explanation": "Customer scam reports, unfamiliar hardware on kiosks, and lost badges or devices are critical indicators that security teams must investigate fast.",
+            "difficulty": "Basic",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "A customer reports receiving a suspicious call claiming to be from your branch",
+                "An unfamiliar cable or small adapter is spotted plugged into a lobby kiosk",
+                "A scheduled update notice appears inside the bank's official intranet portal",
+                "A bank-issued laptop or employee access badge goes missing",
+                "A customer forgets their online banking password and requests a standard reset"
+            ],
+            "answer": [
+                0,
+                1,
+                3
+            ]
+        },
+        {
+            "id": 35,
+            "topic": "Physical Security",
+            "type": "branch",
+            "prompt": "Branching scenario - Unattended Kiosk Tampering. Work through three decisions.",
+            "explanation": "Never touch, unplug, or log into suspected tampered hardware; isolate it for security inspection and report facts honestly.",
+            "difficulty": "Advanced",
+            "formatLabel": "Branching scenario",
+            "nodes": [
+                {
+                    "id": "s1",
+                    "prompt": "While opening the branch, you notice the lobby self-service tablet stand looks loose and an unfamiliar small black adapter sits between the kiosk cable and wall port. What do you do?",
+                    "options": [
+                        {
+                            "text": "Unplug the unfamiliar adapter and throw it away so customers can use the kiosk",
+                            "next": "s2b"
+                        },
+                        {
+                            "text": "Leave the kiosk untouched, keep customers away, and alert your branch manager and security team immediately",
+                            "next": "s2"
+                        },
+                        {
+                            "text": "Log into the kiosk with your employee ID to test whether the banking app still works",
+                            "next": "s2b"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s2",
+                    "prompt": "Your branch manager asks you to help manage the lobby while waiting for IT security to arrive. What do you do?",
+                    "options": [
+                        {
+                            "text": "Place an out-of-order sign on the kiosk, leave hardware untouched for inspection, and monitor the lobby",
+                            "next": "s3"
+                        },
+                        {
+                            "text": "Ask a coworker to pull out the adapter so you can photograph the pins on a personal phone",
+                            "next": "s3b"
+                        }
+                    ],
+                    "answer": 0
+                },
+                {
+                    "id": "s2b",
+                    "prompt": "After unplugging or testing the hardware, the kiosk screen freezes and displays a connection warning. What do you do?",
+                    "options": [
+                        {
+                            "text": "Stop touching the device, keep customers away, and notify your manager and IT security immediately",
+                            "next": "s3b"
+                        },
+                        {
+                            "text": "Plug the adapter back in quietly so IT assumes nothing was disturbed",
+                            "next": "s3b"
+                        }
+                    ],
+                    "answer": 0
+                },
+                {
+                    "id": "s3",
+                    "prompt": "IT security arrives and asks for your initial observations from branch opening. What do you do?",
+                    "options": [
+                        {
+                            "text": "Say the cleaning crew probably bumped a cord so no further review is needed",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Share exact details of what you saw, the time noticed, and relevant CCTV windows",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s3b",
+                    "prompt": "IT security arrives and notices the cable was already moved or tested. What do you do?",
+                    "options": [
+                        {
+                            "text": "Explain honestly that you unplugged or tested it before realizing the risk so they have accurate facts",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Claim the kiosk was already disconnected when the previous shift closed",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 0
+                }
+            ]
+        },
+        {
+            "id": 36,
+            "topic": "Social Engineering",
+            "type": "single",
+            "prompt": "A customer shows you a printed message claiming to be from Bank Fraud Dept instructing them to withdraw cash and hand it to a bank courier for safekeeping. What does this indicate?",
+            "explanation": "Banks never ask customers to withdraw cash for courier pickup; recognizing this scam script helps staff protect vulnerable customers.",
+            "difficulty": "Advanced",
+            "formatLabel": "Single choice",
+            "options": [
+                "A routine high-value account audit procedure for senior account holders",
+                "A legitimate emergency cash-protection service used during core upgrades",
+                "A standard tax compliance check required before closing savings accounts",
+                "An active impersonation scam targeting the customer for cash theft"
+            ],
+            "answer": 3
+        },
+        {
+            "id": 37,
+            "topic": "Device & Media",
+            "type": "order",
+            "prompt": "Put these steps in the correct sequence when an employee discovers an unlabeled USB flash drive lying near the customer entrance.",
+            "explanation": "Keeping unknown USB drives unplugged, securing them away from users, handing them to security, and documenting discovery details prevent malware infections.",
+            "difficulty": "Advanced",
+            "formatLabel": "Ordering",
+            "options": [
+                "Hand the device over to IT security or branch management per bank policy",
+                "Document where and when it was found without attempting to inspect its files",
+                "Leave the USB drive unplugged from any bank computer or personal device",
+                "Pick it up carefully or isolate it so another employee or customer does not plug it in"
+            ],
+            "answer": [
+                2,
+                3,
+                0,
+                1
+            ]
+        },
+        {
+            "id": 38,
+            "topic": "Workstation Security",
+            "type": "diff",
+            "prompt": "Compare the two software and extension inventories from Counter PC #4. Select all unauthorized or risky items in Evidence B that do not appear in Evidence A.",
+            "explanation": "Unapproved screen-recording software and third-party browser extensions can capture sensitive customer data or inject malicious code.",
+            "difficulty": "Advanced",
+            "formatLabel": "Compare evidence",
+            "evidence": {
+                "a": {
+                    "Installed Apps": "TellerCore v4.2, PDF Viewer Enterprise",
+                    "Browser Extensions": "Bank Password Vault (Approved)",
+                    "Auto-login": "Disabled"
+                },
+                "b": {
+                    "Installed Apps": "TellerCore v4.2, PDF Viewer Enterprise, FreeScreenRecorder",
+                    "Browser Extensions": "Bank Password Vault (Approved), CouponFinder Helper",
+                    "Auto-login": "Disabled"
+                }
+            },
+            "options": [
+                "An unapproved screen-recording application is installed on the workstation",
+                "TellerCore v4.2 is present on the branch workstation",
+                "Browser auto-login is configured as disabled",
+                "A third-party coupon browser extension has been added",
+                "PDF Viewer Enterprise appears under installed applications"
+            ],
+            "answer": [
+                0,
+                3
+            ]
+        },
+        {
+            "id": 39,
+            "topic": "Authentication & Passwords",
+            "type": "multi",
+            "prompt": "Which actions weaken multi-factor authentication (MFA) protection for bank employees? (Select all that apply)",
+            "explanation": "Approving unsolicited MFA prompts, leaving hardware tokens unattended, and sharing one-time codes allow attackers to bypass second-factor checks.",
+            "difficulty": "Basic",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "Checking the application name and location before approving an MFA prompt",
+                "Approving an unexpected MFA prompt repeatedly just to stop the alerts",
+                "Leaving a hardware security token plugged into a shared terminal overnight",
+                "Reporting unsolicited MFA notifications to IT security immediately",
+                "Sharing a one-time code over the phone with someone claiming to be IT"
+            ],
+            "answer": [
+                1,
+                2,
+                4
+            ]
+        },
+        {
+            "id": 40,
+            "topic": "Incident Reporting",
+            "type": "match",
+            "prompt": "Match each security observation at a bank branch with the most appropriate immediate reporting or escalation path.",
+            "explanation": "Routing each incident type to the right specialist team ensures rapid action on cyber, physical, access, or fraud threats.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Matching",
+            "left": [
+                "A suspicious phishing email arrives in the branch shared mailbox",
+                "A stranger attempts to photograph teller workstation screens from the lobby",
+                "An employee loses their bank-issued smartcard on the commute to work",
+                "A customer reports unauthorized transfers right after clicking a fake bank link"
+            ],
+            "right": [
+                "Escalate immediately to Fraud Operations and follow account lockdown steps",
+                "Report via the bank phishing reporting button or security mailbox",
+                "Notify IT access management and branch supervisor right away to revoke the card",
+                "Alert branch management and physical security per bank policy"
+            ],
+            "answer": [
+                1,
+                3,
+                2,
+                0
+            ]
+        },
+        {
+            "id": 41,
+            "topic": "Social Engineering",
+            "type": "tabletop",
+            "prompt": "A well-dressed visitor arrives claiming to be a third-party printer technician for emergency maintenance on counter printers, has no work order, and asks you to sign him in without calling facilities. Select all SAFE actions.",
+            "explanation": "Keeping unverified visitors out of staff zones, confirming appointments via official contacts, and following escort rules prevent physical breaches.",
+            "difficulty": "Advanced",
+            "formatLabel": "Safe actions",
+            "options": [
+                "Keep the visitor in the public lobby and deny access to staff zones",
+                "Let him inspect the counter printer beside you while your screen is minimized",
+                "Verify the visit directly through your branch manager or approved facilities contact",
+                "Accept a printed business card he hands you as sufficient authorization",
+                "Lend him a spare visitor badge briefly while he checks printer serial numbers",
+                "Follow vendor check-in and escort procedures per bank policy once verified"
+            ],
+            "answer": [
+                0,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 42,
+            "topic": "Customer Data Privacy",
+            "type": "single",
+            "prompt": "A customer at the counter asks you to email their updated bank statement directly to an external accountant whose address they read out aloud. What is the safest approach?",
+            "explanation": "Sending statements to third parties requires proper consent verification and approved encrypted delivery channels per bank policy.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Single choice",
+            "options": [
+                "Email the PDF right away to the accountant's address for fast customer service",
+                "Use your personal webmail if the bank mail gateway blocks external PDF files",
+                "Follow bank policy on third-party consent and use approved secure delivery channels",
+                "Photograph the statement on your monitor and message it to the customer's phone"
+            ],
+            "answer": 2
+        },
+        {
+            "id": 43,
+            "topic": "Workstation Security",
+            "type": "multi",
+            "prompt": "Which risks occur when bank employees use personal cloud storage or personal webmail on branch workstations? (Select all that apply)",
+            "explanation": "Personal cloud and webmail services risk leaking confidential data, bypassing bank monitoring, and introducing unvetted files into corporate systems.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "Customer data could be leaked outside bank-controlled environments",
+                "Corporate security teams receive automatic approval to archive personal emails",
+                "Malicious files from personal accounts could bypass workflow protections",
+                "Data transfers may evade official bank audit and retention policies",
+                "Workstation smartcard readers stop functioning during customer transactions"
+            ],
+            "answer": [
+                0,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 44,
+            "topic": "Phishing & Email",
+            "type": "multi",
+            "prompt": "A targeted email arrives addressed to you by name and referencing your exact branch location and a local community event. What clues can still reveal a phishing attempt? (Select all that apply)",
+            "explanation": "Attackers often include public details for credibility; sender domain mismatches, unusual urgency, and suspicious link destinations still expose the trap.",
+            "difficulty": "Advanced",
+            "formatLabel": "Multiple choice",
+            "options": [
+                "A subtle mismatch in the sender email domain or reply-to address",
+                "The email was delivered during standard branch operating hours",
+                "An unusual request to bypass normal verification or act urgently",
+                "A hyperlink whose hover preview points to an unfamiliar external site",
+                "The email uses standard business formatting without obvious spelling mistakes"
+            ],
+            "answer": [
+                0,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 45,
+            "topic": "Incident Reporting",
+            "type": "order",
+            "prompt": "Arrange the actions in the right order when a customer at your counter realizes they just shared an OTP with a scammer on the phone.",
+            "explanation": "Responding calmly, verifying identity, triggering fraud safeguards promptly, and documenting clear follow-up details help protect the customer's funds.",
+            "difficulty": "Basic",
+            "formatLabel": "Ordering",
+            "options": [
+                "Document incident details and remind the customer of official bank communication habits",
+                "Listen calmly without blaming the customer and verify their identity per bank policy",
+                "Initiate immediate account, card, or digital access safeguards through the fraud desk",
+                "Confirm follow-up steps and reference numbers with the customer before they leave"
+            ],
+            "answer": [
+                1,
+                2,
+                0,
+                3
+            ]
+        },
+        {
+            "id": 46,
+            "topic": "Device & Media",
+            "type": "diff",
+            "prompt": "Compare the two Wi-Fi connection screens on a bank-issued relationship manager laptop. Select all security risks present in Evidence B compared to Evidence A.",
+            "explanation": "Open guest networks with lookalike names, disabled VPN protection, and unrestricted auto-connect expose corporate traffic to interception.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Compare evidence",
+            "evidence": {
+                "a": {
+                    "Network": "ExampleBank-Corp",
+                    "Security": "WPA3-Enterprise",
+                    "Auto-connect": "Enabled for corp only",
+                    "VPN": "Connected"
+                },
+                "b": {
+                    "Network": "ExampleBank_Free_Guest_5G",
+                    "Security": "Open (No password)",
+                    "Auto-connect": "Enabled for all networks",
+                    "VPN": "Disconnected"
+                }
+            },
+            "options": [
+                "The laptop screen displays the name of the active wireless network",
+                "The laptop is connected to an unencrypted open network with a lookalike guest name",
+                "Auto-connect is configured only for the corporate network",
+                "The corporate VPN is disconnected and auto-connect is enabled for all networks",
+                "The corporate network uses WPA3-Enterprise security"
+            ],
+            "answer": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": 47,
+            "topic": "Authentication & Passwords",
+            "type": "match",
+            "prompt": "Match each authentication mistake with its primary security consequence.",
+            "explanation": "Weak credential habits expose accounts to physical snooping, external breaches, unauthorized sessions, and broken audit trails.",
+            "difficulty": "Basic",
+            "formatLabel": "Matching",
+            "left": [
+                "Writing a workstation PIN on a sticky note under the keyboard",
+                "Reusing your corporate password on an external shopping site",
+                "Leaving a smartcard inserted in the reader while away at lunch",
+                "Sharing a login session with a trainee instead of using separate accounts"
+            ],
+            "right": [
+                "A breach at an external site can compromise your bank login",
+                "Audit trails cannot distinguish who performed specific transactions",
+                "Anyone near the desk can easily discover and use your credentials",
+                "Someone nearby can access your unlocked or semi-active session"
+            ],
+            "answer": [
+                2,
+                0,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 48,
+            "topic": "Incident Reporting",
+            "type": "tabletop",
+            "prompt": "At closing time, you find a folder of signed customer loan applications left near the public waiting area instead of locked away. No customers remain in the lobby. Select all SAFE actions.",
+            "explanation": "Securing unattended records immediately and logging a privacy near-miss per bank policy allow management to review controls and protect data.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Safe actions",
+            "options": [
+                "Secure the folder immediately inside a locked cabinet per bank policy",
+                "Place the folder on the officer's desk quietly since the lobby is already empty",
+                "Report the unattended sensitive documents as a privacy incident per bank policy",
+                "Take a photo on your personal phone to show colleagues in a chat group tomorrow",
+                "Check the surrounding area and note timeframe details if requested by your supervisor"
+            ],
+            "answer": [
+                0,
+                2,
+                4
+            ]
+        },
+        {
+            "id": 49,
+            "topic": "Customer Data Privacy",
+            "type": "branch",
+            "prompt": "Branching scenario - Unusual Account Inquiry. Work through three decisions.",
+            "explanation": "Never share account data or print statements for third parties without verified authorization, and report accidental disclosures accurately.",
+            "difficulty": "Advanced",
+            "formatLabel": "Branching scenario",
+            "nodes": [
+                {
+                    "id": "s1",
+                    "prompt": "A polite visitor at your counter asks you to print six months of statements for an elderly relative's account, saying the relative is waiting in a parked car outside. What do you do?",
+                    "options": [
+                        {
+                            "text": "Explain kindly that you cannot disclose or print another person's account records without valid authorization or direct verification per bank policy",
+                            "next": "s2"
+                        },
+                        {
+                            "text": "Print the statement since the visitor knows the relative's full name and date of birth",
+                            "next": "s2b"
+                        },
+                        {
+                            "text": "Read out only the closing balance so the visitor knows whether bills are covered",
+                            "next": "s2b"
+                        }
+                    ],
+                    "answer": 0
+                },
+                {
+                    "id": "s2",
+                    "prompt": "The visitor insists it is urgent and asks you to walk outside to the parked car carrying the printed statement or a branch tablet. What do you do?",
+                    "options": [
+                        {
+                            "text": "Step outside alone carrying printed account records to resolve the inquiry quickly",
+                            "next": "s3b"
+                        },
+                        {
+                            "text": "Consult your branch manager on approved accessibility or power-of-attorney verification steps before acting",
+                            "next": "s3"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s2b",
+                    "prompt": "You disclosed account details or printed records without proper authorization and the visitor leaves quickly. What do you do?",
+                    "options": [
+                        {
+                            "text": "Shred the extra printout and avoid logging the request since the visitor appeared to be family",
+                            "next": "s3b"
+                        },
+                        {
+                            "text": "Immediately report the unauthorized disclosure to your branch manager and privacy team per bank policy",
+                            "next": "s3b"
+                        }
+                    ],
+                    "answer": 1
+                },
+                {
+                    "id": "s3",
+                    "prompt": "Your branch manager confirms valid verification could not be completed and the visitor decides to leave. What do you do?",
+                    "options": [
+                        {
+                            "text": "Document the attempted third-party inquiry per bank policy so staff stay alert across counters",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Post a security camera snapshot of the visitor in an informal staff group chat",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 0
+                },
+                {
+                    "id": "s3b",
+                    "prompt": "Your branch manager asks for exact details about what information was shared during the interaction. What do you do?",
+                    "options": [
+                        {
+                            "text": "Estimate the details from memory later in the week when queues are quieter",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Emphasize that the visitor pressured you so the log does not record a staff error",
+                            "next": "END"
+                        },
+                        {
+                            "text": "Provide an accurate, factual timeline of what was disclosed so the customer can be protected promptly",
+                            "next": "END"
+                        }
+                    ],
+                    "answer": 2
+                }
+            ]
+        },
+        {
+            "id": 50,
+            "topic": "Physical Security",
+            "type": "single",
+            "prompt": "A customer asks to use the staff restroom or charge their dead mobile phone in a wall outlet located behind the teller counter. What should you do?",
+            "explanation": "Restricting customers from behind-the-counter zones protects workstations, cash drawers, and sensitive customer records.",
+            "difficulty": "Intermediate",
+            "formatLabel": "Single choice",
+            "options": [
+                "Let them plug the phone into a wall outlet behind the counter while you keep watch",
+                "Politely decline staff-area access and direct them to approved public facilities if available",
+                "Plug their phone into the USB port on the back of your teller PC to charge faster",
+                "Escort them into the back office for two minutes as long as your terminal screen is locked"
+            ],
+            "answer": 1
+        },
+    {
+      "id": 51,
+      "topic": "Workstation Security",
+      "type": "single",
+      "prompt": "You need to step away from your teller counter for 30 seconds to check a cash drawer supply cabinet. Why should you avoid relying on the automatic screen-lock timer?",
+      "explanation": "Automatic inactivity timers leave a brief window where someone nearby can view or tamper with an unlocked terminal; manual locking closes that gap immediately.",
+      "difficulty": "Basic",
+      "formatLabel": "Single choice",
+      "options": [
+        "Wait for the automatic screen saver timer to activate after several minutes of inactivity",
+        "Lock the terminal manually every time you step away",
+        "Switch to a blank browser tab so customer names are hidden from view",
+        "Ask the waiting customer to step back from the glass until you return"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 52,
+      "topic": "Phishing & Email",
+      "type": "single",
+      "prompt": "An email arrives claiming to be from the bank's HR benefits portal asking you to click a link to review a policy change. What is the safest way to verify it?",
+      "explanation": "Checking link destinations and navigating through known trusted bookmarks avoids spoofed login pages designed to steal employee credentials.",
+      "difficulty": "Basic",
+      "formatLabel": "Single choice",
+      "options": [
+        "Click the link quickly and close the browser tab if the logo looks blurry",
+        "Forward the link to your personal email address to test it from home later",
+        "Reply to the email asking the sender to confirm the official portal link",
+        "Hover to inspect the destination URL or navigate via trusted bookmarks"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 53,
+      "topic": "Customer Data Privacy",
+      "type": "multi",
+      "prompt": "Which phone-handling habits protect customer privacy when answering inquiries from an open branch desk? (Select all that apply)",
+      "explanation": "Verifying identity first, speaking quietly, and avoiding reading full account numbers aloud prevent eavesdropping in shared branch spaces.",
+      "difficulty": "Basic",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "Keep your voice low when confirming sensitive personal details during calls",
+        "Put the call on speakerphone so a nearby colleague can hear and assist faster",
+        "Verify the caller's identity per bank policy before discussing account activity",
+        "Write the customer's card number and PIN on a notepad while talking",
+        "Avoid speaking full account numbers aloud when other visitors are nearby"
+      ],
+      "answer": [0, 2, 4]
+    },
+    {
+      "id": 54,
+      "topic": "Device & Media",
+      "type": "match",
+      "prompt": "Match each external device or media item found in a branch setting with the main security risk it poses.",
+      "explanation": "Unvetted USB devices, wireless dongles, memory cards, and abandoned printouts each create distinct physical or malware risks.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Matching",
+      "left": [
+        "Customer's personal smartphone plugged into a teller PC USB port",
+        "Unencrypted paper printout left inside a shared branch printer tray",
+        "Personal SD memory card inserted into an office workstation reader",
+        "Unapproved wireless keyboard dongle attached behind a branch terminal"
+      ],
+      "right": [
+        "Confidential customer details exposed to the next person collecting prints",
+        "Unauthorized file transfer or malware entry from external storage",
+        "Covert keystroke logging or unauthorized wireless input injection",
+        "Potential malware infection, data sync, or unapproved tethering"
+      ],
+      "answer": [3, 0, 1, 2]
+    },
+    {
+      "id": 55,
+      "topic": "Workstation Security",
+      "type": "order",
+      "prompt": "Order the steps for safely using a shared branch printer when printing confidential customer loan documents.",
+      "explanation": "Selecting the secure printer, retrieving pages immediately, and reconciling or shredding misprints prevent customer records from sitting unattended.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Ordering",
+      "options": [
+        "Collect every printed page promptly and verify no stray sheets remain in the tray",
+        "Check pages against the customer record and store or shred misprints per bank policy",
+        "Confirm the correct secure printer queue is selected before clicking Print",
+        "Walk to the printer right away or release the job via badge authentication"
+      ],
+      "answer": [2, 3, 0, 1]
+    },
+    {
+      "id": 56,
+      "topic": "Phishing & Email",
+      "type": "diff",
+      "prompt": "Compare the two SMS alerts a customer shows you at the counter. Select all red flags in Evidence B that do not appear in Evidence A.",
+      "explanation": "Unsolicited links to non-bank domains, unfamiliar phone senders, and artificial 30-minute lockout threats are classic smishing red flags.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Compare evidence",
+      "evidence": {
+        "a": {
+          "Sender": "ExampleBank",
+          "Message": "ExampleBank Alert: A card login attempt occurred. If this was not you, call the number on the back of your card or visit a branch."
+        },
+        "b": {
+          "Sender": "+00-555-0194",
+          "Message": "FINAL WARNING: Your ExampleBank account is suspended. Tap http://examplebank-unlock.info within 30 mins to avoid permanent closure."
+        }
+      },
+      "options": [
+        "The message mentions ExampleBank in the body text",
+        "The alert comes from an unfamiliar phone number and links to a non-bank domain",
+        "The message advises contacting an official branch or card-back number",
+        "The sender name identifies the institution clearly without a URL",
+        "The text threatens immediate account closure within 30 minutes to force haste"
+      ],
+      "answer": [1, 4]
+    },
+    {
+      "id": 57,
+      "topic": "Authentication & Passwords",
+      "type": "tabletop",
+      "prompt": "You are training a new teller at your counter while IT is still provisioning their system credentials. Your supervisor asks you to introduce intake forms until their login arrives. Select all SAFE actions.",
+      "explanation": "Keeping personal logins strictly private and using offline training materials until individual accounts are active preserves accountability.",
+      "difficulty": "Basic",
+      "formatLabel": "Safe actions",
+      "options": [
+        "Keep your own login private and operate the keyboard yourself during demonstrations",
+        "Let the trainee perform customer lookups under your logged-in session for faster practice",
+        "Review blank paper forms and policy guides while waiting for their own ID",
+        "Lock the terminal whenever stepping away from the demonstration station",
+        "Write down your login password temporarily so the trainee can practice solo"
+      ],
+      "answer": [0, 2, 3]
+    },
+    {
+      "id": 58,
+      "topic": "Social Engineering",
+      "type": "branch",
+      "prompt": "Branching scenario - Callback Verification Pressure. Work through three decisions.",
+      "explanation": "Payment-detail changes requested by email require out-of-band callback verification to a pre-registered contact number per bank policy.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Branching scenario",
+      "nodes": [
+        {
+          "id": "s1",
+          "prompt": "A local business client emails your branch asking for an urgent supplier payment bank-detail change, saying she is on a noisy factory floor and cannot take a phone call. What do you do?",
+          "options": [
+            {
+              "text": "Update the supplier bank details immediately because her email signature looks familiar",
+              "next": "s2b"
+            },
+            {
+              "text": "Hold the change and explain politely that out-of-band callback verification via a registered number is required per bank policy",
+              "next": "s2"
+            },
+            {
+              "text": "Release half the payment now and complete verification after she leaves the factory floor",
+              "next": "s2b"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "s2",
+          "prompt": "Twenty minutes later, someone calls from an unfamiliar mobile number claiming to be the owner's assistant and urges you to approve the change. What do you do?",
+          "options": [
+            {
+              "text": "Decline the inbound confirmation and place an outbound call strictly to the authorized number on file",
+              "next": "s3"
+            },
+            {
+              "text": "Accept the assistant's confirmation since they know the supplier's invoice amount",
+              "next": "s3b"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2b",
+          "prompt": "After acting without out-of-band verification, you notice the sender's email domain has a subtle extra letter. What do you do?",
+          "options": [
+            {
+              "text": "Alert your supervisor and fraud operations immediately to attempt a recall and secure the account",
+              "next": "s3b"
+            },
+            {
+              "text": "Send a follow-up email asking the sender whether the domain spelling was intentional",
+              "next": "s3b"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3",
+          "prompt": "When you call the registered number on file, the business owner confirms her email was compromised and she made no request. What do you do?",
+          "options": [
+            {
+              "text": "Delete the email quietly since no funds left the account",
+              "next": "END"
+            },
+            {
+              "text": "Ask the client to email her personal password so you can check her alerts",
+              "next": "END"
+            },
+            {
+              "text": "Maintain the hold, document the business email compromise attempt, and escalate to fraud operations per bank policy",
+              "next": "END"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "s3b",
+          "prompt": "Fraud operations asks for the original email headers and an exact timeline of actions. What do you do?",
+          "options": [
+            {
+              "text": "Delete the fraudulent email from the branch inbox first to clear the queue",
+              "next": "END"
+            },
+            {
+              "text": "Provide the preserved email, domain mismatch details, and timeline transparently for rapid containment",
+              "next": "END"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "topic": "Physical Security",
+      "type": "single",
+      "prompt": "At branch closing time, where should blank checkbooks, unissued cards, and vault keys be placed?",
+      "explanation": "Securing high-value items and sensitive stationery inside locked storage prevents theft, tampering, and counterfeit issuance.",
+      "difficulty": "Basic",
+      "formatLabel": "Single choice",
+      "options": [
+        "Stacked neatly inside an unlocked drawer beneath the counter monitor",
+        "Left inside a labeled folder on the branch manager's open desk",
+        "Locked inside approved secure storage per bank policy",
+        "Placed in a cardboard box under the counter out of customer sight"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 60,
+      "topic": "Social Engineering",
+      "type": "single",
+      "prompt": "A customer in the lobby asks if you can look up the home address of another client who shares their last name so they can mail an invitation. How should you respond?",
+      "explanation": "Customer personal records may never be searched or disclosed for unverified third-party requests, regardless of how harmless the reason sounds.",
+      "difficulty": "Basic",
+      "formatLabel": "Single choice",
+      "options": [
+        "Decline politely because customer personal data cannot be disclosed",
+        "Check only the postal code and state it aloud without revealing the street name",
+        "Look up the record privately and confirm if the person lives in the same city",
+        "Ask them to bring written proof of the event before checking the profile"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 61,
+      "topic": "Phishing & Email",
+      "type": "multi",
+      "prompt": "Which signs in a customer-facing branch inbox suggest an incoming email could be malicious? (Select all that apply)",
+      "explanation": "Unexpected risky attachments, mismatched sender addresses, and urgent threats are reliable indicators of phishing or malware.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "An unexpected attachment ending in .html, .iso, or .zip from an unknown sender",
+        "A mismatched display name and actual email address in the From header",
+        "A scheduled internal newsletter sent from the official examplebank.com domain",
+        "Urgent threats of legal penalties or account shutdown demanding immediate login",
+        "A standard meeting invitation sent by your known branch manager"
+      ],
+      "answer": [0, 1, 3]
+    },
+    {
+      "id": 62,
+      "topic": "Physical Security",
+      "type": "order",
+      "prompt": "Put these steps in order when escorting an authorized external maintenance technician inside a restricted staff area.",
+      "explanation": "Verifying identity before opening doors, issuing visitor badges, escorting throughout the visit, and signing out properly maintain physical security.",
+      "difficulty": "Basic",
+      "formatLabel": "Ordering",
+      "options": [
+        "Verify their work order and issue a visible visitor badge per bank policy",
+        "Keep restricted doors secured while checking the visitor's identification at reception",
+        "Collect the visitor badge, sign them out, and ensure the door latches behind them",
+        "Accompany the technician throughout their time in staff or server zones"
+      ],
+      "answer": [1, 0, 3, 2]
+    },
+    {
+      "id": 63,
+      "topic": "Social Engineering",
+      "type": "match",
+      "prompt": "Match each caller pretext with the appropriate staff response.",
+      "explanation": "Maintaining verification discipline across IT, law-enforcement, customer, and delivery pretexts prevents unauthorized access and disclosure.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Matching",
+      "left": [
+        "Caller claims to be a bank IT engineer needing your current password to fix a login error",
+        "Caller claims to be a police detective demanding immediate account balances by phone",
+        "Caller claims to be a regular customer who forgot security details and begs for an exception",
+        "Caller claims to be a courier asking for the staff back-door entry code"
+      ],
+      "right": [
+        "Refuse exceptions and direct the caller to approved in-branch or official verification",
+        "Never give out access codes; direct deliveries to official public reception",
+        "Never share passwords; verify any IT request via internal service desk contacts",
+        "Follow formal legal-request escalation procedures per bank policy before releasing data"
+      ],
+      "answer": [2, 3, 0, 1]
+    },
+    {
+      "id": 64,
+      "topic": "Workstation Security",
+      "type": "diff",
+      "prompt": "Compare the two counter workspace setups described below. Select the ONE statement that identifies the security weakness in Evidence B.",
+      "explanation": "Missing privacy filters, outward-facing screens, and visible customer ID copies expose sensitive personal details to passersby.",
+      "difficulty": "Basic",
+      "formatLabel": "Compare evidence",
+      "evidence": {
+        "a": {
+          "Screen": "Privacy filter installed, angled away from queue",
+          "Desk": "Clean except active customer form face down",
+          "USB Ports": "Blocked per policy"
+        },
+        "b": {
+          "Screen": "Privacy filter removed, facing side aisle",
+          "Desk": "Previous customer's signed ID copy left face up",
+          "USB Ports": "Blocked per policy"
+        }
+      },
+      "options": [
+        "Evidence B includes USB port blockers in accordance with standard branch security policy",
+        "Evidence B uses a computer screen at the counter workstation",
+        "Evidence B lacks a separate printer at the customer window",
+        "Evidence B exposes screens to passersby and leaves customer ID copies visible"
+      ],
+      "answer": [3]
+    },
+    {
+      "id": 65,
+      "topic": "Device & Media",
+      "type": "tabletop",
+      "prompt": "You notice a bank-issued relationship manager smartphone sitting unattended on a lobby coffee table after a busy morning meeting. Select all SAFE actions.",
+      "explanation": "Securing unattended corporate devices immediately without guessing passcodes and returning or reporting them quickly protect corporate data.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Safe actions",
+      "options": [
+        "Pick up the phone and unlock it if you know the manager's PIN to identify the owner",
+        "Secure the device promptly without attempting to access its contents",
+        "Hand the locked phone directly to your branch manager or custodian per bank policy",
+        "Leave it on the lobby table assuming the owner will walk back in a few minutes",
+        "Notify security or IT support immediately if the owner cannot be confirmed quickly"
+      ],
+      "answer": [1, 2, 4]
+    },
+    {
+      "id": 66,
+      "topic": "Incident Reporting",
+      "type": "single",
+      "prompt": "A customer calls to report that they clicked a fake bank text link 10 minutes ago and entered their username, password, and card PIN. What is your top priority?",
+      "explanation": "Rapidly verifying the caller and locking compromised credentials and cards minimizes the window for unauthorized transactions.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Single choice",
+      "options": [
+        "Tell them to uninstall their web browser and call back tomorrow if money moves",
+        "Ask them to forward the fake text to your personal phone so you can inspect it",
+        "Advise them to change only their email password and monitor statements next month",
+        "Verify identity and trigger immediate credential and card lockdown per bank policy"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 67,
+      "topic": "Workstation Security",
+      "type": "single",
+      "prompt": "Why should bank employees avoid clicking Save Password in browser autofill prompts on shared counter workstations?",
+      "explanation": "Browser-saved credentials can allow later users of a shared terminal to log into systems or read cached secrets without authenticating.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Single choice",
+      "options": [
+        "It slows down the network printer spooler when generating multi-page account statements",
+        "Subsequent users of the terminal could access accounts without authentication",
+        "It disables the workstation's wired network adapter after every shift change",
+        "It automatically emails saved passwords to external advertising partners"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 68,
+      "topic": "Customer Data Privacy",
+      "type": "multi",
+      "prompt": "When scanning physical identification documents at a customer counter, which practices maintain proper cyber hygiene? (Select all that apply)",
+      "explanation": "Returning original IDs promptly, using only approved workflows, and clearing temporary scans protect identity documents from misuse.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "Return original ID documents promptly to the customer before ending the interaction",
+        "Save a backup copy of the customer's ID image in a public Desktop folder for convenience",
+        "Verify the scanned file is uploaded only to the approved banking workflow",
+        "Delete temporary scan files or confirm the scanner clears jobs per bank policy",
+        "Email the scanned ID image to your personal inbox as proof you completed the task"
+      ],
+      "answer": [0, 2, 3]
+    },
+    {
+      "id": 69,
+      "topic": "Authentication & Passwords",
+      "type": "single",
+      "prompt": "You receive an unexpected multi-factor authentication (MFA) push prompt on your work phone while away from your desk at lunch. What should you do?",
+      "explanation": "An unexpected MFA prompt means someone likely already has your password; denying it and alerting IT security stops account takeover.",
+      "difficulty": "Basic",
+      "formatLabel": "Single choice",
+      "options": [
+        "Approve the prompt once so the system finishes whatever background update started",
+        "Ignore the alert completely and silence phone notifications for the rest of the afternoon",
+        "Deny the prompt and report the unauthorized login attempt to IT security immediately",
+        "Call a teller colleague and ask them to check if your workstation is still turned on"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 70,
+      "topic": "Customer Data Privacy",
+      "type": "diff",
+      "prompt": "Compare the two remote customer-support chat transcripts below. Select all privacy or verification failures in Evidence B that do not occur in Evidence A.",
+      "explanation": "Skipping verification under emotional pressure, typing full card details into chat, and switching to personal SMS create severe exposure.",
+      "difficulty": "Advanced",
+      "formatLabel": "Compare evidence",
+      "evidence": {
+        "a": {
+          "Verification": "Completed two-factor in-app check",
+          "Agent Action": "Discussed balance after verification",
+          "Channel": "Authenticated bank chat"
+        },
+        "b": {
+          "Verification": "Skipped check because customer sounded upset",
+          "Agent Action": "Pasted full card number and expiry in chat",
+          "Channel": "Agent switched to personal SMS"
+        }
+      },
+      "options": [
+        "The employee skipped identity verification due to customer frustration",
+        "The employee responded to a customer inquiry about an account",
+        "The employee sent a full card number and expiry date inside chat text",
+        "The interaction involved remote customer support",
+        "The employee moved a banking conversation onto an unapproved personal messaging channel"
+      ],
+      "answer": [0, 2, 4]
+    },
+    {
+      "id": 71,
+      "topic": "Phishing & Email",
+      "type": "order",
+      "prompt": "Order the steps for handling an email in your branch queue that contains an unfamiliar QR code claiming employees must scan it with personal phones for mandatory tax forms.",
+      "explanation": "Refraining from scanning, alerting coworkers, reporting via official channels, and following cleanup instructions prevent quishing compromises.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Ordering",
+      "options": [
+        "Report the suspicious email through the bank's phishing reporting channel",
+        "Warn nearby branch staff verbally not to scan the code while you report it",
+        "Delete or quarantine the message per instructions from the security team",
+        "Do not scan the QR code with any personal or work device"
+      ],
+      "answer": [3, 1, 0, 2]
+    },
+    {
+      "id": 72,
+      "topic": "Device & Media",
+      "type": "branch",
+      "prompt": "Branching scenario - Personal Device Temptation. Work through three decisions.",
+      "explanation": "Never handle customer banking data on personal smartphones or email, even during technical outages; use approved fallback workflows.",
+      "difficulty": "Advanced",
+      "formatLabel": "Branching scenario",
+      "nodes": [
+        {
+          "id": "s1",
+          "prompt": "Just before closing, a client needs to sign a digital form urgently, but the lobby onboarding tablet loses network sync and will not load the page. What do you do?",
+          "options": [
+            {
+              "text": "Log into the bank portal on your personal phone and hand it to the customer to sign",
+              "next": "s2b"
+            },
+            {
+              "text": "Complete the process via an approved counter terminal, paper fallback, or secure reschedule per bank policy",
+              "next": "s2"
+            },
+            {
+              "text": "Ask the customer to email their ID copies to your personal inbox for upload tomorrow",
+              "next": "s2b"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "s2",
+          "prompt": "The customer appreciates the explanation and uses the secure counter terminal, while the onboarding tablet still shows an error. What do you do?",
+          "options": [
+            {
+              "text": "Submit an IT ticket detailing the tablet sync issue and lock the tablet away per bank policy",
+              "next": "s3"
+            },
+            {
+              "text": "Leave the tablet unlocked on the lobby bench so IT can test it automatically overnight",
+              "next": "s3b"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2b",
+          "prompt": "After using your personal phone or email to assist, you realize a copy of the customer's ID now sits on your personal device. What do you do?",
+          "options": [
+            {
+              "text": "Report the unapproved device use to your supervisor and security team immediately to verify proper data removal per bank policy",
+              "next": "s3b"
+            },
+            {
+              "text": "Delete the file quietly from your phone and avoid reporting since the customer was served",
+              "next": "s3b"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3",
+          "prompt": "IT support asks whether any customer session remained open on the faulty tablet before it lost sync. What do you do?",
+          "options": [
+            {
+              "text": "Ask IT to wipe every branch computer on the floor just to be cautious",
+              "next": "END"
+            },
+            {
+              "text": "Confirm whether the session was cleared and provide exact error details to help IT diagnose safely",
+              "next": "END"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "s3b",
+          "prompt": "The privacy team guides you through verified deletion of the customer file from your personal phone. What do you do?",
+          "options": [
+            {
+              "text": "Move the image into a hidden album on your phone instead of permanently deleting it",
+              "next": "END"
+            },
+            {
+              "text": "Complete the verified removal steps fully and note the process lesson to avoid personal devices in future",
+              "next": "END"
+            },
+            {
+              "text": "Refuse deletion guidance because the phone is your private property",
+              "next": "END"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "topic": "Physical Security",
+      "type": "single",
+      "prompt": "You spot an unfamiliar backpack sitting unattended near the entrance to the staff-only hallway inside the branch lobby. What is the safest response?",
+      "explanation": "Leaving unattended items untouched and alerting branch management and security protects staff and visitors from safety or tampering hazards.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Single choice",
+      "options": [
+        "Keep clear of the bag and alert branch management and security per policy",
+        "Open the zipper cautiously to inspect inside for an owner name tag or customer contact card",
+        "Carry the bag behind the teller counter so no lobby visitor steals it",
+        "Leave it there until closing time to see whether someone comes back"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 74,
+      "topic": "Incident Reporting",
+      "type": "match",
+      "prompt": "Match each workplace incident with the reason immediate reporting matters.",
+      "explanation": "Prompt reporting enables specialized teams to wipe lost hardware, block scam domains, verify intruders, or contain data leaks.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Matching",
+      "left": [
+        "Lost bank-issued laptop containing work files",
+        "Customer reports phishing text impersonating the bank",
+        "Unverified person seen wandering inside a staff-only corridor",
+        "Accidental attachment of wrong customer statement to an email"
+      ],
+      "right": [
+        "Enables physical security to locate the visitor and check entry logs",
+        "Helps fraud teams warn customers and block malicious domains",
+        "Allows privacy teams to contain exposure and assess notification duties",
+        "Lets IT remotely lock or wipe the device before data is accessed"
+      ],
+      "answer": [3, 1, 0, 2]
+    },
+    {
+      "id": 75,
+      "topic": "Phishing & Email",
+      "type": "tabletop",
+      "prompt": "You receive an email claiming to be from a courier service saying a customer's replacement checkbook could not be delivered and asking you to click a link to confirm the customer's address. Select all SAFE actions.",
+      "explanation": "Checking official courier tracking tools rather than clicking unexpected links and reporting suspicious messages protect both credentials and client addresses.",
+      "difficulty": "Basic",
+      "formatLabel": "Safe actions",
+      "options": [
+        "Avoid clicking the tracking link inside the unexpected delivery email",
+        "Click the link and enter the branch street address just to test if it is real",
+        "Reply with the customer's home address so the replacement arrives faster",
+        "Check official bank courier tracking tools directly rather than email links",
+        "Report the suspicious email using the bank phishing reporting method"
+      ],
+      "answer": [0, 3, 4]
+    },
+    {
+      "id": 76,
+      "topic": "Social Engineering",
+      "type": "single",
+      "prompt": "A caller claims to be from the bank's fraud prevention unit and asks you to read back a customer's last three transactions so they can sync records. What should you do?",
+      "explanation": "Internal teams follow established verification tools and never rely on unverified inbound calls to extract customer transaction histories.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Single choice",
+      "options": [
+        "Read out only the transaction dates without stating the exact monetary amounts",
+        "Confirm the transactions if the caller already knows the customer's full name",
+        "Decline to share data and verify the caller through internal channels",
+        "Email the transaction summary to whatever internal address the caller dictates"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 77,
+      "topic": "Workstation Security",
+      "type": "multi",
+      "prompt": "Which practices keep teller and advisor workstations secure against malware and unauthorized changes? (Select all that apply)",
+      "explanation": "Installing security patches on schedule, using only vetted software, and reporting unusual system alerts keep branch terminals resilient.",
+      "difficulty": "Basic",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "Allow scheduled IT security patches and workstation reboots to complete as instructed",
+        "Use only IT-approved software and tools on bank computers",
+        "Disable endpoint antivirus alerts temporarily if a scanner runs slowly during rushes",
+        "Download free PDF converter utilities from search engines when customers send odd files",
+        "Report unexpected pop-ups, slowdowns, or unfamiliar icons to IT support promptly"
+      ],
+      "answer": [0, 1, 4]
+    },
+    {
+      "id": 78,
+      "topic": "Social Engineering",
+      "type": "diff",
+      "prompt": "Compare the two branch visitor log entries below. Select all anomalies in Evidence B that require immediate supervisor attention.",
+      "explanation": "Unverified tickets, tailgating behind staff without a badge, and missing sign-out entries indicate a physical access control breakdown.",
+      "difficulty": "Advanced",
+      "formatLabel": "Compare evidence",
+      "evidence": {
+        "a": {
+          "Visitor": "J. Miller (Vendor)",
+          "Verified By": "Facilities ticket #8821",
+          "Badge": "Escorted Visitor #04",
+          "Sign-out": "11:15"
+        },
+        "b": {
+          "Visitor": "R. Vance (IT Support)",
+          "Verified By": "No ticket; told teller he was expected",
+          "Badge": "Unbadged; entered behind staff",
+          "Sign-out": "Missing"
+        }
+      },
+      "options": [
+        "The visitor log records the individual's name and stated role",
+        "The visitor had no verified ticket or pre-arranged authorization",
+        "The visit took place during normal branch hours",
+        "The visitor entered behind staff without wearing a visitor badge",
+        "There is no sign-out time recorded for the visitor"
+      ],
+      "answer": [1, 3, 4]
+    },
+    {
+      "id": 79,
+      "topic": "Authentication & Passwords",
+      "type": "order",
+      "prompt": "Order the actions when you suspect someone may have observed you typing your workstation password at the branch counter.",
+      "explanation": "Locking the terminal immediately, changing the credential to a new unique password, and watching for misuse protect your account.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Ordering",
+      "options": [
+        "Change your password immediately through the official password-change process",
+        "Monitor for unusual prompts and report any suspicious activity to IT security per bank policy",
+        "Shield your screen and lock or secure the active session right away",
+        "Ensure the new password is unique and not similar to your previous one"
+      ],
+      "answer": [2, 0, 3, 1]
+    },
+    {
+      "id": 80,
+      "topic": "Customer Data Privacy",
+      "type": "single",
+      "prompt": "A customer asks to take a celebratory selfie with you at the teller window, with your active counter monitor directly behind you. What should you do?",
+      "explanation": "Customer-facing monitors and desk records can inadvertently appear in photos; declining workspace photos and locking screens protect client privacy.",
+      "difficulty": "Basic",
+      "formatLabel": "Single choice",
+      "options": [
+        "Smile for the photo as long as only one customer profile is open on screen",
+        "Allow the photo provided the customer verbally promises not to post the image on social media",
+        "Turn down the monitor brightness slightly before posing in front of the glass",
+        "Decline photos showing workspaces or screens and lock your monitor first"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 81,
+      "topic": "Customer Data Privacy",
+      "type": "match",
+      "prompt": "Match each customer data type with the risk of exposing it carelessly at a branch counter.",
+      "explanation": "Paper, chat, verbal, and screen exposure each create distinct pathways for unauthorized onlookers or external leaks.",
+      "difficulty": "Basic",
+      "formatLabel": "Matching",
+      "left": [
+        "Printed transaction history left in a public brochure rack",
+        "Full identity document photo shared in an unapproved chat app",
+        "Verbal confirmation of account balance overheard in a crowded lobby",
+        "Unredacted account numbers visible on a monitor facing the entrance"
+      ],
+      "right": [
+        "Data leaves bank-controlled systems without encryption or retention controls",
+        "Passersby can capture sensitive details via shoulder surfing or camera zoom",
+        "Strangers can pick up physical pages containing private financial activity",
+        "Nearby visitors hear confidential financial information without authorization"
+      ],
+      "answer": [2, 0, 3, 1]
+    },
+    {
+      "id": 82,
+      "topic": "Physical Security",
+      "type": "tabletop",
+      "prompt": "A person wearing a delivery vest knocks on the rear staff exit door as you take trash to the secure bin area and asks you to hold the door so they do not have to walk to the front lobby. Select all SAFE actions.",
+      "explanation": "Keeping rear staff doors locked, redirecting visitors to official public entrances, and alerting management prevent tailgating breaches.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Safe actions",
+      "options": [
+        "Close and secure the rear staff door firmly behind you without letting them enter",
+        "Hold the door open briefly while checking whether they are carrying a real parcel",
+        "Direct the person to the main public entrance and standard reception process",
+        "Alert branch management if the person lingers or insists on entering the back door",
+        "Ask them to leave the parcel just inside the rear hallway so you can lock up quickly"
+      ],
+      "answer": [0, 2, 3]
+    },
+    {
+      "id": 83,
+      "topic": "Device & Media",
+      "type": "single",
+      "prompt": "Why should branch employees never charge personal smartphones using the USB ports on bank teller PCs or cash-counting terminals?",
+      "explanation": "USB ports carry data as well as power, creating risks of unapproved data transfer, malware exposure, and policy violations.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Single choice",
+      "options": [
+        "Personal phone chargers draw too much electricity and trip branch vault alarms",
+        "USB connections can transfer data, trigger malware scans, or breach policy",
+        "The workstation monitor automatically mirrors personal smartphone screens",
+        "Bank keyboards stop responding whenever any mobile battery reaches full charge"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 84,
+      "topic": "Social Engineering",
+      "type": "multi",
+      "prompt": "A distressed customer at your counter says someone claiming to be a government tax officer is keeping them on an active phone call while telling them to wire funds or buy gift cards immediately. Which actions help protect the customer? (Select all that apply)",
+      "explanation": "Pausing the transaction gently, escalating per bank policy, and guiding the customer out of high-pressure isolation help stop active scams.",
+      "difficulty": "Advanced",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "Pause the transaction calmly and speak privately with the customer about scam warning signs",
+        "Process the wire immediately because the customer insists it is their own money",
+        "Follow bank policy on scam-victim escalation and involve a supervisor",
+        "Speak directly into the customer's phone to argue with the caller on the line",
+        "Offer official bank scam-awareness guidance and give the customer space to hang up safely"
+      ],
+      "answer": [0, 2, 4]
+    },
+    {
+      "id": 85,
+      "topic": "Incident Reporting",
+      "type": "branch",
+      "prompt": "Branching scenario - Misdirected Scan. Work through three decisions.",
+      "explanation": "Report misdirected customer documents right away, preserve transmission logs, and fix faulty scanner presets so errors do not repeat.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Branching scenario",
+      "nodes": [
+        {
+          "id": "s1",
+          "prompt": "While scanning and emailing a customer's mortgage application from the branch copier, you realize you tapped an incorrect external preset and sent the file outside the bank. What do you do?",
+          "options": [
+            {
+              "text": "Resend the scan to the correct recipient right away and forget about the first send",
+              "next": "s2b"
+            },
+            {
+              "text": "Stop sending files, preserve the transmission details, and notify your supervisor and privacy team immediately",
+              "next": "s2"
+            },
+            {
+              "text": "Call the incorrect recipient casually to ask them to delete it without logging an incident",
+              "next": "s2b"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "s2",
+          "prompt": "Your supervisor asks for exact information so the privacy team can start containment. What do you do?",
+          "options": [
+            {
+              "text": "Provide the destination contact, timestamp, and exact customer document types sent",
+              "next": "s3"
+            },
+            {
+              "text": "Wait until end of shift to inspect the printer log so queues keep moving",
+              "next": "s3b"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2b",
+          "prompt": "Hours later, an external company replies asking why they received someone's mortgage application. What do you do?",
+          "options": [
+            {
+              "text": "Ask them politely to ignore it and delete the reply from your inbox",
+              "next": "s3b"
+            },
+            {
+              "text": "Escalate the reply immediately to your branch manager and privacy incident team per bank policy",
+              "next": "s3b"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "s3",
+          "prompt": "The privacy team asks you to check whether the faulty preset contact is still saved on the branch scanner. What do you do?",
+          "options": [
+            {
+              "text": "Leave the preset unchanged in case another department uses it",
+              "next": "END"
+            },
+            {
+              "text": "Verify and report the outdated or mislabeled preset per bank policy so IT removes it",
+              "next": "END"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "s3b",
+          "prompt": "Your branch manager asks why the misdirected transmission was not reported when it first occurred. What do you do?",
+          "options": [
+            {
+              "text": "Acknowledge the delay honestly and provide all facts so the privacy team can protect the customer now",
+              "next": "END"
+            },
+            {
+              "text": "Say the scanner touchscreen froze and transmitted twice on its own",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "topic": "Authentication & Passwords",
+      "type": "single",
+      "prompt": "Where a bank-approved password manager is provided on workstations, what is its primary cyber hygiene benefit?",
+      "explanation": "Password managers make it practical to maintain long, unique credentials for each approved tool without writing them down or reusing them.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Single choice",
+      "options": [
+        "It enables unique strong passwords per account without relying on memory or notes",
+        "It removes the need for multi-factor authentication across every corporate app",
+        "It shares your personal credentials automatically with branch supervisors",
+        "It guarantees passwords never need changing even after an external system breach occurs"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 87,
+      "topic": "Social Engineering",
+      "type": "order",
+      "prompt": "Arrange the steps in the right sequence when a caller demands immediate account changes while refusing standard authentication and claiming to know the bank's CEO.",
+      "explanation": "Remaining calm against intimidation, enforcing universal verification standards, refusing unverified requests, and logging the event defeat authority scams.",
+      "difficulty": "Advanced",
+      "formatLabel": "Ordering",
+      "options": [
+        "Politely refuse the unverified request and direct the caller to approved verification channels",
+        "Stay calm and avoid letting name-dropping or urgency rush your workflow",
+        "Record the attempt on the profile or escalate to fraud and your supervisor per bank policy",
+        "Explain clearly that verification rules apply equally to every inquiry per bank policy"
+      ],
+      "answer": [1, 3, 0, 2]
+    },
+    {
+      "id": 88,
+      "topic": "Phishing & Email",
+      "type": "diff",
+      "prompt": "Compare the two password-reset emails received in a branch mailbox. Select all indicators showing Evidence B is a credential-harvesting attempt.",
+      "explanation": "Typosquatted domains, external link hosts, and urgent demands for a PIN alongside a password signal an obvious phishing trap.",
+      "difficulty": "Advanced",
+      "formatLabel": "Compare evidence",
+      "evidence": {
+        "a": {
+          "From": "no-reply@examplebank.com",
+          "Link": "https://sso.examplebank.com/reset",
+          "Greeting": "Hello Branch Staff",
+          "Instructions": "Use your standard SSO portal bookmark if you requested a reset."
+        },
+        "b": {
+          "From": "security@examplebannk.com",
+          "Link": "https://sso-examplebank.support-portal.net/auth",
+          "Greeting": "Dear Valued User",
+          "Instructions": "Failure to re-enter your current password and PIN within 1 hour will lock your terminal."
+        }
+      },
+      "options": [
+        "The sender domain contains a subtle typosquatting spelling error",
+        "The email uses HTTPS in the displayed hyperlink",
+        "The link points to an external domain rather than examplebank.com",
+        "The message references branch employees or SSO logins",
+        "The email requests a PIN and threatens terminal lockout within one hour"
+      ],
+      "answer": [0, 2, 4]
+    },
+    {
+      "id": 89,
+      "topic": "Physical Security",
+      "type": "multi",
+      "prompt": "Which habits help protect sensitive paper documents in a customer-facing bank branch? (Select all that apply)",
+      "explanation": "Clearing counters, locking active files away, and using locked shred bins prevent unauthorized viewing or disposal theft.",
+      "difficulty": "Basic",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "Reuse misprinted customer forms as scrap scratchpads on the counter",
+        "Place discarded customer records only into locked confidential-waste bins",
+        "Leave incoming courier envelopes stacked beside the public brochure stand",
+        "Clear counters of sensitive papers before leaving for breaks or closing",
+        "Store active customer files inside locked drawers when not being processed"
+      ],
+      "answer": [1, 3, 4]
+    },
+    {
+      "id": 90,
+      "topic": "Workstation Security",
+      "type": "match",
+      "prompt": "Match each advanced workstation threat with the employee behavior that helps defeat it.",
+      "explanation": "Combining screen locking, vetted plugins, macro restraint, and VPN usage closes the most common workstation attack paths.",
+      "difficulty": "Advanced",
+      "formatLabel": "Matching",
+      "left": [
+        "Session hijacking on an unattended counter terminal",
+        "Malicious macro execution from an unsolicited spreadsheet",
+        "Keystroke capture or data theft from an unapproved browser add-on",
+        "Credential capture via an unencrypted public Wi-Fi hotspot"
+      ],
+      "right": [
+        "Using only IT-vetted browser extensions and reporting unknown plugins",
+        "Connecting bank laptops exclusively via approved networks and VPN",
+        "Keeping macros disabled and reporting unexpected attachments to security",
+        "Locking the screen immediately whenever stepping away from the desk"
+      ],
+      "answer": [3, 2, 0, 1]
+    },
+    {
+      "id": 91,
+      "topic": "Customer Data Privacy",
+      "type": "tabletop",
+      "prompt": "While helping a customer update their contact details, you notice the customer behind them in the queue leaning forward closely toward your counter monitor and keypad. Select all SAFE actions.",
+      "explanation": "Enforcing queue spacing, pausing display of sensitive fields, and keeping privacy filters and shielding in place protect customer privacy.",
+      "difficulty": "Basic",
+      "formatLabel": "Safe actions",
+      "options": [
+        "Ask the waiting customer politely to step back behind the privacy marker line",
+        "Pause entering or displaying sensitive details until privacy is restored",
+        "Rotate the monitor slightly toward the waiting queue so both customers feel included",
+        "Ask the current customer to shout out their date of birth so you finish faster",
+        "Ensure your monitor privacy filter is seated cleanly and shield keypad entries"
+      ],
+      "answer": [0, 1, 4]
+    },
+    {
+      "id": 92,
+      "topic": "Incident Reporting",
+      "type": "single",
+      "prompt": "You spot a tiny unfamiliar sticker pasted directly over the official QR code on a branch lobby poster for the bank's mobile app. What should you do first?",
+      "explanation": "Covering or removing tampered QR posters and reporting them right away stops customers from scanning fraudulent links.",
+      "difficulty": "Basic",
+      "formatLabel": "Single choice",
+      "options": [
+        "Scan the sticker using your personal smartphone to inspect where the linked webpage goes",
+        "Leave the poster up until the monthly marketing audit happens",
+        "Remove or cover the poster per policy and report the tampering right away",
+        "Peel off only the corner of the sticker and let customers keep scanning"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 93,
+      "topic": "Device & Media",
+      "type": "single",
+      "prompt": "A bank-issued laptop used by mobile relationship officers is being retired. Why must staff return it through official IT channels rather than wiping it casually themselves?",
+      "explanation": "Official IT decommissioning ensures cryptographic or certified data erasure, proper asset tracking, and compliance verification.",
+      "difficulty": "Advanced",
+      "formatLabel": "Single choice",
+      "options": [
+        "Only branch tellers are permitted to unplug laptop power adapters safely",
+        "Returning laptops directly to customers helps speed up branch recycling",
+        "Casual manual file deletion permanently damages the laptop's internal cooling hardware",
+        "Proper asset return ensures certified data sanitization and inventory tracking"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 94,
+      "topic": "Incident Reporting",
+      "type": "multi",
+      "prompt": "Which details are most helpful to include when reporting a suspected phishing email or scam call to the bank security team? (Select all that apply)",
+      "explanation": "Exact timestamps, sender or caller identifiers, preserved message copies, and actions taken enable fast containment.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "Exact date, time, sender address, or caller phone number displayed",
+        "Your personal opinion guessing which country the attacker lives in",
+        "Whether any link was clicked, attachment opened, or credential entered",
+        "Screenshots showing other unrelated customers' confidential account screens",
+        "Forwarding or attaching the original suspicious message via the approved tool"
+      ],
+      "answer": [0, 2, 4]
+    },
+    {
+      "id": 95,
+      "topic": "Customer Data Privacy",
+      "type": "order",
+      "prompt": "Order the steps for safely handing printed account documents to a customer at the branch counter.",
+      "explanation": "Verifying identity first, double-checking every page, concealing balances, and clearing stray sheets prevent misdirected disclosures.",
+      "difficulty": "Basic",
+      "formatLabel": "Ordering",
+      "options": [
+        "Confirm every page belongs strictly to the verified customer in front of you",
+        "Place the pages inside an envelope or fold them so balances are concealed",
+        "Verify the customer's identity per bank policy before printing or retrieving records",
+        "Check that no duplicate pages or carbon copies remain exposed on the counter"
+      ],
+      "answer": [2, 0, 1, 3]
+    },
+    {
+      "id": 96,
+      "topic": "Device & Media",
+      "type": "diff",
+      "prompt": "Compare the two USB port states on a teller counter terminal. Select the ONE finding that explains why Evidence B is unsafe.",
+      "explanation": "Connecting an untrusted customer phone to a bank terminal introduces malware, data sync, and network bypass hazards.",
+      "difficulty": "Basic",
+      "formatLabel": "Compare evidence",
+      "evidence": {
+        "a": {
+          "Port 1": "Bank-issued barcode scanner",
+          "Port 2": "Bank-issued smartcard reader",
+          "Port 3": "Empty / port blocker"
+        },
+        "b": {
+          "Port 1": "Bank-issued barcode scanner",
+          "Port 2": "Customer's personal phone charging cable",
+          "Port 3": "Empty"
+        }
+      },
+      "options": [
+        "Evidence B includes a bank-issued barcode scanner in Port 1",
+        "Evidence B leaves Port 3 completely open without an active bank-approved device attached",
+        "Evidence B connects an untrusted personal phone to a bank terminal",
+        "Evidence B lacks a separate printer cable on the terminal"
+      ],
+      "answer": [2]
+    },
+    {
+      "id": 97,
+      "topic": "Phishing & Email",
+      "type": "match",
+      "prompt": "Match each common phishing lure with the employee action it tries to exploit.",
+      "explanation": "Recognizing how attackers use reward, fear, curiosity, and authority makes deceptive emails much easier to spot.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Matching",
+      "left": [
+        "Fake HR email promising an urgent salary bonus adjustment form",
+        "Fake IT alert warning that your teller account will lock in 30 minutes",
+        "Fake customer complaint email with an executable attachment named Evidence.zip",
+        "Fake executive message asking for immediate confidentiality on a wire transfer"
+      ],
+      "right": [
+        "Pressuring staff to bypass normal dual-control or verification steps",
+        "Tempting curiosity or personal reward to click an external link",
+        "Tricking staff into downloading and running hidden malware",
+        "Using fear of disruption to rush credential entry on a fake page"
+      ],
+      "answer": [1, 3, 2, 0]
+    },
+    {
+      "id": 98,
+      "topic": "Authentication & Passwords",
+      "type": "tabletop",
+      "prompt": "You supervise a busy teller pod as IT retires a shared branch mailbox password in favor of individual delegated logins. One colleague suggests writing the old shared password in a locked binder just in case. Select all SAFE actions.",
+      "explanation": "Moving to individual delegated access maintains clear audit trails and eliminates the risk of written or shared passwords.",
+      "difficulty": "Advanced",
+      "formatLabel": "Safe actions",
+      "options": [
+        "Record the shared password in a physical binder inside a drawer for emergencies",
+        "Transition promptly to individual delegated logins so all actions remain auditable",
+        "Never store active passwords on paper or in unapproved shared documents",
+        "Share one senior teller's individual login across the pod during peak lunch hours",
+        "Contact IT support if any teller lacks proper delegated mailbox access"
+      ],
+      "answer": [1, 2, 4]
+    },
+    {
+      "id": 99,
+      "topic": "Social Engineering",
+      "type": "branch",
+      "prompt": "Branching scenario - After-Hours Door Request. Work through three decisions.",
+      "explanation": "Keep doors secured after closing, verify unexpected visitors through management or security, and never concede entry under pressure.",
+      "difficulty": "Advanced",
+      "formatLabel": "Branching scenario",
+      "nodes": [
+        {
+          "id": "s1",
+          "prompt": "While locking up after closing, someone in a contractor jacket knocks on the glass entrance saying they left an essential toolkit in the back hallway and asks for one minute inside. What do you do?",
+          "options": [
+            {
+              "text": "Unlock the door quickly and walk them back since contractors visited earlier in the week",
+              "next": "s2b"
+            },
+            {
+              "text": "Tell them to wait inside the lobby vestibule while you go search the back office alone",
+              "next": "s2b"
+            },
+            {
+              "text": "Keep the door locked, decline entry, and verify the claim through management or security per bank policy",
+              "next": "s2"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "s2",
+          "prompt": "The person pushes lightly on the glass and warns their supervisor will be angry if they miss their next stop. What do you do?",
+          "options": [
+            {
+              "text": "Keep all doors secured, avoid confrontation, and contact branch management and security immediately",
+              "next": "s3"
+            },
+            {
+              "text": "Open the door slightly to ask for a business card so you can inspect it",
+              "next": "s3b"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2b",
+          "prompt": "After letting them inside the door, you do not recognize them and they begin walking toward an internal corridor. What do you do?",
+          "options": [
+            {
+              "text": "Block access to restricted zones if safe, move to a secure area, and trigger security escalation immediately per bank policy",
+              "next": "s3b"
+            },
+            {
+              "text": "Watch quietly until they find their bag so they leave quickly",
+              "next": "s3b"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3",
+          "prompt": "Security confirms no contractor is scheduled and asks you to remain inside while patrol checks the exterior. What do you do?",
+          "options": [
+            {
+              "text": "Step outside alone to check which vehicle the person arrived in",
+              "next": "END"
+            },
+            {
+              "text": "Stay safely inside the locked branch, log the time and description, and follow security instructions",
+              "next": "END"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "s3b",
+          "prompt": "Security arrives and asks exactly what happened at the branch entrance. What do you do?",
+          "options": [
+            {
+              "text": "Say the person remained on the sidewalk outside and never entered the building",
+              "next": "END"
+            },
+            {
+              "text": "Describe honestly when the door was opened and where the visitor walked so cameras can be reviewed",
+              "next": "END"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "topic": "Workstation Security",
+      "type": "multi",
+      "prompt": "An unfamiliar remote-support pop-up appears on your counter terminal asking for screen-view permission when no IT ticket is open. Which actions should you take? (Select all that apply)",
+      "explanation": "Denying unsolicited remote-access prompts, pausing sensitive work, and alerting IT security immediately prevent unauthorized workstation takeover.",
+      "difficulty": "Intermediate",
+      "formatLabel": "Multiple choice",
+      "options": [
+        "Deny or close the unexpected remote-access prompt without granting control",
+        "Click Allow briefly to check which support agent is trying to connect",
+        "Report the unsolicited remote prompt to IT security and your supervisor immediately",
+        "Avoid entering passwords or opening new customer profiles until IT clears the terminal",
+        "Ask a waiting customer whether they see any warning lights on the monitor"
+      ],
+      "answer": [0, 2, 3]
+    }
+  ]
+}

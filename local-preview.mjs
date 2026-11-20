@@ -1,7 +1,7 @@
 ﻿import { createServer } from 'node:http';
 import { createHmac, randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
-import { extname, resolve, sep } from 'node:path';
+import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
+import { basename, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { gradeSubmission } from './api/_lib/grading.mjs';
 
@@ -15,6 +15,29 @@ if (!secret) throw new Error('ADMIN_SESSION_SECRET must be configured.');
 
 const defaultQuestions = JSON.parse(await readFile(resolve(root, 'api/_lib/default-pool.json'), 'utf8'));
 const pools = new Map();
+const questionPoolsDirectory = resolve(root, 'Question pools');
+const defaultPoolDisabledPath = resolve(questionPoolsDirectory, '.standard-pool-disabled');
+let defaultPoolDisabled = Boolean(await readFile(defaultPoolDisabledPath).catch(() => null));
+await mkdir(questionPoolsDirectory, { recursive: true });
+for (const entry of await readdir(questionPoolsDirectory, { withFileTypes: true })) {
+  if (!entry.isFile() || !entry.name.toLowerCase().endsWith('.json')) continue;
+  try {
+    const source = JSON.parse(await readFile(resolve(questionPoolsDirectory, entry.name), 'utf8'));
+    const questions = Array.isArray(source) ? source : source.questions;
+    if (!Array.isArray(questions) || questions.length < 5) continue;
+    const isStandard = entry.name.toLowerCase() === 'bankshield standard pool.json';
+    const id = isStandard ? 'default' : (typeof source.id === 'string' && source.id ? source.id : randomUUID());
+    if (isStandard && defaultPoolDisabled) continue;
+    pools.set(id, {
+      id,
+      name: isStandard ? 'BankShield standard pool' : (source.name || basename(entry.name, '.json')),
+      questionCount: Number.isInteger(source.questionCount) ? source.questionCount : Math.min(25, questions.length),
+      timeLimitMinutes: Number.isInteger(source.timeLimitMinutes) ? source.timeLimitMinutes : 15,
+      questions,
+      fileName: entry.name,
+    });
+  } catch (error) { process.stderr.write(`Skipping invalid question pool file ${entry.name}: ${error.message}\n`); }
+}
 const tests = new Map();
 const submissions = new Map();
 const loginFailures = new Map();
@@ -22,7 +45,7 @@ const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 const LOGIN_LIMIT = 5;
 let settings = { questionCount: 25, timeLimitMinutes: 15 };
 const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml' };
-const publicFiles = new Set(['BankShield_Frontline_Assessment.html', 'admin.html', 'admin-qr.js', 'language.js', 'lang_hi.js', 'QUESTION_POOL_AI_PROMPT.md']);
+const publicFiles = new Set(['BankShield_Frontline_Assessment.html', 'admin.html', 'admin-qr.js', 'admin-pools.js', 'language.js', 'lang_hi.js', 'QUESTION_POOL_AI_PROMPT.md']);
 
 function send(res, status, value, headers = {}) {
   const body = typeof value === 'string' ? value : JSON.stringify(value);
@@ -70,7 +93,7 @@ function trustedOrigin(req) {
   return true;
 }
 function testSafe(test) { const { accessCode, ...safe } = test; return { ...safe, accessTicket: ticketFor(test.id) }; }
-function poolRead(id) { return id === 'default' ? { id, name: 'BankShield standard pool', ...settings, questions: defaultQuestions } : pools.get(id) || null; }
+function poolRead(id) { if (id === 'default' && defaultPoolDisabled) return null; return pools.get(id) || (id === 'default' ? { id, name: 'BankShield standard pool', ...settings, questions: defaultQuestions } : null); }
 function publicQuestion(question) { const { answer, explanation, keywords, sample, ...visible } = question; if (Array.isArray(visible.nodes)) visible.nodes = visible.nodes.map(({ answer: nodeAnswer, ...node }) => node); return visible; }
 function poolSummary(pool) { return { id: pool.id, name: pool.name, questionCount: pool.questionCount, timeLimitMinutes: pool.timeLimitMinutes, totalQuestions: pool.questions.length, topics: [...new Set(pool.questions.map(q => q.topic))] }; }
 function poolCoverage(pool, count) { const topics = [...new Set(pool.questions.map(q => q.topic))], available = topics.map(topic => pool.questions.filter(q => q.topic === topic).length), allocated = topics.map(() => 0), standard = ['Customer identity & privacy', 'Phishing & suspicious emails', 'Incident reporting & evidence care', 'Compliance & customer verification', 'Phone calls & social engineering', 'Customer-reported fraud & alerts', 'Email details & header checks', 'Payment instructions & record keeping', 'Branch & physical security', 'Passwords, devices & safe access'], weights = [4,4,3,3,3,2,2,2,1,1]; for(let n=0;n<count;n++){let pick=-1,priority=-1;topics.forEach((topic,i)=>{const known=standard.indexOf(topic),score=(known<0?1:weights[known])/(allocated[i]+1);if(allocated[i]<available[i]&&score>priority){pick=i;priority=score;}});if(pick<0)break;allocated[pick]++;}return topics.map((topic,i)=>({topic,count:allocated[i]})).filter(item=>item.count>0); }
@@ -115,9 +138,10 @@ const server = createServer(async (req, res) => {
       if (path === '/api/admin/settings' && req.method === 'GET') return send(res, 200, { ...settings, maxQuestions: 93 });
       if (path === '/api/admin/settings' && req.method === 'PUT') { const x = await body(req); if (!Number.isInteger(x.questionCount) || x.questionCount < 5 || x.questionCount > 93 || !Number.isInteger(x.timeLimitMinutes) || x.timeLimitMinutes < 1 || x.timeLimitMinutes > 180) return send(res, 400, { error: 'Invalid quiz settings.' }); settings = { questionCount: x.questionCount, timeLimitMinutes: x.timeLimitMinutes }; return send(res, 200, settings); }
       if (path === '/api/settings' && req.method === 'GET') return send(res, 200, { ...settings, maxQuestions: 93 });
-      if (path === '/api/pools' && req.method === 'GET') return send(res, 200, [poolSummary({ id: 'default', name: 'BankShield standard pool', ...settings, questions: defaultQuestions }), ...[...pools.values()].map(poolSummary)]);
-      if (path === '/api/pools' && req.method === 'POST') { const input = await body(req); if (typeof input.name !== 'string' || !Array.isArray(input.questions) || input.questions.length < 5) return send(res, 400, { error: 'Pool must include a name and at least five questions.' }); const id = randomUUID(); const pool = { id, name: input.name.trim(), questionCount: input.questionCount ?? Math.min(25, input.questions.length), timeLimitMinutes: input.timeLimitMinutes ?? 15, questions: input.questions }; pools.set(id, pool); return send(res, 201, poolSummary(pool)); }
-      if (path === '/api/pools' && req.method === 'DELETE') { const id = url.searchParams.get('id'); if ([...tests.values()].some(test => test.poolId === id)) return send(res, 409, { error: 'Revoke tests using this pool first.' }); return send(res, pools.delete(id) ? 200 : 404, { ok: pools.has(id) }); }
+      if (path === '/api/pools' && req.method === 'GET') { const id = url.searchParams.get('id'); if (id) { const pool = poolRead(id); return pool ? send(res, 200, pool) : send(res, 404, { error: 'Question pool not found.' }); } const standard = poolRead('default'); return send(res, 200, [...(standard ? [poolSummary(standard)] : []), ...[...pools.values()].filter(pool => pool.id !== 'default').map(poolSummary)]); }
+      if (path === '/api/pools' && req.method === 'POST') { const input = await body(req); if (typeof input.name !== 'string' || !Array.isArray(input.questions) || input.questions.length < 5) return send(res, 400, { error: 'Pool must include a name and at least five questions.' }); const id = randomUUID(), fileName = `${input.name.trim().replace(/[^A-Za-z0-9_-]+/g, '-').replace(/^-|-$/g, '').slice(0, 70) || 'Question-pool'}-${id.slice(0, 8)}.json`; const pool = { id, name: input.name.trim(), questionCount: input.questionCount ?? Math.min(25, input.questions.length), timeLimitMinutes: input.timeLimitMinutes ?? 15, questions: input.questions, fileName }; await writeFile(resolve(questionPoolsDirectory, fileName), JSON.stringify(pool, null, 2), 'utf8'); pools.set(id, pool); return send(res, 201, poolSummary(pool)); }
+      if (path === '/api/pools' && req.method === 'PUT') { const id = url.searchParams.get('id'), input = await body(req), existing = id && (id === 'default' ? (pools.get(id) || { id, name: 'BankShield standard pool', ...settings, questions: defaultQuestions, fileName: 'BankShield standard pool.json' }) : poolRead(id)); if (!existing) return send(res, 404, { error: 'Question pool not found.' }); if (!Array.isArray(input.questions) || input.questions.length < 5) return send(res, 400, { error: 'Pool must include at least five questions.' }); const pool = { id, name: id === 'default' ? 'BankShield standard pool' : String(input.name || '').trim(), questionCount: Number(input.questionCount ?? 25), timeLimitMinutes: Number(input.timeLimitMinutes ?? 15), questions: input.questions, fileName: existing.fileName || (id === 'default' ? 'BankShield standard pool.json' : `${id}.json`), updatedAt: new Date().toISOString() }; if (!pool.name || !Number.isInteger(pool.questionCount) || pool.questionCount < 5 || pool.questionCount > Math.min(93, pool.questions.length) || !Number.isInteger(pool.timeLimitMinutes) || pool.timeLimitMinutes < 1 || pool.timeLimitMinutes > 180) return send(res, 400, { error: 'Pool name, question count, or time limit is invalid.' }); await writeFile(resolve(questionPoolsDirectory, pool.fileName), JSON.stringify(pool, null, 2), 'utf8'); if (id === 'default' && defaultPoolDisabled) { defaultPoolDisabled = false; await unlink(defaultPoolDisabledPath).catch(() => {}); } pools.set(id, pool); return send(res, 200, poolSummary(pool)); }
+      if (path === '/api/pools' && req.method === 'DELETE') { const id = url.searchParams.get('id'); if ([...tests.values()].some(test => test.poolId === id)) return send(res, 409, { error: 'Revoke test links using this pool first.' }); if (id === 'default') { if (!poolRead(id)) return send(res, 404, { error: 'Question pool not found.' }); defaultPoolDisabled = true; await writeFile(defaultPoolDisabledPath, new Date().toISOString(), 'utf8'); pools.delete(id); return send(res, 200, { ok: true }); } const pool = pools.get(id); if (!pool) return send(res, 404, { error: 'Question pool not found.' }); pools.delete(id); if (pool.fileName) await unlink(resolve(questionPoolsDirectory, pool.fileName)).catch(() => {}); return send(res, 200, { ok: true }); }
       if (path === '/api/tests' && req.method === 'GET') return send(res, 200, [...tests.values()].map(testSafe).sort((a, b) => b.createdAt.localeCompare(a.createdAt)));
       if (path === '/api/tests' && req.method === 'POST') { const input = await body(req); const pool = poolRead(input.poolId); if (!pool) return send(res, 400, { error: 'Choose an available question pool.' }); const questionCount = Number(input.questionCount), timeLimitMinutes = Number(input.timeLimitMinutes); if (!Number.isInteger(questionCount) || questionCount < 5 || questionCount > pool.questions.length || !Number.isInteger(timeLimitMinutes) || timeLimitMinutes < 1 || timeLimitMinutes > 180) return send(res, 400, { error: 'Invalid question count or time limit.' }); const id = randomUUID(); const accessCode = randomBytes(16).toString('hex').toUpperCase(); const test = { id, poolId: pool.id, poolName: pool.name, questionCount, timeLimitMinutes, accessCode, createdAt: new Date().toISOString() }; tests.set(id, test); return send(res, 201, testSafe(test)); }
       if (path === '/api/tests' && req.method === 'DELETE') return send(res, tests.delete(url.searchParams.get('id')) ? 200 : 404, { ok: true });

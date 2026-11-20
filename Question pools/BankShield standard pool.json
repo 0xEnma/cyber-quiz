@@ -1,0 +1,2030 @@
+{
+  "name": "BankShield standard pool",
+  "questionCount": 25,
+  "timeLimitMinutes": 15,
+  "questions": [
+    {
+      "topic": "Customer identity & privacy",
+      "type": "single",
+      "prompt": "A caller asks for a customer’s account balance. What should you do first?",
+      "options": [
+        "Confirm identity using the bank’s approved checks",
+        "Share it if the caller knows the customer’s full name",
+        "Ask the caller to send an email request",
+        "Give only an approximate balance"
+      ],
+      "answer": 0,
+      "explanation": "A name or other personal detail is not enough. Complete approved identity checks before sharing account information.",
+      "id": 1,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "single",
+      "prompt": "A customer asks you to send a statement to a new email address. What is the safest action?",
+      "options": [
+        "Send it and ask them to confirm later",
+        "Follow the approved process to verify and update contact details",
+        "Send it to both the old and new addresses",
+        "Ask a nearby colleague whether the customer seems genuine"
+      ],
+      "answer": 1,
+      "explanation": "A changed destination must be verified through the bank’s approved process before customer information is sent.",
+      "id": 2,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "single",
+      "prompt": "A colleague from another department asks for a customer’s phone number but gives no reason. What should you do?",
+      "options": [
+        "Share it because they work for the bank",
+        "Send it through personal chat",
+        "Check their work need and access permission first",
+        "Read it aloud so it is not written down"
+      ],
+      "answer": 2,
+      "explanation": "Customer information should only be accessed and shared for an approved work purpose with authorised staff.",
+      "id": 3,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "single",
+      "prompt": "You need to discuss a customer complaint at a busy counter. What is best?",
+      "options": [
+        "Speak loudly so the queue can hear the explanation",
+        "Move the discussion to a suitable private place",
+        "Use the customer’s full name repeatedly",
+        "Ask the next customer to help translate the details"
+      ],
+      "answer": 1,
+      "explanation": "Discuss personal or account details where other customers cannot overhear them.",
+      "id": 4,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "single",
+      "prompt": "A printed account statement is left on the shared printer. What should you do?",
+      "options": [
+        "Leave it in case the owner returns",
+        "Put it face down on the counter",
+        "Secure it promptly and follow the branch process to notify the owner or report exposure",
+        "Take a photo to identify the customer later"
+      ],
+      "answer": 2,
+      "explanation": "Secure printed customer information promptly and report any possible exposure according to branch procedure.",
+      "id": 5,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "single",
+      "prompt": "You see a customer’s account open on a screen while the employee steps away. What is the best response?",
+      "options": [
+        "Lock the screen if you can do so safely and alert the employee",
+        "Read the account to see whether it is important",
+        "Leave it because the employee will return",
+        "Take a picture as proof"
+      ],
+      "answer": 0,
+      "explanation": "Screens containing customer data should not be left visible to others. Do not inspect or copy information unnecessarily.",
+      "id": 6,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "multi",
+      "prompt": "Before sharing customer information with another employee, which checks should you make? Select ALL that apply.",
+      "options": [
+        "They have an approved work reason",
+        "They are allowed to access that type of information",
+        "Only the information needed for the task is shared",
+        "They are friendly and work in the same building"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Use a valid work purpose, check authorisation, and share only what is needed. Familiarity alone is not permission.",
+      "id": 7,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "multi",
+      "prompt": "A customer asks you to discuss an account with their relative. Which safeguards may be needed? Select ALL that apply.",
+      "options": [
+        "Follow the bank’s process for checking the customer’s permission",
+        "Verify the relative’s identity where required",
+        "Share the full account history because they are family",
+        "Record the permission or action when the process requires it"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "Family relationship alone does not give access. Follow the bank’s permission and identity process and record it as required.",
+      "id": 8,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Customer identity & privacy",
+      "type": "match",
+      "prompt": "Match each customer-data situation to the safest response.",
+      "left": [
+        "A caller asks for a balance",
+        "A statement is left at the printer",
+        "A colleague asks for extra customer details"
+      ],
+      "right": [
+        "Secure it and follow the exposure-reporting process",
+        "Check their work need and access permission",
+        "Complete the approved identity checks first"
+      ],
+      "answer": [
+        2,
+        0,
+        1
+      ],
+      "explanation": "Identity checks, authorised work access, and safe handling of documents help protect customer data.",
+      "id": 9,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Match the columns"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "single",
+      "prompt": "An email says your staff account will be closed in 10 minutes unless you sign in through a link. What should you do?",
+      "options": [
+        "Use the link before the deadline",
+        "Reply with your staff ID",
+        "Do not use the link; report or verify through the bank’s known process",
+        "Forward it to the whole branch"
+      ],
+      "answer": 2,
+      "explanation": "Urgency plus an unexpected sign-in link is a common warning sign. Use the approved reporting route.",
+      "id": 11,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "single",
+      "prompt": "You receive an invoice attachment you were not expecting. What is best?",
+      "options": [
+        "Open it to find out who sent it",
+        "Check with the sender through a known contact method before opening it",
+        "Save it to the shared drive for later",
+        "Send it to a customer to ask if they recognise it"
+      ],
+      "answer": 1,
+      "explanation": "Unexpected attachments should be verified using a trusted route, not opened out of curiosity.",
+      "id": 12,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "single",
+      "prompt": "The sender name says “Bank IT Helpdesk,” but the actual email address looks unfamiliar. What should you do?",
+      "options": [
+        "Trust the sender name",
+        "Check the actual address and report it if unexpected",
+        "Reply asking whether it is real",
+        "Open any attachment to look for a logo"
+      ],
+      "answer": 1,
+      "explanation": "Sender display names can be faked. Check the full email address and use approved reporting steps.",
+      "id": 13,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "single",
+      "prompt": "An email appears in a familiar thread but asks you to use a new payment link. What is safest?",
+      "options": [
+        "Trust it because the thread is familiar",
+        "Use it only if the logo looks correct",
+        "Verify the change through a known, independent contact route",
+        "Ask the sender to confirm by replying to the same email"
+      ],
+      "answer": 2,
+      "explanation": "An attacker may take over or imitate a real email thread. Verify payment or link changes separately.",
+      "id": 14,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "single",
+      "prompt": "A QR code on an unexpected notice says “Scan now to keep your staff access.” What should you do?",
+      "options": [
+        "Scan it and sign in quickly",
+        "Avoid scanning it and verify the notice through an official channel",
+        "Share it with colleagues to see what it opens",
+        "Use your personal phone instead"
+      ],
+      "answer": 1,
+      "explanation": "A QR code can hide a harmful website. Verify the request before opening it.",
+      "id": 15,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "single",
+      "prompt": "You think an email may be a scam. What is the safest way to alert the bank?",
+      "options": [
+        "Use the bank’s approved report-phishing method or service desk",
+        "Forward it to all staff with a warning",
+        "Reply to the sender and ask for proof",
+        "Delete it and tell nobody"
+      ],
+      "answer": 0,
+      "explanation": "Use the bank’s approved reporting route. Broad forwarding may expose others to the same harmful content.",
+      "id": 16,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "multi",
+      "prompt": "A message asks you to sign in urgently. Which are warning signs? Select ALL that apply.",
+      "options": [
+        "The link goes to an unfamiliar website",
+        "It asks you to keep the request secret",
+        "It threatens account closure unless you act immediately",
+        "It matches a task you were expecting and the link is verified"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Look for unexpected links, secrecy, pressure, and threats. A familiar task still needs normal checks when the message is unusual.",
+      "id": 17,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "diff",
+      "prompt": "Compare the two email notices. Select ALL meaningful warning signs in Message B.",
+      "evidence": {
+        "a": {
+          "title": "Routine staff notice",
+          "from": "service@bank.example",
+          "link": "https://staff.bank.example/policy",
+          "request": "Read the updated leave policy",
+          "tone": "No threat or unusual deadline"
+        },
+        "b": {
+          "title": "URGENT: staff account at risk",
+          "from": "service@bank-access-check.example",
+          "link": "http://bank-staff-verify.example/login",
+          "request": "Enter password and approve sign-in in 8 minutes",
+          "tone": "Threatens lockout; says not to call IT"
+        }
+      },
+      "options": [
+        "The sender address is different from the known address",
+        "The link uses an unfamiliar lookalike website",
+        "The message pressures the reader and asks for a password/MFA approval",
+        "Both messages ask staff to read a policy"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "The sender, destination, urgent pressure, and request for secrets are meaningful warning signs. The details are fictional training examples.",
+      "id": 18,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Spot the difference"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "diff",
+      "prompt": "Compare the two supplier messages. Select ALL meaningful differences that need checking in Message B.",
+      "evidence": {
+        "a": {
+          "title": "Invoice follow-up",
+          "from": "accounts@northstar.example",
+          "reply-to": "accounts@northstar.example",
+          "request": "Please confirm receipt of the invoice"
+        },
+        "b": {
+          "title": "Updated bank details — pay today",
+          "from": "accounts@northstar-supplier.example",
+          "reply-to": "new-payments@fast-invoice.example",
+          "request": "Change bank details now; do not call our usual number"
+        }
+      },
+      "options": [
+        "The reply-to address does not match the normal address",
+        "The message requests a payment-detail change under pressure",
+        "The message says not to use the usual contact number",
+        "The invoice number is printed near the top"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Unexpected payment changes require independent verification, even when the email looks like an ongoing conversation.",
+      "id": 19,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Spot the difference"
+    },
+    {
+      "topic": "Phishing & suspicious emails",
+      "type": "match",
+      "prompt": "Match each email warning sign to the safest response.",
+      "left": [
+        "Unknown sign-in link",
+        "Unexpected attachment",
+        "New supplier bank details by email"
+      ],
+      "right": [
+        "Verify independently using a known contact",
+        "Do not open until the sender/request is verified",
+        "Do not sign in; report or check through an official channel"
+      ],
+      "answer": [
+        2,
+        1,
+        0
+      ],
+      "explanation": "Use trusted channels to check messages before clicking, opening files, or changing payment instructions.",
+      "id": 20,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Match the columns"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "single",
+      "prompt": "You realise a customer file was sent to the wrong external email address. What should you do first?",
+      "options": [
+        "Try to hide the mistake until you know whether it was opened",
+        "Report it promptly through the bank’s incident process and follow instructions",
+        "Send another email asking the recipient to ignore it, then close the matter",
+        "Delete the sent email and do not mention it"
+      ],
+      "answer": 1,
+      "explanation": "Report quickly. Do not conceal, delete records, or assume a follow-up message resolves the exposure.",
+      "id": 21,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "single",
+      "prompt": "A workstation shows a strange warning and files appear to be changing names. What is the safest response?",
+      "options": [
+        "Keep clicking to see what happens",
+        "Restart it several times",
+        "Stop using it and contact the approved IT/security support route immediately",
+        "Copy the files to a USB drive"
+      ],
+      "answer": 2,
+      "explanation": "Avoid further interaction and do not attempt fixes or copy files. Follow the bank’s incident instructions so evidence is not disturbed.",
+      "id": 22,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "single",
+      "prompt": "You lose a work phone that may contain bank email. What should you do?",
+      "options": [
+        "Wait until the end of the week to see if it turns up",
+        "Report it immediately using the bank’s lost-device process",
+        "Ask a friend to track it using their account",
+        "Change random settings on any computer you can find"
+      ],
+      "answer": 1,
+      "explanation": "A lost work device can expose information. Prompt reporting allows authorised teams to take the correct steps.",
+      "id": 23,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "single",
+      "prompt": "A customer reports an unusual account transaction. What should you do?",
+      "options": [
+        "Promise a refund before checking anything",
+        "Tell them to post the details on social media",
+        "Follow the bank’s fraud-reporting process and record the facts accurately",
+        "Ask for their PIN to check whether they made it"
+      ],
+      "answer": 2,
+      "explanation": "Use the approved fraud process, record what the customer reports, and never ask for their PIN or password.",
+      "id": 24,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "single",
+      "prompt": "A visitor gives you a USB drive labelled “urgent salary list.” What is best?",
+      "options": [
+        "Plug it in on a spare computer",
+        "Ask another clerk to test it",
+        "Do not connect it; report it through the approved channel",
+        "Take it home and scan it later"
+      ],
+      "answer": 2,
+      "explanation": "Unknown removable devices can carry harmful files. Do not connect them to bank equipment.",
+      "id": 25,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "branch",
+      "prompt": "Branching scenario: you notice a suspicious message and then learn a colleague may have clicked it. Choose what to do at each stage.",
+      "nodes": [
+        {
+          "id": "s1",
+          "prompt": "Stage 1 of 3 — The email asks for your password and says not to contact IT. What do you do?",
+          "options": [
+            {
+              "text": "Do not use the link; report it through the approved channel",
+              "next": "s2safe"
+            },
+            {
+              "text": "Open the link to check whether it looks real",
+              "next": "s2risk"
+            },
+            {
+              "text": "Forward it to other clerks to ask their opinion",
+              "next": "s2risk"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2safe",
+          "prompt": "Stage 2 of 3 — A colleague says they may have entered their password. What should happen next?",
+          "options": [
+            {
+              "text": "Tell them to report it immediately through the bank’s incident route",
+              "next": "s3safe"
+            },
+            {
+              "text": "Wait to see whether their account stops working",
+              "next": "s3risk"
+            },
+            {
+              "text": "Ask them to delete the email and keep quiet",
+              "next": "s3risk"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2risk",
+          "prompt": "Stage 2 of 3 — You opened the link while checking it. What is the safest next step now?",
+          "options": [
+            {
+              "text": "Stop interacting with it and contact the approved IT/security route",
+              "next": "s3safe2"
+            },
+            {
+              "text": "Enter a dummy password to test the page",
+              "next": "s3risk2"
+            },
+            {
+              "text": "Clear browser history so it cannot cause an issue",
+              "next": "s3risk2"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3safe",
+          "prompt": "Stage 3 of 3 — What should the colleague do with the device and message while help arrives?",
+          "options": [
+            {
+              "text": "Follow support instructions and leave relevant messages/alerts intact",
+              "next": "END"
+            },
+            {
+              "text": "Delete everything related to the email",
+              "next": "END"
+            },
+            {
+              "text": "Install a cleaning tool from the internet",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3risk",
+          "prompt": "Stage 3 of 3 — You are asked to hide the incident until later. What should you do?",
+          "options": [
+            {
+              "text": "Report the facts promptly and do not delete records",
+              "next": "END"
+            },
+            {
+              "text": "Agree to wait unless money is lost",
+              "next": "END"
+            },
+            {
+              "text": "Delete the email to protect the team",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3safe2",
+          "prompt": "Stage 3 of 3 — Support asks you to preserve the message and stop using the page. What should you do?",
+          "options": [
+            {
+              "text": "Follow the instructions and keep the original message available",
+              "next": "END"
+            },
+            {
+              "text": "Forward the link to your personal mailbox",
+              "next": "END"
+            },
+            {
+              "text": "Try the link on a second bank computer",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3risk2",
+          "prompt": "Stage 3 of 3 — You are tempted to clear the browser and keep working. What is best?",
+          "options": [
+            {
+              "text": "Stop and report what happened; leave evidence intact",
+              "next": "END"
+            },
+            {
+              "text": "Clear the browser and say nothing",
+              "next": "END"
+            },
+            {
+              "text": "Ask a customer to check the page",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "explanation": "The safe path is to stop interacting, report quickly, be honest about any click or password entry, and preserve relevant messages and alerts. Do not delete files or try your own fixes.",
+      "id": 26,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "3-step branching scenario"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "order",
+      "prompt": "Put the response steps for a suspected security incident in the safest order.",
+      "options": [
+        "Report promptly through the approved bank channel",
+        "Notice the suspicious activity or mistake",
+        "Follow instructions from the authorised response team",
+        "Avoid further actions that could change or erase evidence"
+      ],
+      "answer": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "explanation": "Notice the issue, report it promptly, avoid disturbing evidence, and follow the authorised response team’s instructions.",
+      "id": 27,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Put steps in order"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "order",
+      "prompt": "A customer document was sent to the wrong person. Put these steps in order.",
+      "options": [
+        "Record the facts accurately using the bank’s process",
+        "Report the mistake promptly",
+        "Follow instructions on contacting the recipient or limiting exposure",
+        "Notice that the message went to the wrong address"
+      ],
+      "answer": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "explanation": "The event should be reported and documented, and any next steps should follow the bank’s process rather than improvised contact.",
+      "id": 28,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Put steps in order"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "tabletop",
+      "prompt": "Mini tabletop: a staff member reports a possible ransomware warning on their branch computer. Select ALL appropriate first actions.",
+      "options": [
+        "Tell the approved IT/security contact promptly",
+        "Stop using the affected computer and follow support instructions",
+        "Take a phone photo of customer data on screen and send it to friends",
+        "Do not delete the warning or try random repair steps",
+        "Plug in a USB drive to copy documents before they change"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "Prompt reporting, stopping further use, and preserving the warning help the authorised team respond. Avoid copying data or attempting fixes.",
+      "id": 29,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Mini tabletop"
+    },
+    {
+      "topic": "Incident reporting & evidence care",
+      "type": "multi",
+      "prompt": "After a possible data or device incident, which actions help avoid damaging evidence? Select ALL that apply.",
+      "options": [
+        "Keep relevant emails, alerts, and records available",
+        "Report what happened honestly, including mistakes",
+        "Follow the instructions given by the authorised support team",
+        "Delete messages that look embarrassing",
+        "Try several repair tools before reporting"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Keep the relevant records and report honestly. Do not delete, alter, or try to repair evidence before authorised guidance.",
+      "id": 30,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "single",
+      "prompt": "A customer’s ID details do not match the bank record. What should you do?",
+      "options": [
+        "Override the mismatch because the customer is known",
+        "Follow the bank’s verification process and escalate if it remains unresolved",
+        "Use the details provided by the person waiting with them",
+        "Complete the transaction and fix the record later"
+      ],
+      "answer": 1,
+      "explanation": "Do not bypass verification. Use the approved process and escalate unresolved differences.",
+      "id": 31,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "single",
+      "prompt": "A customer’s relative asks for account details and says the customer is unable to come to the branch. What is best?",
+      "options": [
+        "Share the details because they are family",
+        "Ask the relative to show any photo ID, then share everything",
+        "Follow the bank’s rules for permission and authority before sharing details",
+        "Read out only the balance"
+      ],
+      "answer": 2,
+      "explanation": "Family connection does not automatically authorise access to a customer account.",
+      "id": 32,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "single",
+      "prompt": "A customer asks you to write their PIN down so they do not forget it. What should you do?",
+      "options": [
+        "Write it on a slip and hand it over",
+        "Explain that secret credentials must not be written or shared by staff; guide them to approved help",
+        "Store it in a branch drawer",
+        "Tell another clerk the PIN so they can remind the customer"
+      ],
+      "answer": 1,
+      "explanation": "Staff must never collect or store customer PINs/passwords. Use approved support guidance.",
+      "id": 33,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "single",
+      "prompt": "A manager asks you in a chat to skip a required check because the queue is long. What should you do?",
+      "options": [
+        "Skip it because the manager asked",
+        "Complete the required check and raise the concern through the proper route",
+        "Ask the waiting customers to vote",
+        "Mark the check complete without doing it"
+      ],
+      "answer": 1,
+      "explanation": "Pressure or a senior request does not make an unapproved shortcut acceptable. Do the required check and escalate.",
+      "id": 34,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "single",
+      "prompt": "A customer asks you to change their contact details but cannot complete the usual checks. What should you do?",
+      "options": [
+        "Change it because they are physically present",
+        "Use another employee’s login to process it",
+        "Explain that the required checks must be completed and follow the exception process",
+        "Write the new number on a sticky note for later"
+      ],
+      "answer": 2,
+      "explanation": "Use the approved identity and exception process. Do not use another employee’s access or informal notes as a substitute.",
+      "id": 35,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "single",
+      "prompt": "You notice a required compliance field is blank before completing a transaction. What should you do?",
+      "options": [
+        "Complete it using a guess",
+        "Leave it blank and continue",
+        "Complete or resolve it accurately before proceeding, following procedure",
+        "Copy the value from an unrelated customer"
+      ],
+      "answer": 2,
+      "explanation": "Records must be accurate and complete. Never guess or copy details from unrelated records.",
+      "id": 36,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "single",
+      "prompt": "A customer complains that a transaction was not authorised. What is the best way to record it?",
+      "options": [
+        "Write only what you personally believe happened",
+        "Use clear factual notes, the customer’s words where useful, and the required reporting process",
+        "Promise the complaint will be removed from their record",
+        "Change the date so it appears more recent"
+      ],
+      "answer": 1,
+      "explanation": "Record facts clearly and honestly. Do not make promises or alter records to make the case look better.",
+      "id": 37,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "multi",
+      "prompt": "Which actions support compliance and fair customer handling? Select ALL that apply.",
+      "options": [
+        "Complete the required identity checks",
+        "Record transactions and complaints accurately",
+        "Escalate a request that appears to bypass a required control",
+        "Skip checks for customers you know well"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Compliance applies consistently. Familiarity and workload do not replace required checks or accurate records.",
+      "id": 38,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Compliance & customer verification",
+      "type": "match",
+      "prompt": "Match each compliance situation to the right action.",
+      "left": [
+        "ID details do not match",
+        "Required record field is missing",
+        "Relative requests account information"
+      ],
+      "right": [
+        "Follow permission and authority rules before disclosure",
+        "Resolve the missing information accurately before proceeding",
+        "Use the approved verification process and escalate if unresolved"
+      ],
+      "answer": [
+        2,
+        1,
+        0
+      ],
+      "explanation": "Use the approved procedures for identity, records, and authority to access information.",
+      "id": 40,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Match the columns"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "single",
+      "prompt": "A caller says they are from IT and asks you to read out the code sent to your phone. What should you do?",
+      "options": [
+        "Read it if they know your employee number",
+        "Refuse to share the code and verify/report the request through an official channel",
+        "Send a screenshot of the code",
+        "Ask them to call back after lunch and then share it"
+      ],
+      "answer": 1,
+      "explanation": "One-time codes and approval prompts are secrets. Do not share them with callers, even if they claim to be IT.",
+      "id": 41,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "single",
+      "prompt": "Someone claiming to be a senior manager messages you to send customer records to a personal email urgently. What is best?",
+      "options": [
+        "Send them because the request is urgent",
+        "Verify the request using a known official contact route and follow data-sharing rules",
+        "Send a small sample first",
+        "Ask another clerk to forward the records instead"
+      ],
+      "answer": 1,
+      "explanation": "Use a trusted, independent channel to verify unusual requests and follow customer-data rules.",
+      "id": 42,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "single",
+      "prompt": "A person carrying boxes asks you to hold a restricted door because they have no access card. What should you do?",
+      "options": [
+        "Hold the door because their hands are full",
+        "Let them follow another employee inside",
+        "Direct them to the visitor/access process and do not allow unauthorised entry",
+        "Give them your access card for a minute"
+      ],
+      "answer": 2,
+      "explanation": "Do not let someone bypass access controls because they sound reasonable or appear busy.",
+      "id": 43,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "single",
+      "prompt": "A caller asks for the names and shift times of staff who handle cash. What should you do?",
+      "options": [
+        "Provide the schedule if they sound polite",
+        "Share only the first names",
+        "Do not disclose staff/security details; verify the request through the official channel",
+        "Ask them to call another branch for it"
+      ],
+      "answer": 2,
+      "explanation": "Staffing and security information should not be disclosed without an approved work need.",
+      "id": 44,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "single",
+      "prompt": "A delivery worker asks to use your computer to print a label. What is safest?",
+      "options": [
+        "Log in and let them use it while you watch",
+        "Give them your login for one minute",
+        "Decline and follow the branch’s visitor and printing process",
+        "Open your email and let them print directly"
+      ],
+      "answer": 2,
+      "explanation": "Visitors should not use your logged-in workstation or account. Follow the approved visitor and printing process.",
+      "id": 45,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "single",
+      "prompt": "A caller becomes angry and insists you must bypass checks to prevent a complaint. What is best?",
+      "options": [
+        "Bypass the check to calm them down",
+        "Stay polite, follow the required process, and escalate the complaint if needed",
+        "End the call without recording it",
+        "Ask them to send their password to prove who they are"
+      ],
+      "answer": 1,
+      "explanation": "Keep a professional tone while following required checks and escalation routes.",
+      "id": 46,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "branch",
+      "prompt": "Branching scenario: a caller claims to be the fraud team and says an account will be locked unless you help immediately.",
+      "nodes": [
+        {
+          "id": "s1",
+          "prompt": "Stage 1 of 3 — The caller asks you to read an employee sign-in code. What do you do?",
+          "options": [
+            {
+              "text": "Do not share it; end or pause the call and verify through a known official number",
+              "next": "s2safe"
+            },
+            {
+              "text": "Share it because they know the branch name",
+              "next": "s2risk"
+            },
+            {
+              "text": "Read only the first half of the code",
+              "next": "s2risk"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2safe",
+          "prompt": "Stage 2 of 3 — You call the known official number, but cannot confirm the caller’s request. What next?",
+          "options": [
+            {
+              "text": "Report the suspicious call and follow the bank’s process",
+              "next": "s3safe"
+            },
+            {
+              "text": "Call the unknown number back to ask again",
+              "next": "s3risk"
+            },
+            {
+              "text": "Wait until the end of the shift before telling anyone",
+              "next": "s3risk"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s2risk",
+          "prompt": "Stage 2 of 3 — You already shared some information. What is best now?",
+          "options": [
+            {
+              "text": "Report exactly what you shared, promptly, through the approved route",
+              "next": "s3safe2"
+            },
+            {
+              "text": "Delete the call log to avoid trouble",
+              "next": "s3risk2"
+            },
+            {
+              "text": "Keep quiet unless you see a loss",
+              "next": "s3risk2"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3safe",
+          "prompt": "Stage 3 of 3 — What should you record about the call?",
+          "options": [
+            {
+              "text": "The time, number, claimed role, request, and action taken, following policy",
+              "next": "END"
+            },
+            {
+              "text": "Only your opinion about the caller",
+              "next": "END"
+            },
+            {
+              "text": "Nothing, because no code was shared",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3risk",
+          "prompt": "Stage 3 of 3 — A colleague suggests approving the request to avoid delay. What should you do?",
+          "options": [
+            {
+              "text": "Do not approve an unverified request; report it and follow procedure",
+              "next": "END"
+            },
+            {
+              "text": "Approve it if the caller sounds confident",
+              "next": "END"
+            },
+            {
+              "text": "Use a customer account to test it",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3safe2",
+          "prompt": "Stage 3 of 3 — You have reported the disclosure. What should you do next?",
+          "options": [
+            {
+              "text": "Follow the authorised response instructions and keep relevant records",
+              "next": "END"
+            },
+            {
+              "text": "Try to fix the account yourself without telling anyone else",
+              "next": "END"
+            },
+            {
+              "text": "Delete the messages and continue as normal",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "s3risk2",
+          "prompt": "Stage 3 of 3 — You are worried you may be blamed. What is the right choice?",
+          "options": [
+            {
+              "text": "Report the facts honestly and promptly",
+              "next": "END"
+            },
+            {
+              "text": "Hide the activity unless someone asks",
+              "next": "END"
+            },
+            {
+              "text": "Ask the caller what you should write in the report",
+              "next": "END"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "explanation": "Never share codes, passwords, or approvals with a caller. Verify using a known official route, report suspicious requests, and be honest if any information was disclosed.",
+      "id": 47,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "3-step branching scenario"
+    },
+    {
+      "topic": "Phone calls & social engineering",
+      "type": "multi",
+      "prompt": "Which are common signs of social engineering? Select ALL that apply.",
+      "options": [
+        "A caller pressures you to act immediately",
+        "A person asks you to keep a request secret from your manager",
+        "A request asks you to bypass normal checks",
+        "A caller is happy for you to verify through the official number"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Pressure, secrecy, and requests to bypass checks are warning signs. Legitimate requests should allow normal verification.",
+      "id": 48,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "single",
+      "prompt": "A customer says they gave their OTP to someone who called them. What should you do?",
+      "options": [
+        "Tell them nothing can be done",
+        "Follow the bank’s fraud-reporting process promptly and guide them to the official channel",
+        "Ask them to tell you the OTP so you can check it",
+        "Tell them to wait for another call"
+      ],
+      "answer": 1,
+      "explanation": "Treat potential credential disclosure urgently. Do not ask them to repeat the OTP; follow the bank’s incident/fraud process.",
+      "id": 51,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "single",
+      "prompt": "A customer reports a debit they do not recognise. What should you say first?",
+      "options": [
+        "“You must have forgotten making it.”",
+        "“Please post the transaction on social media.”",
+        "“I will help record the details and follow our official fraud-reporting process.”",
+        "“Give me your PIN so I can check.”"
+      ],
+      "answer": 2,
+      "explanation": "Listen, record relevant facts, and use the official process. Never ask for the customer’s secret credentials.",
+      "id": 52,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "single",
+      "prompt": "A customer says a caller told them to install a screen-sharing app to receive a refund. What is safest?",
+      "options": [
+        "Help install the app to finish the refund quickly",
+        "Explain the risk and guide them to the bank’s official support/fraud route",
+        "Ask the customer to share their screen with you through your personal account",
+        "Tell them to call the same number back"
+      ],
+      "answer": 1,
+      "explanation": "Unexpected remote-access requests are a common scam pattern. Use official support and fraud reporting routes.",
+      "id": 53,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "single",
+      "prompt": "A customer says their phone suddenly lost service and then they received account alerts they did not expect. What should you do?",
+      "options": [
+        "Treat it as a possible fraud warning and follow the bank’s escalation process",
+        "Tell them to buy a new phone first",
+        "Ask them to share their password with you",
+        "Ignore it unless they see a cash loss"
+      ],
+      "answer": 0,
+      "explanation": "Sudden loss of service alongside unexpected account alerts can indicate a risk. Record the facts and escalate promptly.",
+      "id": 54,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "single",
+      "prompt": "A customer shows you a message promising a guaranteed investment return and asking for a bank transfer today. What is best?",
+      "options": [
+        "Encourage the transfer if the return is high",
+        "Use the message link to check the investment",
+        "Warn against rushing, avoid endorsing it, and follow the bank’s reporting/advice process",
+        "Ask for their online banking password so you can help"
+      ],
+      "answer": 2,
+      "explanation": "Do not endorse high-pressure promises or use their link. Guide the customer to approved channels and report suspicious activity.",
+      "id": 55,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "single",
+      "prompt": "A customer says they approved an unexpected sign-in prompt. What should you do?",
+      "options": [
+        "Tell them to ignore it",
+        "Follow the bank’s account-security/fraud process and record what they report",
+        "Ask them to approve another prompt to test it",
+        "Tell them to delete all alerts"
+      ],
+      "answer": 1,
+      "explanation": "Unexpected approvals should be treated as a potential compromise and escalated promptly.",
+      "id": 56,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "order",
+      "prompt": "A customer reports possible online banking fraud. Put the actions in the best order.",
+      "options": [
+        "Record the key facts accurately using the bank’s process",
+        "Listen calmly and identify the concern",
+        "Follow the official fraud escalation and customer guidance process",
+        "Do not ask for or record passwords, PINs, or OTPs"
+      ],
+      "answer": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "explanation": "Listen, avoid collecting secrets, document the relevant facts, then follow the official fraud process.",
+      "id": 57,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Put steps in order"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "multi",
+      "prompt": "A customer reports a possible scam. Which details are useful to record under the bank’s process? Select ALL that apply.",
+      "options": [
+        "Approximate time and what happened",
+        "Contact number or message details, where permitted by policy",
+        "What action the customer says they took",
+        "The customer’s full password or OTP"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Record relevant facts and preserve relevant messages as directed, but never ask for or record secrets such as passwords, PINs, or OTPs.",
+      "id": 59,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Customer-reported fraud & alerts",
+      "type": "tabletop",
+      "prompt": "Mini tabletop: a customer says they followed a caller’s instructions, installed a remote-access app, and then saw a debit alert. Select ALL suitable actions for a front-desk employee.",
+      "options": [
+        "Stay calm, record the customer’s report, and escalate through the official fraud route",
+        "Tell the customer to contact the bank using a verified official channel",
+        "Ask for their banking password to confirm the transaction",
+        "Tell them to delete the app and all messages before reporting",
+        "Follow the bank’s process for urgent fraud concerns and instructions"
+      ],
+      "answer": [
+        0,
+        1,
+        4
+      ],
+      "explanation": "Front-line staff should collect relevant facts, avoid secrets or improvised technical support, and promptly use the official fraud route.",
+      "id": 60,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Mini tabletop"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "single",
+      "prompt": "In an email, the visible sender name says “Customer Support,” but the address is helpdesk@bank-account-check.example. What does that suggest?",
+      "options": [
+        "The display name proves it is genuine",
+        "The address is worth checking because the sender name can be faked",
+        "All email addresses ending in .example are safe",
+        "It is safe if the email has a logo"
+      ],
+      "answer": 1,
+      "explanation": "The full sender address matters; a display name and logo can be copied.",
+      "id": 61,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "single",
+      "prompt": "An email’s “Reply-To” address differs from the “From” address. What should you do?",
+      "options": [
+        "Treat it as a warning sign and verify the request before replying or acting",
+        "Ignore the difference every time",
+        "Send a test password to check it",
+        "Assume the email is genuine if it arrived in a known thread"
+      ],
+      "answer": 0,
+      "explanation": "A different reply-to address may be legitimate, but it needs checking when unexpected or linked to sensitive requests.",
+      "id": 62,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "single",
+      "prompt": "A mail security result says an email authentication check failed. What should you conclude?",
+      "options": [
+        "It definitely came from the bank",
+        "Ignore it if the message is well written",
+        "Treat it cautiously and use the bank’s reporting/verification process",
+        "Forward it to the customer for confirmation"
+      ],
+      "answer": 2,
+      "explanation": "Failed authentication is a warning, not the only factor in a decision. Do not act on the message without verification.",
+      "id": 63,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "single",
+      "prompt": "Why can the “Received” lines in an email header be useful?",
+      "options": [
+        "They may help trained support staff review the route the email took",
+        "They show whether a customer has enough money",
+        "They guarantee that a sender is honest",
+        "They can safely be ignored in every investigation"
+      ],
+      "answer": 0,
+      "explanation": "Headers can help authorised staff investigate message routing, but they are not proof by themselves.",
+      "id": 64,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "single",
+      "prompt": "You are unsure how to view the full email header. What is the safest choice?",
+      "options": [
+        "Use an unknown online header checker with the whole email",
+        "Copy the email to your personal mailbox",
+        "Use the bank-approved mail option or ask the service desk for help",
+        "Delete the original and keep a screenshot only"
+      ],
+      "answer": 2,
+      "explanation": "Use approved tools and support routes. Do not upload bank emails or customer data to unapproved websites.",
+      "id": 65,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "single",
+      "prompt": "A forwarded email has no clear original sender details. What should you do before acting on a payment request?",
+      "options": [
+        "Trust the colleague who forwarded it",
+        "Ask them to send the original details and verify independently through the known contact route",
+        "Click the link to find the original sender",
+        "Use the reply button to ask for bank details"
+      ],
+      "answer": 1,
+      "explanation": "Forwarding can hide or remove context. Verify sensitive requests using original details and a trusted channel.",
+      "id": 66,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "diff",
+      "prompt": "Compare the two header summaries. Select ALL items that make Message B more suspicious.",
+      "evidence": {
+        "a": {
+          "from": "alerts@bank.example",
+          "reply-to": "alerts@bank.example",
+          "auth-result": "PASS (training example)",
+          "subject": "Monthly statement ready"
+        },
+        "b": {
+          "from": "alerts@bank-notice.example",
+          "reply-to": "confirm-login@fast-mail.example",
+          "auth-result": "FAIL (training example)",
+          "subject": "URGENT: verify password within 5 minutes"
+        }
+      },
+      "options": [
+        "The sender domain is not the known bank domain",
+        "The reply-to points to a different unfamiliar address",
+        "The authentication result is shown as failed",
+        "The message subject says “statement”"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Sender and reply-to differences plus failed authentication and pressure deserve verification. Header fields alone should be reviewed in context.",
+      "id": 67,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Spot the difference"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "diff",
+      "prompt": "Two messages ask a clerk to review a customer complaint. Select ALL differences that should trigger extra checks in Message B.",
+      "evidence": {
+        "a": {
+          "from": "complaints@bank.example",
+          "link": "https://staff.bank.example/case/123",
+          "request": "Review the case in the normal work system",
+          "tone": "No unusual urgency"
+        },
+        "b": {
+          "from": "complaints@bank-casework.example",
+          "link": "http://bank-case-review.example/signin",
+          "request": "Enter staff password and send a screenshot of the customer record",
+          "tone": "Do this secretly before your manager returns"
+        }
+      },
+      "options": [
+        "Different, lookalike sender domain",
+        "Unfamiliar sign-in destination",
+        "Request to send customer data and keep it secret",
+        "Both messages refer to a complaint"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "The unfamiliar sender/link, request for customer data, and secrecy are meaningful warning signs.",
+      "id": 68,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Spot the difference"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "match",
+      "prompt": "Match each email detail to what it can tell you.",
+      "left": [
+        "From / sender address",
+        "Reply-To address",
+        "Received header lines"
+      ],
+      "right": [
+        "May help authorised staff review the route a message took",
+        "Shows where replies may go",
+        "Shows the address claiming to have sent the message"
+      ],
+      "answer": [
+        2,
+        1,
+        0
+      ],
+      "explanation": "Email details can provide clues but need to be reviewed carefully and through approved tools.",
+      "id": 69,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Match the columns"
+    },
+    {
+      "topic": "Email details & header checks",
+      "type": "multi",
+      "prompt": "Before acting on an unusual email, which checks can help? Select ALL that apply.",
+      "options": [
+        "Read the full sender address",
+        "Check the reply-to and link destination when relevant",
+        "Use the approved reporting or verification route",
+        "Assume a logo and correct spelling make it safe"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Look at the actual address and destination, then verify or report unusual requests. Appearance alone is not proof.",
+      "id": 70,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "single",
+      "prompt": "A supplier emails new bank details and asks that today’s payment be made immediately. What should you do?",
+      "options": [
+        "Change the details based only on the email",
+        "Verify the change through the bank’s approved independent process before any update",
+        "Reply to the same email asking “Are you sure?”",
+        "Ask a colleague to use their login to make the payment"
+      ],
+      "answer": 1,
+      "explanation": "Payment changes must be independently verified using approved contacts and controls, not only the message that requested the change.",
+      "id": 71,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "single",
+      "prompt": "A customer asks you to send their account record to a personal email address. What is safest?",
+      "options": [
+        "Send it if they ask politely",
+        "Use a personal email but remove the account number",
+        "Follow the bank’s approved document delivery and address-verification process",
+        "Ask the customer to sign a blank form first"
+      ],
+      "answer": 2,
+      "explanation": "Personal email or an unverified destination may not be approved for customer records. Follow the formal process.",
+      "id": 72,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "single",
+      "prompt": "You see a mismatch between an invoice amount and the payment record. What should you do?",
+      "options": [
+        "Change one amount so it matches",
+        "Ask the supplier by replying to the same email",
+        "Pause the processing step and resolve the mismatch through the approved process",
+        "Pay it and make a note later"
+      ],
+      "answer": 2,
+      "explanation": "Do not guess or quietly alter records. Resolve the mismatch and follow the approved payment process.",
+      "id": 73,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "single",
+      "prompt": "A colleague asks you to backdate an entry so a missed deadline looks on time. What should you do?",
+      "options": [
+        "Backdate it if the amount is correct",
+        "Make the entry accurate and raise the request through the proper route",
+        "Use the date from a similar transaction",
+        "Delete the record and start again without telling anyone"
+      ],
+      "answer": 1,
+      "explanation": "Records must show what actually happened. Never falsify dates or conceal mistakes.",
+      "id": 74,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "single",
+      "prompt": "A payment request arrives through an unofficial messaging app. What is the best next step?",
+      "options": [
+        "Process it because the person’s name is familiar",
+        "Ask them to send a voice note",
+        "Move the request into the bank’s approved workflow and verify it before action",
+        "Save the message as proof and pay it"
+      ],
+      "answer": 2,
+      "explanation": "Use approved channels, verification, and workflow for payment instructions.",
+      "id": 75,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "single",
+      "prompt": "A customer asks you to correct a transaction note. What should you do?",
+      "options": [
+        "Change it to what they prefer without checking",
+        "Follow the approved correction process and keep an accurate record of the change",
+        "Delete the old record",
+        "Ask the next shift to handle it without a note"
+      ],
+      "answer": 1,
+      "explanation": "Corrections should be authorised, traceable, and accurate.",
+      "id": 76,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "single",
+      "prompt": "A payment instruction has all required fields but comes from a new email address. What should you do?",
+      "options": [
+        "Proceed because the form is complete",
+        "Check the sender and instruction using the required independent verification process",
+        "Ask the sender to confirm by replying to the same message",
+        "Process it if the amount is small"
+      ],
+      "answer": 1,
+      "explanation": "Complete fields do not prove that a request is genuine. Follow the established verification checks.",
+      "id": 77,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "order",
+      "prompt": "Put the steps for a supplier bank-detail change in the safest order.",
+      "options": [
+        "Record the approved change in the official system",
+        "Receive an unexpected change request",
+        "Verify it independently using a known contact route",
+        "Obtain the required approval before making the change"
+      ],
+      "answer": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "explanation": "Receive the request, verify independently, obtain required approval, then update the official record.",
+      "id": 78,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Put steps in order"
+    },
+    {
+      "topic": "Payment instructions & record keeping",
+      "type": "multi",
+      "prompt": "Which actions help keep payment records safe and accurate? Select ALL that apply.",
+      "options": [
+        "Use the approved payment workflow",
+        "Verify bank-detail changes independently",
+        "Keep a clear record of required approvals",
+        "Backdate entries when work is delayed"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Approved workflow, independent checks, and traceable approval protect payment records. Do not change history to hide delays.",
+      "id": 79,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "Someone you do not recognise walks behind you through a staff-only door. What should you do?",
+      "options": [
+        "Assume a customer service employee invited them",
+        "Follow branch access/visitor procedure and alert the appropriate staff or security contact",
+        "Give them your access card",
+        "Ignore it if they carry a laptop"
+      ],
+      "answer": 1,
+      "explanation": "Restricted areas require authorised access. Do not lend credentials or assume someone else checked.",
+      "id": 81,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "A document containing customer details is left on the counter after closing. What should you do?",
+      "options": [
+        "Leave it for the morning shift",
+        "Place it in a secure approved location and report the exposure if required",
+        "Take it home so nobody sees it",
+        "Put it in ordinary rubbish"
+      ],
+      "answer": 1,
+      "explanation": "Secure customer paperwork according to the branch process and report possible exposure as required.",
+      "id": 82,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "A visitor asks to borrow your staff badge because they forgot theirs. What is best?",
+      "options": [
+        "Lend it if they return it quickly",
+        "Walk them through the staff entrance",
+        "Refuse and direct them to the approved visitor/access process",
+        "Let them use your badge only in the lobby"
+      ],
+      "answer": 2,
+      "explanation": "Never lend staff badges or access credentials.",
+      "id": 83,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "A customer starts reading their account number aloud in a crowded queue. What should you do?",
+      "options": [
+        "Repeat it loudly to confirm",
+        "Help move the discussion to a more private place",
+        "Write it on a public board",
+        "Ask the queue to move closer"
+      ],
+      "answer": 1,
+      "explanation": "Protect customer privacy by moving sensitive discussion away from others where possible.",
+      "id": 84,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "You find a pile of old printouts with customer names beside the printer. What should you do?",
+      "options": [
+        "Put them in an open tray for the owner",
+        "Use the approved secure disposal method or ask the responsible person to handle it",
+        "Take them to the break room",
+        "Photograph the list before disposing of it"
+      ],
+      "answer": 1,
+      "explanation": "Customer information must be disposed of using approved secure methods, not ordinary open waste.",
+      "id": 85,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "A stranger says they are here to repair a terminal but has no visible authorisation. What should you do?",
+      "options": [
+        "Let them start because they sound confident",
+        "Ask them for your password first",
+        "Follow the visitor/vendor check-in process and confirm authorisation before access",
+        "Give them a customer-free workstation"
+      ],
+      "answer": 2,
+      "explanation": "Vendor work requires the correct authorisation and check-in process before access is provided.",
+      "id": 86,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "During an evacuation alarm, what should take priority?",
+      "options": [
+        "Saving paperwork from the desk",
+        "Following the branch emergency procedure and moving to safety",
+        "Completing the customer queue first",
+        "Returning to lock every drawer even if unsafe"
+      ],
+      "answer": 1,
+      "explanation": "Follow the branch emergency plan and prioritise people’s safety. Do not delay evacuation to protect records.",
+      "id": 87,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "single",
+      "prompt": "You notice a public noticeboard has a sheet with staff phone numbers and shift details. What should you do?",
+      "options": [
+        "Leave it because staff information is not customer data",
+        "Take it down if authorised and report it through the appropriate branch process",
+        "Post a photo in the staff group",
+        "Add more details so it is clearer"
+      ],
+      "answer": 1,
+      "explanation": "Staffing and contact information can create security risks. Follow the branch process to secure and report it.",
+      "id": 88,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "multi",
+      "prompt": "Which actions help keep a branch secure? Select ALL that apply.",
+      "options": [
+        "Challenge or report unauthorised access using branch procedure",
+        "Keep customer papers and screens away from public view",
+        "Use the approved visitor/vendor check-in process",
+        "Lend your badge to someone who forgot theirs"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Access controls, privacy and visitor checks help protect the branch. Do not lend badges.",
+      "id": 89,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    },
+    {
+      "topic": "Branch & physical security",
+      "type": "order",
+      "prompt": "Put these steps for an unknown visitor requesting access to a staff-only area in order.",
+      "options": [
+        "Confirm their visit/authorisation through the approved process",
+        "Do not let them enter using your badge",
+        "Direct them to the authorised reception or visitor procedure",
+        "Notify the appropriate branch/security contact if the request remains suspicious"
+      ],
+      "answer": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "explanation": "Do not allow unauthorised entry; direct the visitor to the correct process, verify permission, and escalate any concern.",
+      "id": 90,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Put steps in order"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "A colleague asks to use your login because theirs is not working. What should you do?",
+      "options": [
+        "Share it for one task",
+        "Type the password for them and let them continue under your name",
+        "Do not share it; direct them to the approved access-help process",
+        "Create a simple shared password for the team"
+      ],
+      "answer": 2,
+      "explanation": "Each person must use their own approved account. Shared logins make actions hard to trace.",
+      "id": 91,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "You receive an MFA approval prompt but are not trying to sign in. What should you do?",
+      "options": [
+        "Approve it to clear the alert",
+        "Deny or ignore it as appropriate and report it through the bank’s approved process",
+        "Send a screenshot of the prompt to a friend",
+        "Keep approving until it stops"
+      ],
+      "answer": 1,
+      "explanation": "Unexpected sign-in prompts may indicate someone has your password. Do not approve them; report promptly.",
+      "id": 92,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "You need to leave your desk briefly while the customer system is open. What should you do?",
+      "options": [
+        "Lock the screen before stepping away",
+        "Minimise the window only",
+        "Ask a customer to watch the screen",
+        "Leave it open because you will be quick"
+      ],
+      "answer": 0,
+      "explanation": "Lock the screen when you leave, even briefly.",
+      "id": 93,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "A pop-up says you must install a new “security tool” from an unfamiliar website to continue work. What is best?",
+      "options": [
+        "Install it if the pop-up uses the bank logo",
+        "Ask a colleague to download it instead",
+        "Do not install it; check with the approved IT/service desk route",
+        "Use your personal laptop to install and transfer it"
+      ],
+      "answer": 2,
+      "explanation": "Only use software and installation processes approved by the bank.",
+      "id": 94,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "You find an unknown USB device beside the teller counter. What should you do?",
+      "options": [
+        "Plug it in to identify the owner",
+        "Take it to an approved contact without connecting it to any device",
+        "Use it only on a spare workstation",
+        "Give it to a customer who asks about it"
+      ],
+      "answer": 1,
+      "explanation": "Do not connect unknown devices to bank systems. Follow the branch process for handling found property.",
+      "id": 95,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "A password reset email arrives that you did not request. What should you do?",
+      "options": [
+        "Use the link to see which account it affects",
+        "Ignore it and approve any follow-up prompts",
+        "Do not use unexpected links; report or verify through the approved channel",
+        "Forward it to your personal email for later"
+      ],
+      "answer": 2,
+      "explanation": "Unrequested reset emails can indicate someone is trying to access the account. Use approved verification/reporting.",
+      "id": 96,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "You need to access bank systems while travelling. Which option is safest?",
+      "options": [
+        "Use any public computer available",
+        "Use only the bank-approved device and access method",
+        "Ask a hotel worker to log in for you",
+        "Use a stranger’s Wi-Fi and save your password"
+      ],
+      "answer": 1,
+      "explanation": "Use only approved devices, connections and access methods for bank work.",
+      "id": 97,
+      "difficulty": "Basic",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "single",
+      "prompt": "A colleague has written their password on a sticky note near the monitor. What should you do?",
+      "options": [
+        "Copy it in case they forget",
+        "Leave it visible because it is their account",
+        "Alert the colleague and follow the bank’s process to correct the unsafe practice",
+        "Use it only if they are on leave"
+      ],
+      "answer": 2,
+      "explanation": "Passwords should not be left visible. Help correct the practice and report repeated or serious issues according to policy.",
+      "id": 98,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Choose one"
+    },
+    {
+      "topic": "Passwords, devices & safe access",
+      "type": "multi",
+      "prompt": "Which are safe account and device habits? Select ALL that apply.",
+      "options": [
+        "Use your own account and do not share passwords",
+        "Lock the screen when leaving the desk",
+        "Report unexpected sign-in or password-reset prompts",
+        "Approve an MFA prompt you did not start"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Use individual accounts, lock the screen, and report unexpected prompts. Never approve a sign-in you did not initiate.",
+      "id": 99,
+      "difficulty": "Intermediate",
+      "points": 1,
+      "formatLabel": "Select all that apply"
+    }
+  ]
+}

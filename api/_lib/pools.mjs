@@ -4,6 +4,8 @@ import { del, get, list, put } from '@vercel/blob';
 import { randomUUID } from 'node:crypto';
 
 const PREFIX = 'bankshield/pools/';
+const DEFAULT_POOL_PATH = `${PREFIX}default.json`;
+const DEFAULT_POOL_DISABLED_PATH = `${PREFIX}default-disabled.json`;
 const TYPES = new Set(['single', 'multi', 'match', 'order', 'diff', 'tabletop', 'branch']);
 const MAX_QUESTIONS = 93;
 
@@ -79,6 +81,31 @@ export async function savePool(input) {
   return pool;
 }
 
+export async function updatePool(id, input) {
+  if (id !== 'default' && !/^[a-f0-9-]{36}$/i.test(id || '')) throw Object.assign(new Error('Question pool not found.'), { status: 404 });
+  if (id !== 'default') {
+    const existing = await get(`${PREFIX}${id}.json`, { access: 'private' });
+    if (!existing) throw Object.assign(new Error('Question pool not found.'), { status: 404 });
+  }
+  const result = validatePool(input);
+  if (result.errors.length) throw Object.assign(new Error('Question pool validation failed.'), { status: 400, details: result.errors });
+  const pool = {
+    id,
+    name: id === 'default' ? 'BankShield standard pool' : result.pool.name,
+    ...result.pool,
+    id,
+    updatedAt: new Date().toISOString(),
+  };
+  await put(id === 'default' ? DEFAULT_POOL_PATH : `${PREFIX}${id}.json`, JSON.stringify(pool), {
+    access: 'private', contentType: 'application/json; charset=utf-8', addRandomSuffix: false, allowOverwrite: true,
+  });
+  if (id === 'default') {
+    const disabled = await get(DEFAULT_POOL_DISABLED_PATH, { access: 'private' });
+    if (disabled) await del(disabled.url);
+  }
+  return pool;
+}
+
 export async function listPools() {
   const blobs = [];
   let cursor;
@@ -87,21 +114,35 @@ export async function listPools() {
     const file = await get(b.pathname, { access: 'private' });
     if (!file) return null;
     const pool = JSON.parse(await new Response(file.stream).text());
+    if (pool.id === 'default') return null;
     return { id: pool.id, name: pool.name, questionCount: pool.questionCount, timeLimitMinutes: pool.timeLimitMinutes, totalQuestions: pool.questions.length, topics: [...new Set(pool.questions.map(q => q.topic))] };
   }));
-  const settings = await readQuizSettings();
-  const standard = { id: 'default', name: 'BankShield standard pool', questionCount: settings.questionCount, timeLimitMinutes: settings.timeLimitMinutes, totalQuestions: defaultQuestions.length, topics: [...new Set(defaultQuestions.map(q => q.topic))] };
-  return [standard, ...custom.filter(Boolean).sort((a, b) => a.name.localeCompare(b.name))];
+  const pool = await readPool('default');
+  const standard = pool ? [{ id: 'default', name: pool.name, questionCount: pool.questionCount, timeLimitMinutes: pool.timeLimitMinutes, totalQuestions: pool.questions.length, topics: [...new Set(pool.questions.map(q => q.topic))] }] : [];
+  return [...standard, ...custom.filter(Boolean).sort((a, b) => a.name.localeCompare(b.name))];
 }
 
 export async function readPool(id) {
-  if (id === 'default') { const settings = await readQuizSettings(); return { id: 'default', name: 'BankShield standard pool', questionCount: settings.questionCount, timeLimitMinutes: settings.timeLimitMinutes, questions: defaultQuestions }; }
+  if (id === 'default') {
+    if (await get(DEFAULT_POOL_DISABLED_PATH, { access: 'private' })) return null;
+    const file = await get(DEFAULT_POOL_PATH, { access: 'private' });
+    if (file) return JSON.parse(await new Response(file.stream).text());
+    const settings = await readQuizSettings();
+    return { id: 'default', name: 'BankShield standard pool', questionCount: settings.questionCount, timeLimitMinutes: settings.timeLimitMinutes, questions: defaultQuestions };
+  }
   if (!/^[a-f0-9-]{36}$/i.test(id || '')) return null;
   const file = await get(`${PREFIX}${id}.json`, { access: 'private' });
   return file ? JSON.parse(await new Response(file.stream).text()) : null;
 }
 
 export async function deletePool(id) {
+  if (id === 'default') {
+    if (!(await readPool(id))) return false;
+    await put(DEFAULT_POOL_DISABLED_PATH, JSON.stringify({ disabledAt: new Date().toISOString() }), {
+      access: 'private', contentType: 'application/json; charset=utf-8', addRandomSuffix: false, allowOverwrite: true,
+    });
+    return true;
+  }
   if (!/^[a-f0-9-]{36}$/i.test(id || '')) return false;
   const file = await get(`${PREFIX}${id}.json`, { access: 'private' });
   if (!file) return false;

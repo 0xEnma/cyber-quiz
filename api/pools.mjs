@@ -1,6 +1,6 @@
-import { errorResponse, json, methodNotAllowed, readJson } from './_lib/http.mjs';
+import { errorResponse, json, readJson } from './_lib/http.mjs';
 import { isAdmin, unauthorized } from './_lib/auth.mjs';
-import { deletePool, listPools, readPool, savePool } from './_lib/pools.mjs';
+import { deletePool, listPools, readPool, savePool, updatePool } from './_lib/pools.mjs';
 
 export async function GET(request) {
   try {
@@ -35,4 +35,14 @@ export async function DELETE(request) {
   } catch (error) { return errorResponse(error); }
 }
 
-export function PUT() { return methodNotAllowed('GET, POST, DELETE'); }
+export async function PUT(request) {
+  try {
+    if (!(await isAdmin(request))) return unauthorized();
+    const id = new URL(request.url).searchParams.get('id');
+    if (!id) return json({ error: 'Question pool ID is required.' }, 400);
+    return json(await updatePool(id, await readJson(request, 4_000_000)));
+  } catch (error) {
+    if (error?.details) return json({ error: error.message, details: error.details }, 400);
+    return errorResponse(error);
+  }
+}
