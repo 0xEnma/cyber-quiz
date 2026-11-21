@@ -48,7 +48,7 @@ async function allTests() {
 
 export async function listTests() {
   const rows = await allTests();
-  return rows.map(({ test }) => { const { accessCode, ...safe } = test; return { ...safe, accessTicket: accessTicket(test.id) }; }).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  return rows.map(({ test }) => { const { accessCode, poolSnapshot, ...safe } = test; return { ...safe, accessTicket: accessTicket(test.id) }; }).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 }
 
 export async function createTest(input) {
@@ -69,7 +69,8 @@ export async function createTest(input) {
     if (!await get(pathname, { access: 'private' })) break;
     if (attempt === 4) throw new Error('Could not generate a unique access code. Try again.');
   }
-  const test = { id: randomUUID(), poolId, poolName: pool.name, questionCount, timeLimitMinutes, accessCode, createdAt: new Date().toISOString() };
+  const poolSnapshot = { id: pool.id, name: pool.name, questions: pool.questions };
+  const test = { id: randomUUID(), poolId, poolName: pool.name, questionCount, timeLimitMinutes, accessCode, poolSnapshot, createdAt: new Date().toISOString() };
   await put(pathname, JSON.stringify(test), { access: 'private', contentType: 'application/json; charset=utf-8', addRandomSuffix: false });
   const { accessCode: _storedAccessCode, ...safe } = test;
   return { ...safe, accessTicket: accessTicket(test.id) };
@@ -81,13 +82,26 @@ export async function readTestById(id) {
   return row?.test || null;
 }
 
+async function snapshotPoolForTest(test, pool) {
+  if (test.poolSnapshot) return test.poolSnapshot;
+  const snapshot = { id: pool.id, name: pool.name, questions: pool.questions };
+  test.poolSnapshot = snapshot;
+  if (test.accessCode) {
+    await put(`${PREFIX}${test.accessCode}.json`, JSON.stringify(test), {
+      access: 'private', contentType: 'application/json; charset=utf-8', addRandomSuffix: false, allowOverwrite: true,
+    });
+  }
+  return snapshot;
+}
+
 export async function resolveTicket(ticket) {
   const testId = verifyTicket(ticket);
   if (!testId) return null;
   const test = await readTestById(testId);
   if (!test) return null;
-  const pool = await readPool(test.poolId);
-  if (!pool) return null;
+  const currentPool = test.poolSnapshot || await readPool(test.poolId);
+  if (!currentPool) return null;
+  const pool = await snapshotPoolForTest(test, currentPool);
   return {
     test: { id: test.id, poolId: test.poolId, questionCount: test.questionCount, timeLimitMinutes: test.timeLimitMinutes },
     pool: { id: pool.id, name: pool.name, questions: pool.questions.map(publicQuestion) },
@@ -99,8 +113,9 @@ export async function resolveTicketSummary(ticket) {
   if (!testId) return null;
   const test = await readTestById(testId);
   if (!test) return null;
-  const pool = await readPool(test.poolId);
-  if (!pool) return null;
+  const currentPool = test.poolSnapshot || await readPool(test.poolId);
+  if (!currentPool) return null;
+  const pool = await snapshotPoolForTest(test, currentPool);
   const topics = [...new Set(pool.questions.map(question => question.topic))];
   const available = topics.map(topic => pool.questions.filter(question => question.topic === topic).length);
   const allocated = topics.map(() => 0);

@@ -96,6 +96,60 @@ test('keeps answer keys private and grades submissions on the server', async () 
   assert.ok(saved.responses.every(item => item.correct === false));
 });
 
+test('grades a candidate against the answer version captured by the test link', async () => {
+  const poolResponse = await fetch(`${base}/api/pools?id=default`, { headers: { cookie } });
+  const originalPool = await poolResponse.json();
+  const testResponse = await fetch(`${base}/api/tests`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', cookie },
+    body: JSON.stringify({ poolId: 'default', questionCount: 5, timeLimitMinutes: 5 }),
+  });
+  const created = await testResponse.json();
+  const accessResponse = await fetch(`${base}/api/test-access`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ ticket: created.accessTicket }),
+  });
+  const access = await accessResponse.json();
+  const candidatesQuestions = access.pool.questions.slice(0, 5);
+  const target = candidatesQuestions.find(question => question.type === 'single');
+  assert.ok(target, 'the selected test questions include a single-choice question');
+  const answerFromLinkVersion = originalPool.questions.find(question => String(question.id) === String(target.id)).answer;
+
+  const editedPool = structuredClone(originalPool);
+  const editedQuestion = editedPool.questions.find(question => String(question.id) === String(target.id));
+  editedQuestion.answer = (editedQuestion.answer + 1) % editedQuestion.options.length;
+  try {
+    const updateResponse = await fetch(`${base}/api/pools?id=default`, {
+      method: 'PUT', headers: { 'content-type': 'application/json', cookie }, body: JSON.stringify(editedPool),
+    });
+    assert.equal(updateResponse.status, 200);
+
+    const record = {
+      submissionId: `BSH-version-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      testId: created.id, poolId: 'default', testCategory: 'BankShield standard pool',
+      name: 'Version test', department: 'Test', branch: 'Test', email: 'version@example.test',
+      startedAt: new Date().toISOString(), completedAt: new Date().toISOString(), durationSeconds: 1, timedOut: false,
+      responses: candidatesQuestions.map(question => ({
+        questionId: question.id,
+        answerRaw: String(question.id) === String(target.id) ? JSON.stringify(answerFromLinkVersion) : JSON.stringify(999),
+      })),
+    };
+    const submission = await fetch(`${base}/api/submissions`, {
+      method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(record),
+    });
+    assert.equal(submission.status, 201);
+    const submissionsResponse = await fetch(`${base}/api/admin/submissions`, { headers: { cookie } });
+    const saved = (await submissionsResponse.json()).find(item => item.submissionId === record.submissionId);
+    assert.equal(saved.score, 1);
+  } finally {
+    const restoreResponse = await fetch(`${base}/api/pools?id=default`, {
+      method: 'PUT', headers: { 'content-type': 'application/json', cookie }, body: JSON.stringify(originalPool),
+    });
+    assert.equal(restoreResponse.status, 200);
+  }
+});
+
 test('throttles repeated administrator PIN failures', async () => {
   let response;
   for (let attempt = 0; attempt < 6; attempt++) {

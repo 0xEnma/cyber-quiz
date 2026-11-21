@@ -9,7 +9,7 @@ export async function POST(request) {
     const record = await readJson(request);
     if (!validSubmission(record)) return json({ error: 'Submission is incomplete or invalid.' }, 400);
     const test = await readTestById(record.testId);
-    const pool = test && await readPool(test.poolId);
+    const pool = test && (test.poolSnapshot || await readPool(test.poolId));
     const allowedIds = new Set((pool?.questions || []).map(question => String(question.id)));
     const submittedIds = record.responses.map(response => String(response.questionId));
     if (!test || !pool || test.poolId !== record.poolId || test.poolName !== record.testCategory || record.responses.length !== test.questionCount || submittedIds.some(id => !allowedIds.has(id)) || new Set(submittedIds).size !== submittedIds.length) return json({ error: 'Submission does not match an active test link.' }, 400);

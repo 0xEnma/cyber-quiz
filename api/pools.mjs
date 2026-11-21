@@ -40,7 +40,13 @@ export async function PUT(request) {
     if (!(await isAdmin(request))) return unauthorized();
     const id = new URL(request.url).searchParams.get('id');
     if (!id) return json({ error: 'Question pool ID is required.' }, 400);
-    return json(await updatePool(id, await readJson(request, 4_000_000)));
+    const input = await readJson(request, 4_000_000);
+    const { testsForPool } = await import('./_lib/tests.mjs');
+    const tests = await testsForPool(id);
+    if (Array.isArray(input.questions) && tests.some(test => test.questionCount > input.questions.length)) {
+      return json({ error: 'This change would leave too few questions for an existing test link. Revoke that link first or keep enough questions in the pool.' }, 409);
+    }
+    return json(await updatePool(id, input));
   } catch (error) {
     if (error?.details) return json({ error: error.message, details: error.details }, 400);
     return errorResponse(error);
