@@ -43,5 +43,5 @@ export async function getSubmissions() {
 
 export async function clearSubmissions() {
   const blobs = await allBlobs();
-  if (blobs.length) await del(blobs.map(blob => blob.url));
+  if (blobs.length) await del(blobs.map(blob => blob.pathname));
 }

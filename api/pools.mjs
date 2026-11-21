@@ -32,7 +32,10 @@ export async function DELETE(request) {
     const { snapshotTestsForPool } = await import('./_lib/tests.mjs');
     await snapshotTestsForPool(id);
     return await deletePool(id) ? json({ ok: true }) : json({ error: 'Question pool not found.' }, 404);
-  } catch (error) { return errorResponse(error); }
+  } catch (error) {
+    console.error('[api/pools DELETE] Pool removal failed.', error);
+    return errorResponse(error);
+  }
 }
 
 export async function PUT(request) {

@@ -101,7 +101,7 @@ export async function updatePool(id, input) {
   });
   if (id === 'default') {
     const disabled = await get(DEFAULT_POOL_DISABLED_PATH, { access: 'private' });
-    if (disabled) await del(disabled.url);
+    if (disabled) await del(DEFAULT_POOL_DISABLED_PATH);
   }
   return pool;
 }
@@ -146,6 +146,6 @@ export async function deletePool(id) {
   if (!/^[a-f0-9-]{36}$/i.test(id || '')) return false;
   const file = await get(`${PREFIX}${id}.json`, { access: 'private' });
   if (!file) return false;
-  await del(file.url);
+  await del(`${PREFIX}${id}.json`);
   return true;
 }

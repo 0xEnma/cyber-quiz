@@ -82,12 +82,13 @@ export async function readTestById(id) {
   return row?.test || null;
 }
 
-async function snapshotPoolForTest(test, pool) {
+async function snapshotPoolForTest(test, pool, pathname) {
   if (test.poolSnapshot) return test.poolSnapshot;
   const snapshot = { id: pool.id, name: pool.name, questions: pool.questions };
   test.poolSnapshot = snapshot;
-  if (test.accessCode) {
-    await put(`${PREFIX}${test.accessCode}.json`, JSON.stringify(test), {
+  const targetPath = pathname || (test.accessCode ? `${PREFIX}${test.accessCode}.json` : null);
+  if (targetPath) {
+    await put(targetPath, JSON.stringify(test), {
       access: 'private', contentType: 'application/json; charset=utf-8', addRandomSuffix: false, allowOverwrite: true,
     });
   }
@@ -142,7 +143,7 @@ export async function deleteTest(id) {
   const rows = await allTests();
   const match = rows.find(row => row.test.id === id);
   if (!match) return false;
-  await del(match.blob.url);
+  await del(match.blob.pathname);
   return true;
 }
 
@@ -151,13 +152,14 @@ export async function testsForPool(poolId) {
 }
 
 export async function snapshotTestsForPool(poolId) {
-  const tests = await testsForPool(poolId);
-  const pool = tests.some(test => !test.poolSnapshot) ? await readPool(poolId) : null;
-  if (!pool && tests.some(test => !test.poolSnapshot)) {
-    throw new Error('This pool is needed by an older test link and could not be loaded. Revoke that link before removing the pool.');
+  const rows = (await allTests()).filter(row => row.test.poolId === poolId);
+  const needsSnapshot = rows.some(row => !row.test.poolSnapshot);
+  const pool = needsSnapshot ? await readPool(poolId) : null;
+  if (!pool && needsSnapshot) {
+    throw Object.assign(new Error('An older test link still needs this pool and its questions could not be preserved. Revoke that link before removing the pool.'), { status: 409 });
   }
-  for (const test of tests) {
-    if (!test.poolSnapshot) await snapshotPoolForTest(test, pool);
+  for (const { test, blob } of rows) {
+    if (!test.poolSnapshot) await snapshotPoolForTest(test, pool, blob.pathname);
   }
-  return tests.length;
+  return rows.length;
 }
