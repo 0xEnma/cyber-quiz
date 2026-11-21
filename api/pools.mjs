@@ -29,8 +29,8 @@ export async function DELETE(request) {
   try {
     if (!(await isAdmin(request))) return unauthorized();
     const id = new URL(request.url).searchParams.get('id');
-    const { testsForPool } = await import('./_lib/tests.mjs');
-    if ((await testsForPool(id)).length) return json({ error: 'Revoke the test codes for this pool before removing it.' }, 409);
+    const { snapshotTestsForPool } = await import('./_lib/tests.mjs');
+    await snapshotTestsForPool(id);
     return await deletePool(id) ? json({ ok: true }) : json({ error: 'Question pool not found.' }, 404);
   } catch (error) { return errorResponse(error); }
 }

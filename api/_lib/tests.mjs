@@ -149,3 +149,15 @@ export async function deleteTest(id) {
 export async function testsForPool(poolId) {
   return (await allTests()).map(row => row.test).filter(test => test.poolId === poolId);
 }
+
+export async function snapshotTestsForPool(poolId) {
+  const tests = await testsForPool(poolId);
+  const pool = tests.some(test => !test.poolSnapshot) ? await readPool(poolId) : null;
+  if (!pool && tests.some(test => !test.poolSnapshot)) {
+    throw new Error('This pool is needed by an older test link and could not be loaded. Revoke that link before removing the pool.');
+  }
+  for (const test of tests) {
+    if (!test.poolSnapshot) await snapshotPoolForTest(test, pool);
+  }
+  return tests.length;
+}
